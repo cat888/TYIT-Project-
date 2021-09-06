@@ -1,7 +1,11 @@
-*{
+ *{
 	margin: 0;
 	padding: 0;
 }
+/* .img-box{
+	margin: 150px;
+	text-align: center;
+} */
 .container{
 	width: 100%;
 	height: 100%;
@@ -37,7 +41,7 @@
     backface-visibility:hidden;
 }
 .back-form{
-	transform:rotateY(180deg); 
+	transform:rotateY(180deg);
 }
 .first h2{
    font-weight: normal;
@@ -75,7 +79,7 @@ button{
 	box-sizing:border-box;
 	outline: none;
 	color: #fff;
-	cursor: pointer; 
+	cursor: pointer;
 }
 .sub-btn{
 	position: relative;
@@ -108,4 +112,42 @@ span{
 	font-size: 13px;
 	margin-top: 8px;
 
+}
+
+
+.swiper-container-pointer-events {
+    touch-action: pan-y;
+}
+.swiper-container {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+}
+element.style {
+    transform: translate3d(-2632px, 0px, 0px);
+    transition-duration: 0ms;
+}
+.swiper-container-android .swiper-slide, .swiper-wrapper {
+    transform: translate3d(0px,0,0);
+}
+.swiper-slide {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition-property: transform;
+}
+.card-shadow {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.card-box-a, .card-box-b, .card-box-d {
+    position: relative;
+    overflow: hidden;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
