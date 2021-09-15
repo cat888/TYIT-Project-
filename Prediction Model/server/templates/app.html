@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mumbai Price Prediction Model</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="static/app.js"></script>
+</head>
+<body>
+    <div>
+        <form>
+            <h2>Area (Square Feet)</h2>
+            <input type="text" name="Squareft" id="uiSqft" value="1000">
+            <h2>BHK</h2>
+            <div>
+                <input type="radio" name="uiBHK" value="1"/>
+                <label>1</label>
+                <input type="radio" name="uiBHK" value="2"/>
+                <label>2</label>
+                <input type="radio" name="uiBHK" value="3"/>
+                <label>3</label>
+                <input type="radio" name="uiBHK" value="4"/>
+                <label>4</label>
+                <input type="radio" name="uiBHK" value="5"/>
+                <label>5</label>
+            </div>
+        </form>
+        <br/>
+        <select class="location" name="" id="uiLocations">
+            <option value="" disabled="disabled" selected="selected">Choose a Location</option>
+            <option>Malad East</option>
+            <option>Nalasopara East</option>
+        </select>
+        <br/>
+        <select id="uiYears">
+            <option value="" disabled="disabled" selected="selected">Select the year</option>
+            <option>Current</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+        </select>
+        <br/><button class="submit" value="Estimate Price" onclick="onClickedEstimatedPrice()" type="button">Estimate Price</button>
+        <div id="uiEstimatedPrice" class="result">
+            <h2></h2>
+        </div>
+    </div>
+</body>
+</html>
