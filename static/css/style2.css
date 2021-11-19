@@ -591,7 +591,6 @@ a:hover {
     border-radius: .25rem;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
-}
 
 .btn.btn-a, .btn.btn-b {
   border-radius: 0;
@@ -825,7 +824,7 @@ a:hover {
 .navbar-toggler {
   position: relative;
 }
-@media (min-width: 992px)
+@media (min-width: 992px){
 .navbar-expand-lg .navbar-toggler {
     display: none;
 }
@@ -1568,4 +1567,4 @@ a:hover {
     margin-top: 2.5rem;
   }
 }
-
+}
