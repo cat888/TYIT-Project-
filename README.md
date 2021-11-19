@@ -1,8 +1,3 @@
 # TYIT-Project-
-Project related programmes
-<<<<<<< HEAD
-=======
 
-
-##changes through git
->>>>>>> origin/main
+Temporary changes will be reflected here
