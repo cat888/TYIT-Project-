@@ -4,35 +4,42 @@
     <meta charset="UTF-8">
     <title>Mumbai Price Prediction Model</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+   
+    <link rel="stylesheet" href="static/css/prediction/app.css">
     <script src="static/javascript/prediction/app.js"></script>
+
+
+
 </head>
-<body>
-    <div>
-        <form>
+<body class="abc">
+
+    <div class="img"></div>
+        <form class="form">
             <h2>Area (Square Feet)</h2>
-            <input type="text" name="Squareft" id="uiSqft" value="1000">
+            <input type="text" class="area" name="Squareft" id="uiSqft" value="1000">
             <h2>BHK</h2>
-            <div>
-                <input type="radio" name="uiBHK" value="1" required/>
-                <label>1</label>
-                <input type="radio" name="uiBHK" value="2"/>
-                <label>2</label>
-                <input type="radio" name="uiBHK" value="3"/>
-                <label>3</label>
-                <input type="radio" name="uiBHK" value="4"/>
-                <label>4</label>
-                <input type="radio" name="uiBHK" value="5"/>
-                <label>5</label>
+            <div class="switch-field">
+                <input type="radio" id="radio-bhk-1" name="uiBHK" value="1"/>
+                <label for="radio-bhk-1">1</label>
+                <input type="radio" id="radio-bhk-2" name="uiBHK" value="2" checked/>
+                <label for="radio-bhk-2">2</label>
+                <input type="radio" id="radio-bhk-3" name="uiBHK" value="3"/>
+                <label for="radio-bhk-3">3</label>
+                <input type="radio" id="radio-bhk-4" name="uiBHK" value="4"/>
+                <label for="radio-bhk-4">4</label>
+                <input type="radio" id="radio-bhk-5" name="uiBHK" value="5"/>
+                <label for="radio-bhk-5">5</label>
             </div>
-        </form>
-        <br/>
+            <h2>Location</h2>
         <select class="location" name="" id="uiLocations">
             <option value="" disabled="disabled" selected="selected">Choose a Location</option>
             <option>Malad East</option>
             <option>Nalasopara East</option>
         </select>
         <br/>
-        <select id="uiYears">
+        <h2>Years:</h2>
+        <select id="uiYears" class="Years">
             <option value="" disabled="disabled" selected="selected">Select the year</option>
             <option>Current</option>
             <option>1</option>
@@ -50,6 +57,8 @@
         <div id="uiEstimatedPrice" class="result">
             <h2></h2>
         </div>
-    </div>
+
+        </form>
+
 </body>
 </html>

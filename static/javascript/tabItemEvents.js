@@ -1,4 +1,3 @@
-
 var element = document.getElementsByClassName('tabItems');
 for(var i=0;i<element.length;i++){
     element[i].addEventListener('click',function(evt){

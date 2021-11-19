@@ -1,3 +1,33 @@
+function changeNumberFormat(number, decimals, recursiveCall) {
+    const decimalPoints = decimals || 2;
+    let displayStr;
+    let isPlural;
+
+    // Rounds off digits to decimalPoints decimal places
+    function roundOf(integer) {
+        return +integer.toLocaleString(undefined, {
+            minimumFractionDigits: decimalPoints,
+            maximumFractionDigits: decimalPoints,
+        });
+    }
+
+    const noOfLakhs = roundOf(number / 100000);
+
+    if (noOfLakhs >= 100) {
+        const crores = roundOf(noOfLakhs / 100);
+        const crorePrefix = crores >= 100000 ? changeNumberFormat(crores, decimals, true) : crores;
+        isPlural = crores > 1 && !recursiveCall;
+        displayStr = `${crorePrefix} Crore${isPlural ? 's' : ''}`;
+    } else if (noOfLakhs >= 1  && !recursiveCall) {
+        isPlural = true;
+        displayStr = `${noOfLakhs} Lakh${isPlural ? 's' : ''}`;
+    } else {
+        displayStr = roundOf(+number);
+    }
+
+    return displayStr;
+}
+
 function getBHKValue() {
     var uiBHK = document.getElementsByName("uiBHK");
     for(var i in uiBHK) {
@@ -16,6 +46,7 @@ function onClickedEstimatedPrice() {
     var estPrice = document.getElementById("uiEstimatedPrice");
     var years = document.getElementById("uiYears")
     var years_value = years.options[years.selectedIndex].value
+    var final_price;
 
     var url = "http://127.0.0.1:5000/model/predict_home_price";
 
@@ -30,7 +61,8 @@ function onClickedEstimatedPrice() {
         console.log(years_value);
         if(years_value=="Current")
         {
-            estPrice.innerHTML = "<h2>" + price.toString() + " Rs</h2>";
+            final_price = changeNumberFormat(price);
+            estPrice.innerHTML = "<h2><i class='fa fa-inr'> " + final_price + "</i></h2>";
 //            estPrice.innerHTML += "<h2>" + data.estimated_price_rise.toString() + " Rs</h2>";
             console.log(status);
         }
@@ -41,7 +73,8 @@ function onClickedEstimatedPrice() {
             {
                 price = price + price * price_rise;
             }
-          estPrice.innerHTML = "<h2>" + price.toString() + " Rs</h2>";
+          final_price = changeNumberFormat(price);
+          estPrice.innerHTML = "<h2><i class='fa fa-inr'> " + final_price + "</i></h2>";
         }
     });
 }
