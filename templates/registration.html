@@ -16,7 +16,7 @@
 			<img src="static/img/undraw_House_searching_re_stk8.svg">
 		</div>
 		<div class="login-content">
-			<form action="{{url_for('register')}}" method="post">
+			<form action="{{url_for('user.register')}}" method="post">
 				<img src="static/img/undraw_Investing_re_bov7.svg">
 				<h2 class="title">Register</h2>
            		<div class="input-div one">
@@ -46,8 +46,15 @@
            		    	<input type="password" class="input" name="password" required>
             	   </div>
             	</div>
+
+				{% if error %}
+				<div>
+					<span>{{ error }}</span>
+				</div>
+				{% endif %}
+
 				<input type="submit" class="btn" value="Register">
-				<a href="{{url_for('login')}}"><button type="button" class="btn">I have an account</button></a>
+				<a href="{{url_for('user.login')}}"><button type="button" class="btn">I have an account</button></a>
 				<a href="#" class="sign-in">
 					<i class="fab fa-google-plus fa-4x"></i>
 			</a>

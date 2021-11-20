@@ -1,14 +1,18 @@
-from flask import (Flask,
-                render_template,
-                request,
-                redirect,
-                session,
-                url_for)
+from flask import Flask, render_template
 from server import model
-import sqlite3
+from user import user
 
 app = Flask(__name__)
 app.register_blueprint(model, url_prefix="/model")
+app.register_blueprint(user, url_prefix="")
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///project.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+# create tables
+@app.before_first_request
+def create_tables():
+    db.create_all()
 
 @app.route('/', methods=['POST','GET'])
 def index():
@@ -38,57 +42,9 @@ def view5():
 def property():
     return render_template('property.html')
 
-@app.route('/register', methods=['POST','GET'])
-def register():
-    if request.method == 'POST':
-        details = request.form
-        name = details['name']
-        email = details['email']
-        password = details['password'].encode('utf-8')
-
-        connection = sqlite3.connect("project.db")
-        cursor = connection.cursor()
-        cursor.execute(f"INSERT INTO registration (username,email,password) VALUES (%s, %s, %s)",(name,email,password))
-
-        connection.commit()
-        session['name'] = name
-        session['email'] = email
-        connection.close()
-        return redirect(url_for('index'))
-    else:
-        return render_template('registration.html')
-
-@app.route('/login', methods=['POST','GET'])
-def login():
-    if request.method == 'POST':
-        email = request.form['email']
-        password = request.form['password'].encode('utf-8')
-
-        connection = sqlite3.connect("project.db")
-        cursor = connection.cursor()
-        result = cursor.execute("SELECT * FROM registration WHERE email=?", (email,))
-        row = result.fetchone()
-        user = {'name':row[1], 'email':row[2], 'password':row[3]}
-        connection.close()
-
-        if len(user) > 0:
-            if user['password'].encode('utf-8') == password:
-                session['name'] = user['name']
-                session['email'] = user['email']
-                return render_template('index.html')
-            else:
-                return "Incorrect password"
-        else:
-            return "Error password or user not match"
-    else:
-        return render_template('login.html')
-
-@app.route('/logout')
-def logout():
-    session.clear()
-    return redirect(url_for('index'))
-
-
 if __name__ == '__main__':
     app.secret_key = "012#!APaAjaBoleh)(*^%"
+    ## initialising the db
+    from db import db
+    db.init_app(app)
     app.run(debug=True)
