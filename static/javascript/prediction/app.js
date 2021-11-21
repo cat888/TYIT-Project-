@@ -56,7 +56,7 @@ function onClickedEstimatedPrice() {
         location: location.value,
     },function(data, status) {
         console.log("Fetched Successfully");
-        price = parseFloat(data.estimated_price);
+        price = Math.abs(parseFloat(data.estimated_price));
         price_rise = parseFloat(data.estimated_price_rise);
         console.log(years_value);
         if(years_value=="Current")
