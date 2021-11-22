@@ -7,12 +7,11 @@ var savedLongitude;
 var savedLatitude;
 
 			// panoramas background
-			//var panoramasArray = ["{{url_for('static', filename='house.jpeg')}}"];
-			var panoramasArray = ["static/img/Buildings.jpeg"];
-
+			/*var panoramasArray = ["{{url_for('static', filename='house.jpeg')}}"];*/
+			var panoramasArray = ["static/javascript/Buildings.jpeg"];
 			// setting up the renderer
 			renderer = new THREE.WebGLRenderer();
-			renderer.setSize(window.innerWidth , window.innerHeight);
+			renderer.setSize(window.innerWidth , window.innerHeight * 0.9);
 			//renderer.setSize(window.innerWidth, window.innerHeight);
 			document.body.appendChild(renderer.domElement);
 
@@ -35,10 +34,10 @@ var savedLatitude;
 			var sphereMesh = new THREE.Mesh(sphere, sphereMaterial);
 			scene.add(sphereMesh);
 
-			// document.addEventListener("mousedown", onDocumentMouseDown, false);
-			// document.addEventListener("mousemove", onDocumentMouseMove, false);
-			// document.addEventListener("mouseup", onDocumentMouseUp, false);
-
+			/*// listeners
+			document.addEventListener("mousedown", onDocumentMouseDown, false);
+			document.addEventListener("mousemove", onDocumentMouseMove, false);
+			document.addEventListener("mouseup", onDocumentMouseUp, false);*/
                render();
 
                function render(){
@@ -47,7 +46,7 @@ var savedLatitude;
 
 				if(!manualControl){
 					longitude += 0.1;
-					//latitude += 0.01;
+					//latitude += 0.1;
 				}
 
 				// limiting latitude from -85 to 85 (cannot point to the sky or under your feet)

@@ -1,28 +1,36 @@
 <!DOCTYPE html>
 <!-- Created By CodingNepal -->
 <html lang="en" dir="ltr">
-  <head>
+<head>
     <meta charset="utf-8">
+
     <!-- <title>Sider Menu Bar CSS</title> -->
+   <link href="static/css/indexcss.css" rel="stylesheet">
     <link rel="stylesheet" href="static/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-    <!-- Vendor CSS Files -->
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
   <link href="static/vendor/animate.css/animate.min.css" rel="stylesheet">
   <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-<!-- Template Main CSS File -->
-  <link href="static/css/style2.css" rel="stylesheet">
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r69/three.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <script type="text/javascript" src="static/javascript/viewUpdater.js"></script>
+    <script type="text/javascript" src="static/javascript/dynamicViewMaker.js"></script>
+    <script type="text/javascript" src="static/javascript/H2.js"></script>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r69/three.min.js"></script>
 
   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  </head>
-  <body>
-  <!-- ======= Property Search Section ======= -->
+</head>
+<body>
+<!-- ======= Property Search Section ======= -->
   <div class="click-closed"></div>
   <!--/ Form Search Star /-->
   <div class="box-collapse">
@@ -75,14 +83,15 @@
           </div>
           <div class="col-md-6 mb-2">
             <div class="form-group mt-3">
-              <label class="pb-2" for="garages">Garages</label>
-              <select class="form-control form-select form-control-a" id="garages">
-                <option>Any</option>
-                <option>01</option>
-                <option>02</option>
-                <option>03</option>
-                <option>04</option>
-              </select>
+              <label class="pb-2" for="garages">Area</label>
+              <input type="text" name="Areaname" id="garages" class="form-control  form-control-a">
+<!--              <select class="form-control form-select form-control-a" id="garages">-->
+<!--                <option>Any</option>-->
+<!--                <option>1</option>-->
+<!--                <option>2</option>-->
+<!--                <option>3</option>-->
+<!--                <option>4</option>-->
+<!--              </select>-->
             </div>
           </div>
           <div class="col-md-6 mb-2">
@@ -101,10 +110,10 @@
               <label class="pb-2" for="price">Min Price</label>
               <select class="form-control form-select form-control-a" id="price">
                 <option>Unlimite</option>
-                <option>$50,000</option>
-                <option>$100,000</option>
-                <option>$150,000</option>
-                <option>$200,000</option>
+                <option>100,000</option>
+                <option>150,000</option>
+                <option>200,000</option>
+                <option>250,000</option>
               </select>
             </div>
           </div>
@@ -129,15 +138,21 @@
         <ul class="navbar-nav">
 
           <li class="nav-item">
-            <a class="nav-link" href="http://localhost:5000/">Home</a>
+            <a class="nav-link active" href="http://localhost:5000/">Home</a>
           </li>
 
           <li class="nav-item">
             <a class="nav-link " href="about.html">About</a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link " href="http://localhost:5000/property">Property</a>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Property</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item " href="http://localhost:5000/property">Virtual Views</a>
+              <a class="dropdown-item " href="#">Property Guide</a>
+
+            </div>
           </li>
 
           <li class="nav-item">
@@ -153,8 +168,7 @@
             <div class="dropdown-menu">
               <a class="dropdown-item " href="http://localhost:5000/register">Register</a>
               <a class="dropdown-item " href="http://localhost:5000/login">Login</a>
-              <!-- <a class="dropdown-item " href="agents-grid.html">Agents Grid</a>
-              <a class="dropdown-item " href="agent-single.html">Agent Single</a> -->
+
             </div>
           </li>
 
@@ -209,17 +223,40 @@
     <div class="sidebar">
     <header>House1</header>
   <ul>
-<li><button onclick="hall()">Hall</button></li>
-<li><button onclick="bed()">Bedroom</button></li>
-<li><a href="#">Kitchen</a></li>
-<li><a href="#">Bathroom</a></li>
+<li><a class="tabItems"  data-tab="Hall" data-view="view1" >Hall</a></li>
+<li><a class="tabItems"  data-tab="Bedroom" data-view="view1">Bedroom</a></li>
+<li><a class="tabItems"  data-tab="Kitchen" data-view="view1">Kitchen</a></li>
+<li><a class="tabItems"  data-tab="Bathroom" data-view="view1">Bathroom</a></li>
 
 </ul>
 </div>
   </div>
   <script type="text/javascript" src="https://pchen66.github.io/js/three/three.min.js"></script>
     <script type="text/javascript" src="https://pchen66.github.io/js/panolens/panolens.min.js"></script>
-     <script type="text/javascript" src="static/javascript/H1.js"></script>
+     <!--<script type="text/javascript" src="static/javascript/H1.js"></script>-->
+  <script type="text/javascript" src="static/javascript/tabItemEvents.js"></script>
+  <script type="text/javascript" >
+       <!--readView()-->
+
+       var infoSpot1 = [
+        {'positions':[5000.00, -441.44, -3513.45],'tooltipText':'This is Kitchen'},
+        {'positions':[5000.00, -40.27, -1250.06],'tooltipText':'This is Bedroom'},
+        {'positions':[5000.00, -403.92, 2189.83],'tooltipText':'This is Hall'}
+        ];
+        var infoSpot2 = [
+        {'positions':[5000.00, 36.98, -3097.85],'tooltipText':'This is Bathroom'}
+        ];
+
+        var panArr = [
+        {'img':'static/img/H1/Hall.jpg','type':'Hall','nameData':'panorama1','infoSpot': infoSpot1,'listOfLinks':[{'valType':'Bedroom','positions':[5000.00, -37.37, -1017.66]},{'valType':'Bathroom','positions':[5000.00, -107.27, -3420.77]}]},
+        {'img':'static/img/H1/Bedroom.jpg','type':'Bedroom','nameData':'panorama2','infoSpot': infoSpot2,'listOfLinks':[{'valType':'Kitchen','positions':[5000.00, 47.76, -2796.86]},{'valType':'Hall','positions':[-3143.38, -219.23, 5000.00]}]},
+        {'img':'static/img/H1/Kitchen.jpg','type':'Kitchen','nameData':'panorama3', 'infoSpot': null,'listOfLinks':[{'valType':'Kitchen','positions':[-248.18, 13.66, 5000.00]}]},
+        {'img':'static/img/H1/Bathroom.jpg','type':'Bathroom','nameData':'panorama4', 'infoSpot': null,'listOfLinks':[{'valType':'Hall','positions':[-654.07, 242.67, 5000.00]}]}
+        ];
+
+        makeView(panArr,true)
+
+  </script>
 </main>
   <section class="section-footer">
     <div class="container">
@@ -376,11 +413,10 @@
       </div>
     </div>
   </footer>
-
-  <!-- Vendor JS Files -->
+<!-- Vendor JS Files -->
         <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="static/vendor/swiper/swiper-bundle.min.js"></script>
         <script src="static/javascript/main1.js"></script>
-  </body>
+</body>
 </html>
 

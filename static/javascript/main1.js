@@ -1,9 +1,4 @@
-/**
-* Template Name: EstateAgency - v4.3.0
-* Template URL: https://bootstrapmade.com/real-estate-agency-bootstrap-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+
 (function() {
   "use strict";
 
@@ -195,7 +190,7 @@
   /**
    * Property Single carousel
    */
-   new Swiper('#property-single-carousel', {
+  new Swiper('#property-single-carousel', {
     speed: 600,
     loop: true,
     autoplay: {

@@ -1,0 +1,219 @@
+/*======================================
+//--//-->   PROPERTY - CARD-A
+======================================*/
+@media (min-width: 768px) {
+  .card-box-a:hover .card-overlay-a-content {
+    bottom: 60px;
+  }
+}
+
+@media (min-width: 768px) and (min-width: 768px) {
+  .card-box-a:hover .card-overlay-a-content {
+    bottom: 60px;
+  }
+}
+
+@media (min-width: 768px) and (min-width: 992px) {
+  .card-box-a:hover .card-overlay-a-content {
+    bottom: 64px;
+  }
+}
+
+@media (min-width: 768px) {
+  .card-box-a:hover .card-body-a {
+    padding-bottom: 1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .card-box-a .card-overlay-a-content {
+    bottom: 65px;
+  }
+  .card-box-a .card-body-a {
+    padding-bottom: 1rem;
+  }
+}
+
+.card-overlay-a-content {
+  transition: all .5s ease-in;
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  z-index: 2;
+}
+
+@media (min-width: 768px) {
+  .card-overlay-a-content {
+    bottom: -20px;
+  }
+}
+
+@media (min-width: 992px) {
+  .card-overlay-a-content {
+    bottom: 0px;
+  }
+}
+
+.card-header-a {
+  padding: 0 1rem;
+}
+
+.card-header-a .card-title-a {
+  color: #ffffff;
+  margin-bottom: 0;
+  padding-bottom: .7rem;
+}
+
+@media (min-width: 768px) {
+  .card-header-a .card-title-a {
+    font-size: 1.3rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .card-header-a .card-title-a {
+    font-size: 2rem;
+  }
+}
+
+.card-header-a .card-title-a a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.card-body-a {
+  z-index: 2;
+  transition: all .5s ease-in;
+  padding: 0rem 1rem 2rem 1rem;
+}
+
+.card-body-a .price-box {
+  padding-bottom: .5rem;
+}
+
+.price-a {
+  color: #ffffff;
+  padding: .6rem .8rem;
+  border: 2px solid #2eca6a;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 0.030em;
+}
+
+.card-footer-a {
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+  background-color: #2eca6a;
+}
+
+.card-info {
+  list-style: none;
+  margin-bottom: 0;
+  padding: .5rem 0;
+}
+
+.card-info .card-info-title {
+  font-size: 1rem;
+  color: #313131;
+}
+
+@media (min-width: 768px) {
+  .card-info .card-info-title {
+    font-size: .9rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .card-info .card-info-title {
+    font-size: 1rem;
+  }
+}
+
+.card-info li span {
+  color: #ffffff;
+  font-size: .9rem;
+}
+
+@media (min-width: 768px) {
+  .card-info li span {
+    font-size: .8rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .card-info li span {
+    font-size: 1rem;
+  }
+}
+/*------/ Property Grid /-----*/
+.property-grid .grid-option {
+  text-align: right;
+  margin-bottom: 2rem;
+}
+
+.property-grid .grid-option .custom-select {
+  border-radius: 0;
+  width: 200px;
+  border-color: #313131;
+}
+
+.property-grid .grid-option .custom-select:hover, .property-grid .grid-option .custom-select:active, .property-grid .grid-option .custom-select:focus {
+  border-color: #313131;
+}
+
+.property-grid .grid-option .custom-select option {
+  border-color: #313131;
+}
+/*------/ Property Single /-----*/
+.gallery-property {
+  margin-bottom: 3rem;
+}
+
+.property-price {
+  margin: 0 auto;
+}
+
+.property-price .card-header-c {
+  padding: 0;
+}
+
+.summary-list {
+  padding-right: 1rem;
+  color: #000000;
+}
+
+.summary-list .list {
+  padding: 0;
+  line-height: 2;
+}
+
+.summary-list .list span {
+  color: #555555;
+}
+
+@media (max-width: 767px) {
+  .property-agent {
+    margin-top: 2.5rem;
+  }
+}
+
+.property-agent .title-agent {
+  font-weight: 600;
+}
+
+.property-agent ul {
+  line-height: 2;
+  color: #000000;
+}
+
+.property-agent .socials-a {
+  text-align: center;
+}
+
+@media (max-width: 991px) {
+  .property-contact {
+    margin-top: 2.5rem;
+  }
+}
+

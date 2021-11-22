@@ -1,59 +1,94 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title>Login</title>
-	<link rel="stylesheet" type="text/css" href="static/css/style.css">
-	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
-	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/login_style.css')}}">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/fontawesome.min.css" integrity="sha512-OdEXQYCOldjqUEsuMKsZRj93Ht23QRlhIb8E/X0sbwZhme8eUw6g8q7AdxGJKakcBbv7+/PX0Gc2btf7Ru8cZA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/css/LoginStyle.css">
+
+
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
 <body>
-	<img class="wave" src="static/img/wave.png">
-	<div class="container">
-		<div class="img">
-			<img src="static/img/undraw_House_searching_re_stk8.svg">
-		</div>
-		<div class="login-content">
-			<form action="{{url_for('user.login')}}" method="post">
-				<img src="static/img/undraw_Investing_re_bov7.svg">
-				<h2 class="title">Welcome</h2>
-           		<div class="input-div one">
-           		   <div class="i">
-           		   		<i class="fas fa-user"></i>
-           		   </div>
-           		   <div class="div">
-           		   		<h5>Username</h5>
-           		   		<input type="text" class="input" name="email" required>
-           		   </div>
-           		</div>
-           		<div class="input-div pass">
-           		   <div class="i"> 
-           		    	<i class="fas fa-lock"></i>
-           		   </div>
-           		   <div class="div">
-           		    	<h5>Password</h5>
-           		    	<input type="password" class="input" name="password" required>
-            	   </div>
-            	</div>
 
-				{% if error %}
-				<div>
-					<span>{{ error }}</span>
-				</div>
-				{% endif %}
+  <div class="container">
+    <input type="checkbox" id="flip">
+    <div class="cover">
+      <div class="front">
+        <img src="static/img/frontImg.jpg" alt="">
+      </div>
+      <div class="back">
+        <img class="backImg" src="static/img/backImg.jpg" alt="">
 
-				<input type="submit" class="btn" value="Login">
-            	<a href="#">Forgot Password?</a>
-				<a href="{{url_for('user.register')}}"><button type="button" class="btn">I'm new here</button></a>
-				<a href="#" class="sign-in">
-					<i class="fab fa-google-plus fa-4x"></i>
-			</a>
-            </form>
-			
-        </div>
+      </div>
     </div>
-    <script type="text/javascript" src="{{url_for('static', filename='javascript/login.js')}}"></script> <!--Mistake was there -->
+    <div class="forms">
+        <div class="form-content">
+          <div class="login-form">
+            <div class="title">Login</div>
+          <form action="#">
+            <div class="input-boxes">
+              <div class="input-box">
+                <input type="text" placeholder="Enter your email" required>
+              </div>
+              <div class="input-box">
+                <input type="password" placeholder="Enter your password" required>
+              </div>
+              <div class="text"><a href="#">Forgot password?</a></div>
+              <div class="button input-box">
+                <input type="submit" value="Sign In">
+              </div>
+              <div class="text sign-up-text">Don't have an account? <label for="flip">Sigup now</label></div>
+            </div>
+        </form>
+      </div>
+        <div class="signup-form">
+          <div class="title">Signup</div>
+              <form action="#">
+               <div class="input-boxes">
+                <lable>Full Name:</lable>
+                 <div class="input-box">
+                   <input type="text" placeholder="Enter your name" required>
+                  </div>
+                 <lable>Email Id:</lable>
+                  <div class="input-box">
+                    <input type="text" placeholder="Enter Your Email-Id" required>
+                   </div>
+                 <lable>DOB:</lable>
+                  <div class="input-box">
+                    <input type="Date" required>
+                  </div>
+                 <lable>Type of user</lable>
+                 <div class="input-box">
+
+                    <select class="Users" style="height:90%;width:100%;">
+                     <option style="font-size:15px;color:grey;font-family: 'Poppins', sans-serif;">select</option>
+                     <option style="font-size:15px;color:grey;font-family: 'Poppins', sans-serif;">Properitor</option>
+                     <option style="font-size:15px;color:grey;font-family: 'Poppins', sans-serif;">Buyer</option>
+                    </select>
+                   </div>
+                 <lable>Contact:</lable>
+                   <div class="input-box">
+                     <input type="text"  required>
+                   </div>
+                 <lable>Password:</lable>
+                   <div class="input-box">
+                     <input type="password" placeholder="Enter your password" required>
+                   </div>
+                 <lable>Confirm Password:</lable>
+                   <div class="input-box">
+                     <input type="password" placeholder="Confirm your password" required>
+                    </div>
+                    <div class="button input-box">
+                       <input type="submit" value="Sumbit">
+                    </div>
+                    <div class="text sign-up-text">Already have an account? <label for="flip">Login now</label></div>
+
+                 </div>
+                </form>
+             </div>
+            </div>
+        </div>
+      </div>
 </body>
 </html>

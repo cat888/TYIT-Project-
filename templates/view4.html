@@ -1,32 +1,66 @@
 <!DOCTYPE html>
 <!-- Created By CodingNepal -->
 <html lang="en" dir="ltr">
-  <head>
+<head>
     <meta charset="utf-8">
     <!-- <title>Sider Menu Bar CSS</title> -->
     <link rel="stylesheet" href="static/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-  </head>
-  <body>
-  <div class="container-fluid co1">
+    <script type="text/javascript" src="static/javascript/viewUpdater.js"></script>
+    <script type="text/javascript" src="static/javascript/dynamicViewMaker.js"></script>
+    <script type="text/javascript" src="static/javascript/H4.js"></script>
+
+</head>
+<body>
+<div class="container-fluid co1">
     <input type="checkbox" id="check">
     <label for="check">
-      <i class="fas fa-bars" id="btn"></i>
-      <i class="fas fa-times" id="cancel"></i>
+        <i class="fas fa-bars" id="btn"></i>
+        <i class="fas fa-times" id="cancel"></i>
     </label>
     <div class="sidebar">
-    <header>House4</header>
-  <ul>
-<li><a href="#">Hall</a></li>
-<li><a href="#">Bedroom</a></li>
-<li><a href="#"></i>Kitchen</a></li>
-<li><a href="#"></i>Bathroom</a></li>
+        <header>House4</header>
+        <ul>
+            <li><a class="tabItems" data-tab="Hall" data-view="view4">Hall</a></li>
+            <li><a class="tabItems" data-tab="Bedroom1" data-view="view4">Bedroom1</a></li>
+            <li><a class="tabItems" data-tab="Bedroom2" data-view="view4">Bedroom2</a></li>
+            <li><a class="tabItems" data-tab="Kitchen" data-view="view4">Kitchen</a></li>
+            <li><a class="tabItems" data-tab="Bathroom" data-view="view4">Bathroom</a></li>
+            <li><a class="tabItems" data-tab="corridor" data-view="view4">Corridor</a></li>
 
-</ul>
+        </ul>
+    </div>
 </div>
-  </div>
-  <script type="text/javascript" src="https://pchen66.github.io/js/three/three.min.js"></script>
-    <script type="text/javascript" src="https://pchen66.github.io/js/panolens/panolens.min.js"></script>
-     <script type="text/javascript" src="static/javascript/H4.js"></script>
-  </body>
+<script type="text/javascript" src="https://pchen66.github.io/js/three/three.min.js"></script>
+<script type="text/javascript" src="https://pchen66.github.io/js/panolens/panolens.min.js"></script>
+<!--<script type="text/javascript" src="static/javascript/H4.js"></script>-->
+<script type="text/javascript" src="static/javascript/tabItemEvents.js"></script>
+<script type="text/javascript">
+       <!--readView()-->
+
+        var infoSpot1 = [
+        {'positions':[5000.00, -441.44, -3513.45],'tooltipText':'This is Corridor'},
+        {'positions':[5000.00, -134.80, 1346.44],'tooltipText':'This is Hall'},
+        ];
+        var infoSpot6 = [
+        {'positions':[-251.94, -906.64, -5000.00],'tooltipText':'This is Kitchen'},
+        {'positions':[5000.00, -212.82, -2515.90],'tooltipText':'This is Bedroom1'},
+        {'positions':[5000.00, -377.82, 63.44],'tooltipText':'This is Bedroom2'},
+        {'positions':[5000.00, -271.35, 3228.12],'tooltipText':'This is Bathroom'},
+        {'positions':[-489.94, -334.80, 5000.00],'tooltipText':'This is Hall'}
+        ];
+
+        var panArr = [
+        {'img':'static/img/H4/Hall.jpg','type':'Hall','nameData':'panorama1','infoSpot': infoSpot1,'listOfLinks':[{'valType':'corridor','positions':[5000.00, -169.19, -3500.33]}]},
+        {'img':'static/img/H4/Bedroom1.jpg','type':'Bedroom1','nameData':'panorama2','infoSpot': null,'listOfLinks':[{'valType':'corridor','positions':[-2810.80, -925.02, 5000.00]}]},
+        {'img':'static/img/H4/Bedroom2.jpg','type':'Bedroom2','nameData':'panorama3', 'infoSpot': null,'listOfLinks':[{'valType':'corridor','positions':[-1607.67, -231.73, 5000.00]}]},
+        {'img':'static/img/H4/Kitchen.jpg','type':'Kitchen','nameData':'panorama4', 'infoSpot': null,'listOfLinks':[{'valType':'corridor','positions':[-5000.00, -1045.47, 1654.71]}]},
+        {'img':'static/img/H4/Bathroom.jpg','type':'Bathroom','nameData':'panorama5', 'infoSpot': null,'listOfLinks':[{'valType':'corridor','positions':[-5000.00, 65.59, 2983.38]}]},
+        {'img':'static/img/H4/corridor.jpg','type':'corridor','nameData':'panorama6', 'infoSpot': infoSpot6,'listOfLinks':[{'valType':'Bedroom1','positions':[5000.00, 32.03, -2783.15]}, {'valType':'Bedroom2','positions':[5000.00, -133.31, 19.58]},{'valType':'Kitchen','positions':[-10.17, -895.18, -5000.00]},{'valType':'Bathroom','positions':[5000.00, -252.43, 2926.40]},{'valType':'Hall','positions':[-789.89, -418.70, 5000.00]}]}
+        ];
+
+       makeView(panArr,false)
+
+</script>
+</body>
 </html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+ <head>
+
+    <title>
+        360 Degree View
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <link href="static/css/style.css" type="text/css" rel="stylesheet">
+    <script src="http://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+
+     <!-- Vendor CSS Files -->
+  <link href="static/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="static/css/style2.css" rel="stylesheet">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r69/three.min.js"></script>
+
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ </head>
+
+ <body>
+ <!-- ======= Property Search Section ======= -->
+  <div class="click-closed"></div>
+  <!--/ Form Search Star /-->
+  <div class="box-collapse">
+    <div class="title-box-d">
+      <h3 class="title-d">Search Property</h3>
+    </div>
+    <span class="close-box-collapse right-boxed bi bi-x"></span>
+    <div class="box-collapse-wrap form">
+      <form class="form-a">
+        <div class="row">
+          <div class="col-md-12 mb-2">
+            <div class="form-group">
+              <label class="pb-2" for="Type">Keyword</label>
+              <input type="text" class="form-control form-control-lg form-control-a" placeholder="Keyword">
+            </div>
+          </div>
+          <div class="col-md-6 mb-2">
+            <div class="form-group mt-3">
+              <label class="pb-2" for="Type">Type</label>
+              <select class="form-control form-select form-control-a" id="Type">
+                <option>All Type</option>
+                <option>For Rent</option>
+                <option>For Sale</option>
+                <option>Open House</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6 mb-2">
+            <div class="form-group mt-3">
+              <label class="pb-2" for="city">Locality</label>
+              <select class="form-control form-select form-control-a" id="city">
+                <option>Andheri</option>
+                <option>Bandra</option>
+                <option>Dadar</option>
+                <option>Vasai</option>
+                <option>Goregaon</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6 mb-2">
+            <div class="form-group mt-3">
+              <label class="pb-2" for="bedrooms">Bedrooms</label>
+              <select class="form-control form-select form-control-a" id="bedrooms">
+                <option>Any</option>
+                <option>01</option>
+                <option>02</option>
+                <option>03</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6 mb-2">
+            <div class="form-group mt-3">
+              <label class="pb-2" for="garages">Garages</label>
+              <select class="form-control form-select form-control-a" id="garages">
+                <option>Any</option>
+                <option>01</option>
+                <option>02</option>
+                <option>03</option>
+                <option>04</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6 mb-2">
+            <div class="form-group mt-3">
+              <label class="pb-2" for="bathrooms">Bathrooms</label>
+              <select class="form-control form-select form-control-a" id="bathrooms">
+                <option>Any</option>
+                <option>01</option>
+                <option>02</option>
+                <option>03</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6 mb-2">
+            <div class="form-group mt-3">
+              <label class="pb-2" for="price">Min Price</label>
+              <select class="form-control form-select form-control-a" id="price">
+                <option>Unlimite</option>
+                <option>$50,000</option>
+                <option>$100,000</option>
+                <option>$150,000</option>
+                <option>$200,000</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <button type="submit" class="btn btn-b">Search Property</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div><!-- End Property Search Section -->
+  <!-- ======= Header/Navbar ======= -->
+  <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
+    <div class="container">
+      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <a class="navbar-brand text-brand" href="index.html">Virtual<span class="color-b">Estate</span></a>
+
+      <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
+        <ul class="navbar-nav">
+
+          <li class="nav-item">
+            <a class="nav-link active" href="">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="about.html">About</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="http://localhost:5000/property">Property</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="">Agent</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="">Contact</a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="static/img/images.png" style="height:30px;width:30px;"></a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item " href="http://localhost:5000/register">Register</a>
+              <a class="dropdown-item " href="http://localhost:5000/login">Login</a>
+              <!-- <a class="dropdown-item " href="agents-grid.html">Agents Grid</a>
+              <a class="dropdown-item " href="agent-single.html">Agent Single</a> -->
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+      <button type="button" class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+</svg>
+      </button>
+
+    </div>
+  </nav><!-- End Header/Navbar -->
+ <section class="intro-single">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-lg-8">
+            <div class="title-single-box">
+              <h1 class="title-single">304 Blaster Up</h1>
+              <span class="color-text-a">Chicago, IL 606543</span>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-4">
+            <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <a href="index.html">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                  <a href="property-grid.html">Properties</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  304 Blaster Up
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section>
+ <input type="checkbox" id="check">
+    <label for="check">
+      <i class="fas fa-bars" id="btn"></i>
+      <i class="fas fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+    <header>My App</header>
+    <ul>
+     <li><a href="#"><i class="fas fa-qrcode"></i>Dashboard</a></li>
+     <li><a href="#"><i class="fas fa-link"></i>Shortcuts</a></li>
+     <li><a href="#"><i class="fas fa-stream"></i>Overview</a></li>
+     <li><a href="#"><i class="fas fa-calendar-week"></i>Events</a></li>
+     <li><a href="#"><i class="far fa-question-circle"></i>About</a></li>
+     <li><a href="#"><i class="fas fa-sliders-h"></i>Services</a></li>
+     <li><a href="#"><i class="far fa-envelope"></i>Contact</a></li>
+    </ul>
+   </div>
+   <section></section>
+    <div class="container-fluid co1">
+        <div class="container col">
+            <section id="sidenav">
+
+            <ul>
+                <li style="margin-top:-100px;color:white;margin-left:30px;"><h1>House1</h1></li>
+                <li><a href="#">Hall</a></li>
+                <li><a href="#">Bedroom</a></li>
+                <li><a href="#">Kitchen</a></li>
+                <li><a href="#">Bathroom</a></li>
+            </ul>
+                <div class="icon menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+        </section>
+    </div>
+
+    <script type="text/javascript" src="https://pchen66.github.io/js/three/three.min.js"></script>
+    <script type="text/javascript" src="https://pchen66.github.io/js/panolens/panolens.min.js"></script>
+     <script type="text/javascript" src="static/javascript/H1.js"></script>
+<!-- Vendor JS Files -->
+        <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="static/vendor/swiper/swiper-bundle.min.js"></script>
+        <script src="static/javascript/main1.js"></script>
+    <!-- <script type="text/javascript" src="https://github.com/pchen66/panolens.js/issues/340"></script> -->
+</body>
+</html>
+
+
+
+
+body{
+    position:absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#sidenav
+{
+padding:100px 0px;
+position:fixed;
+width:300px;
+height:100%;
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(5px);
+box-shadow:inset 10px 10px 10px grey;
+left:0px;
+top:125px;
+}
+#sidenav ul li{
+list-style:none;
+width:280px;
+}
+
+#sidenav ul li a{
+text-decoration:none;
+color:white;
+font-size:20px;
+margin:20px 30px;
+display:block;
+padding:10px;
+}
+#sidenav ul li a:hover{
+background:rgba(255,255,255,0.4);
+transition:0.4s;
+}
