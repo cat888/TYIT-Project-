@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="static/css/LoginStyle.css">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="static/css/LoginStyle.css">
 
 
-    <!-- Fontawesome CDN Link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   </head>
+  <!-- Fontawesome CDN Link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
 <body>
 
   <div class="container">
@@ -23,72 +25,122 @@
       </div>
     </div>
     <div class="forms">
-        <div class="form-content">
-          <div class="login-form">
-            <div class="title">Login</div>
-          <form action="#">
+      <div class="form-content">
+
+        <div id="successMsg">
+          
+        </div>
+
+        <div class="login-form">
+          <div class="title">Login</div>
+          <form action="http://127.0.0.1:5000/login" method="post" id="login-form">
             <div class="input-boxes">
               <div class="input-box">
-                <input type="text" placeholder="Enter your email" required>
+                <input type="text" placeholder="Enter your email" name="email" id="login-email" required>
               </div>
               <div class="input-box">
-                <input type="password" placeholder="Enter your password" required>
+                <input type="password" placeholder="Enter your password" name="password" id="login-password" required>
               </div>
               <div class="text"><a href="#">Forgot password?</a></div>
               <div class="button input-box">
-                <input type="submit" value="Sign In">
+                <input type="submit" value="Sign In" name="Registration" id="login-Registration">
               </div>
+
+              {% if error %}
+              <div>
+                <span>
+                  {{ error }}
+                </span>
+              </div>
+              {% endif %}
+
               <div class="text sign-up-text">Don't have an account? <label for="flip">Sigup now</label></div>
             </div>
-        </form>
-      </div>
+          </form>
+        </div>
         <div class="signup-form">
           <div class="title">Signup</div>
-              <form action="#">
-               <div class="input-boxes">
-                <lable>Full Name:</lable>
-                 <div class="input-box">
-                   <input type="text" placeholder="Enter your name" required>
-                  </div>
-                 <lable>Email Id:</lable>
-                  <div class="input-box">
-                    <input type="text" placeholder="Enter Your Email-Id" required>
-                   </div>
-                 <lable>DOB:</lable>
-                  <div class="input-box">
-                    <input type="Date" required>
-                  </div>
-                 <lable>Type of user</lable>
-                 <div class="input-box">
+          <form action="http://localhost:5000/login" method="post" class="form" id="registration-form">
+            <div class="input-boxes">
+              <lable>Full Name:</lable>
+              <div class="input-box">
+                <input type="text" placeholder="Enter your name" name="username" id="username">
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error msg</small>
+              </div>
+              <lable>Email:</lable>
+              <div class="input-box">
+                <input type="text" placeholder="Enter Your Email-Id" name="email" id="email">
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error msg</small>
+              </div>
+              <lable>DOB:</lable>
+              <div class="input-box">
+                <input type="Date" name="birth_date" id="birth_date">
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error msg</small>
+              </div>
+              <lable>Type of user</lable>
+              <div class="input-box">
+                <select class="Users" name="type" id="type">
+                  <option>select</option>
+                  <option>Proprietor</option>
+                  <option>Buyer</option>
+                </select>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error msg</small>
+              </div>
+              <lable>Contact:</lable>
+              <div class="input-box">
+                <input type="text" name="contact" id="contact">
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error msg</small>
+              </div>
+              <lable>Password:</lable>
+              <div class="input-box">
+                <input type="password" placeholder="Enter your password" name="password" id="password">
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error msg</small>
+              </div>
+              <lable>Confirm Password:</lable>
+              <div class="input-box">
+                <input type="password" placeholder="Confirm your password" name="confirm-password" id="cpassword">
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error msg</small>
+              </div>
+              <div class="button input-box">
+                <input type="submit" value="Sign Up" name="Registration" id="Registration">
+              </div>
 
-                    <select class="Users" style="height:90%;width:100%;">
-                     <option style="font-size:15px;color:grey;font-family: 'Poppins', sans-serif;">select</option>
-                     <option style="font-size:15px;color:grey;font-family: 'Poppins', sans-serif;">Properitor</option>
-                     <option style="font-size:15px;color:grey;font-family: 'Poppins', sans-serif;">Buyer</option>
-                    </select>
-                   </div>
-                 <lable>Contact:</lable>
-                   <div class="input-box">
-                     <input type="text"  required>
-                   </div>
-                 <lable>Password:</lable>
-                   <div class="input-box">
-                     <input type="password" placeholder="Enter your password" required>
-                   </div>
-                 <lable>Confirm Password:</lable>
-                   <div class="input-box">
-                     <input type="password" placeholder="Confirm your password" required>
-                    </div>
-                    <div class="button input-box">
-                       <input type="submit" value="Sumbit">
-                    </div>
-                    <div class="text sign-up-text">Already have an account? <label for="flip">Login now</label></div>
+              {% if error %}
+              <div>
+                <span>
+                  {{ error }}
+                </span>
+              </div>
+              {% endif %}
 
-                 </div>
-                </form>
-             </div>
+              <div class="text sign-up-text">Already have an account? <label for="flip">Login now</label></div>
+
             </div>
+          </form>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- Validating login form through javascript -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+  <!-- afterwards diwnload the offline library -->
+  <script type="text/javascript" src="static/javascript/login_validate_2.js"></script>
+  <script type="text/javascript" src="static/javascript/login_validate.js"></script>
 </body>
+
 </html>

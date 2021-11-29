@@ -6,7 +6,7 @@ app = Flask(__name__)
 app.register_blueprint(model, url_prefix="/model")
 app.register_blueprint(user, url_prefix="")
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///project.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///user.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # create tables
@@ -24,7 +24,7 @@ def view1():
 
 @app.route('/view2',methods=['POST','GET'])
 def view2():
-    return render_template('dynamic_view2.html')
+    return render_template('view2.html')
 
 @app.route('/view3',methods=['POST','GET'])
 def view3():

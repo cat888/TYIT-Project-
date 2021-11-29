@@ -211,3 +211,85 @@ body{
     display: none;
   }
 }
+
+/* Validation - Login form */
+
+.container .forms{
+  height: 100%;
+  width: 100%;
+  background: #fff;
+}
+
+.form-control{
+  margin-bottom: 30px ;
+  position: relative;
+}
+.form-control label{
+  display: inline-block;
+  margin-bottom: 5px;
+}
+.form-control input{
+  width: 100%;
+  border: 2px solid #f0f0f0;
+  border-radius: 5px;
+  display: block;
+  font-family: 'Mulish', sans-serif;
+  font-size: 14px;
+  padding: 12px;
+}
+.form-control input:focus{
+  outline: 0;
+  border-color: #777;
+}
+.form-control.success input{
+   border-color: #2ecc71;
+}
+.form-control.error input{
+  border-color: #e74c3c;
+}
+
+.form-control i{
+  position: absolute;
+  right: 12px;
+  top: 38px;
+  visibility: hidden;
+}
+
+.form-control.success i.fa-check-circle{
+  color: #2ecc71;
+  visibility: visible;
+}
+.form-control.error i.fa-exclamation-circle{
+  color: #e74c3c;
+  visibility: visible;
+}
+.form-control small{
+  color: #e74c3c;
+  position: absolute;
+  left: 0;
+  visibility: hidden;
+}
+.form-control.error small{
+  visibility: visible;
+}
+
+/*#################
+.form-control select{
+  width: 100%;
+  border: 2px solid #f0f0f0;
+  border-radius: 5px;
+  display: block;
+  font-family: 'Mulish', sans-serif;
+  font-size: 14px;
+  padding: 12px;
+}
+.form-control select:focus{
+  outline: 0;
+  border-color: #777;
+}
+.form-control.success select{
+   border-color: #2ecc71;
+}
+.form-control.error select{
+  border-color: #e74c3c;
+}*/

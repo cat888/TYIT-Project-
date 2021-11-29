@@ -6,13 +6,19 @@ class Registration(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80))
     email = db.Column(db.String(100))
+    birth_date = db.Column(db.Date)
+    type = db.Column(db.String(20))
+    contact = db.Column(db.Integer)
     password = db.Column(db.String(80))
 
-    def __init__(self, username, email, password):
+    def __init__(self, username, email, birth_date, type, contact, password):
         self.username = username
         self.email = email
+        self.birth_date = birth_date
+        self.type = type
+        self.contact = contact
         self.password = password
-    
+
     def save_to_db(self):
         db.session.add(self)
         db.session.commit()

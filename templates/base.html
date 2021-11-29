@@ -147,7 +147,7 @@
             Property</a>
             <div class="dropdown-menu">
               <a class="dropdown-item " href="http://localhost:5000/property">Virtual Views</a>
-              <a class="dropdown-item " href="#">Property Guide</a>
+              <a class="dropdown-item " href="http://localhost:5000/model">Property Guide</a>
 
             </div>
           </li>
@@ -159,15 +159,35 @@
             <a class="nav-link " href="">Contact</a>
           </li>
 
+          {% if session['name'] %}
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="static/img/images.png" style="height:30px;width:30px;"></a>
+              <img src="static/img/images.png" style="height:30px;width:30px;"></a>
             <div class="dropdown-menu">
-
-              <a class="dropdown-item " href="http://localhost:5000/login">Login</a>
-
+                <a class="dropdown-item " href="#">{{ session['name'] }}</a>
+                <a class="dropdown-item " href="/logout">Logout</a>
             </div>
+            </li>
+            <li>
+              <div>
+                <a class="dropdown-item " href="#">{{ session['name'] }}</a>
+            </div>
+            </li>
+            {% else %}
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="static/img/images.png" style="height:30px;width:30px;"></a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item " href="/login">Login</a>
           </li>
+          {% endif %}
+
+
+          <!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="static/img/images.png" style="height:30px;width:30px;"></a>
+            <div class="dropdown-menu"> -->
+
+              <!-- <a class="dropdown-item " href="http://localhost:5000/login">Login</a> -->
 
         </ul>
       </div>
