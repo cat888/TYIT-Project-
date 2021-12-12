@@ -162,6 +162,15 @@
             <a class="nav-link " href="">Contact</a>
           </li>
 
+          {% if session['name'] %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="static/img/images.png" style="height:30px;width:30px;"></a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item " href="http://localhost:5000/logout">Logout</a>
+            </div>
+          </li>
+          {% else %}
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <img src="static/img/images.png" style="height:30px;width:30px;"></a>
@@ -171,7 +180,7 @@
 
             </div>
           </li>
-
+          {% endif %}
         </ul>
       </div>
 
@@ -236,7 +245,7 @@
      <!--<script type="text/javascript" src="static/javascript/H1.js"></script>-->
   <script type="text/javascript" src="static/javascript/tabItemEvents.js"></script>
   <script type="text/javascript" >
-       <!--readView()-->
+      //  <!--readView()-->
 
        var infoSpot1 = [
         {'positions':[5000.00, -441.44, -3513.45],'tooltipText':'This is Kitchen'},

@@ -13,7 +13,7 @@ var flag_username, flag_email, flag_phone, flag_type, flag_date, flag_pass, flag
 
 // add event
 form.addEventListener('submit', (event) => {
-    debugger
+    // debugger
     event.preventDefault();
     validate();
 
@@ -70,11 +70,15 @@ form.addEventListener('submit', (event) => {
                 // var returnedData = JSON.parse(result);
                 if (result["msg"] != "" && result["msg"] === "User Registered") {
                     alert("User registered");
-                    window.location.href = window.location.href;
+                    // window.location.href = window.location.href;
+                    window.location.href = "http://127.0.0.1:5000";
                 }
             },
             error: function (jqXHR, result) {
                 console.log(jqXHR.responseText);
+                var result = JSON.parse(jqXHR.responseText);
+                console.log(result.msg);
+                $("#error_signup").text(result.msg);
             }
         });
 

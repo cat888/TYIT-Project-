@@ -1,0 +1,32 @@
+[
+    {
+        "id": "1",
+        "username": "Burhan",
+        "email": "abc@gmail.com",
+        "type": "Proprietor"
+    },
+    {
+        "id": "2",
+        "username": "Neha",
+        "email": "xyz@gmail.com",
+        "type": "Buyer"
+    },
+    {
+        "id": "1638767831_P2",
+        "username": "Aakash Bharadwaz",
+        "email": "mnopqr@gmail.com",
+        "type": "Proprietor"
+    },
+    {
+        "id": "1638767898_B2",
+        "username": "Sandeep",
+        "email": "sandeep@gmail.com",
+        "type": "Buyer"
+    },
+    {
+        "id": "1639144313_P3",
+        "username": "Sahil",
+        "email": "shail@gmail.com",
+        "type": "Proprietor"
+    }
+]

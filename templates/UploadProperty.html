@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>upload property</title>
+	<link rel="stylesheet" type="text/css" href="static/css/uploadstyle.css">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title> Image Upload</title>
+    <!--Font Awesome Icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="/static/css/uploadimg.css"> -->
+</head>
+<body>
+    <div class="img"></div>
+	<div class="container">
+		<div class="contact-box">
+			<div class="left"></div>
+			<div class="right">
+				<h2>Begin Posting Your Property</h2>
+                <p>Add Basic Details</p>
+				<input type="text" class="field" placeholder="City" name="City" id="City">
+				<input type="text" class="field" placeholder="Locality" name="Loc" id="Loc">
+				<input type="text" class="field" placeholder="Sq.ft" name="Sqft" id="sqft">
+                <p>BHK</p>
+				<div class="switch-field">
+                    <input type="radio" id="radio-bhk-1" name="uiBHK" value="1"/>
+                    <label for="radio-bhk-1">1</label>
+                    <input type="radio" id="radio-bhk-2" name="uiBHK" value="2"/>
+                    <label for="radio-bhk-2">2</label>
+                    <input type="radio" id="radio-bhk-3" name="uiBHK" value="3"/>
+                    <label for="radio-bhk-3">3</label>
+                    <input type="radio" id="radio-bhk-4" name="uiBHK" value="4"/>
+                    <label for="radio-bhk-4">4</label>
+                    <input type="radio" id="radio-bhk-5" name="uiBHK" value="5"/>
+                    <label for="radio-bhk-5">5</label>
+                </div>
+                <input type="text" class="field" placeholder="Price">
+                    <div class="dropdown" class="field" >
+                            <p>Room Type</p>
+                              <select class="Users"  name="type" id="type">
+                                <option>select</option>
+                                <option>Hall</option>
+                                <option>Bedroom1</option>
+                                <option>Bedroom2</option>
+                                <option>Kitchen</option>
+                                <option>Bathroom</option>
+                              </select>
+                        </div>
+                        <input type="file" id="file-input" class="field"  accept=".jpeg,.jpg" onchange="preview()" multiple>
+                        <label for="file-input">
+                            <i class="fas fa-upload"></i>
+                        </label>      
+                        <p id="num-of-files">No Files Chosen</p>
+                        <div id="images"></div>
+                        
+                            <div id="images">
+                                <input type="submit" value="Upload Image" name="submit" id="btn1" onclick="myFunction()">
+                            </div>
+                           
+                
+				<!-- <button class="btn" onclick="btnClicked()">Begin To Post Your Property</button> -->
+	
+		</div>
+	</div>
+    <script>
+        // function btnClicked(){
+        //     window.location.href = "http://127.0.0.1:5000/Uploadimg";
+        // }
+    </script>
+    <script src="/static/javascript/uploadimg.js"></script>
+</body>
+</html>

@@ -27,7 +27,11 @@ login_form.addEventListener('submit', (event) => {
             }
         },
         error: function (jqXHR, result) {
-            console.log(jqXHR.responseText);
+            var result = JSON.parse(jqXHR.responseText);
+            console.log(result.msg);
+            $("#error").text(result.msg);
+            // document.getElementById('error').innerHTML = jqXHR.responseText;
+            // window.location.href = window.location.href;
         }
     });
 })

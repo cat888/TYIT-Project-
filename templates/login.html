@@ -42,17 +42,16 @@
                 <input type="password" placeholder="Enter your password" name="password" id="login-password" required>
               </div>
               <div class="text"><a href="#">Forgot password?</a></div>
+              <div>
+                <span id="error" style="color:red;"></span>
+              </div>
               <div class="button input-box">
                 <input type="submit" value="Sign In" name="Registration" id="login-Registration">
               </div>
 
-              {% if error %}
-              <div>
-                <span>
-                  {{ error }}
-                </span>
-              </div>
-              {% endif %}
+              <!-- {% if error %} -->
+              
+              <!-- {% endif %} -->
 
               <div class="text sign-up-text">Don't have an account? <label for="flip">Sigup now</label></div>
             </div>
@@ -62,6 +61,10 @@
           <div class="title">Signup</div>
           <form action="http://localhost:5000/login" method="post" class="form" id="registration-form">
             <div class="input-boxes">
+              <div>
+                <span id="error_signup" style="color:red;"></span>
+              </div>
+
               <lable>Full Name:</lable>
               <div class="input-box">
                 <input type="text" placeholder="Enter your name" name="username" id="username">
@@ -119,13 +122,13 @@
                 <input type="submit" value="Sign Up" name="Registration" id="Registration">
               </div>
 
-              {% if error %}
+              <!-- {% if error %}
               <div>
                 <span>
                   {{ error }}
                 </span>
               </div>
-              {% endif %}
+              {% endif %} -->
 
               <div class="text sign-up-text">Already have an account? <label for="flip">Login now</label></div>
 
@@ -139,6 +142,8 @@
   <!-- Validating login form through javascript -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
   <!-- afterwards diwnload the offline library -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  
   <script type="text/javascript" src="static/javascript/login_validate_2.js"></script>
   <script type="text/javascript" src="static/javascript/login_validate.js"></script>
 </body>
