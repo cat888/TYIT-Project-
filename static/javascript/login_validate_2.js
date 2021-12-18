@@ -27,11 +27,51 @@ login_form.addEventListener('submit', (event) => {
             }
         },
         error: function (jqXHR, result) {
+            console.log(jqXHR.responseText);
             var result = JSON.parse(jqXHR.responseText);
             console.log(result.msg);
             $("#error").text(result.msg);
-            // document.getElementById('error').innerHTML = jqXHR.responseText;
-            // window.location.href = window.location.href;
         }
     });
 })
+// validating email
+// const isEmail = (emailVal) => {
+//     var atSymbol = emailVal.indexOf("@");
+//     if (atSymbol < 1) return false;
+//     var dot = emailVal.lastIndexOf('.');
+//     if (dot <= atSymbol + 2) return false;
+//     if (dot === emailVal.length - 1) return false;
+
+//     return true;
+// }
+
+// const emailval = login_email.value;
+
+// const passwordval = login-password.value.trim();
+
+//validate email
+// if (emailval === "") {
+//     setErrorMsg(login_email, 'Email cannot be blank');
+//     flag_email = false;
+// }
+// else if (!isEmail(emailval)) {
+//     setErrorMsg(login_email, 'Invalid Email');
+//     flag_email = false;
+// } else {
+//     setSuccessMsg(login_email);
+//     flag_email = true;
+// }
+
+//validate password
+// if (passwordval == "") {
+//     setErrorMsg(login-password, 'password  cannot be blank');
+//     flag_pass = false;
+// }
+// else if (passwordval.length <= 5) {
+//     setErrorMsg(login-password, 'minimum 6 char');
+//     flag_pass = false;
+// }
+// else {
+//     setSuccessMsg(login-password);
+//     flag_pass = true;
+// }

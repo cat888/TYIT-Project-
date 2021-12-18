@@ -70,8 +70,8 @@ form.addEventListener('submit', (event) => {
                 // var returnedData = JSON.parse(result);
                 if (result["msg"] != "" && result["msg"] === "User Registered") {
                     alert("User registered");
-                    // window.location.href = window.location.href;
-                    window.location.href = "http://127.0.0.1:5000";
+                    swal("Welcome!", "Registered Successfull", "success");
+                    window.location.href = window.location.href;
                 }
             },
             error: function (jqXHR, result) {

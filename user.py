@@ -31,6 +31,7 @@ def login():
                     session.permanent = True # setting the session as permanent
                     session['name'] = user.username
                     session['email'] = email
+                    session['type'] = user.type
                     return jsonify({"msg": "Login Successfull"}), 200
                 else:
                     return {"msg": "Password is incorrect"}, 403
@@ -57,7 +58,7 @@ def login():
             user.save_to_db()
             session['name'] = request_data["username"]
             session['email'] = request_data["email"]
-
+            session['type'] = user.type
             # create a json file after registration of user
             create_json(user)
             return jsonify({"msg":"User Registered"}), 201

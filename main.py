@@ -1,5 +1,5 @@
 from datetime import timedelta
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, redirect, url_for, session
 from server import model
 from user import user
 from upload import upload_file
@@ -36,7 +36,7 @@ def view(view: str):
     elif view == "view5":
         return render_template('view5.html')
     else:
-        return jsonify({"msg": "No such view"})
+        return redirect(url_for("property"))
 
 @app.route('/property',methods=['POST','GET'])
 def property():

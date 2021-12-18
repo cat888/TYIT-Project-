@@ -59,17 +59,17 @@ class Upload(db.Model):
     city = db.Column(db.String(100))
     landmark = db.Column(db.String(100))
     bhk = db.Column(db.Integer)
-    sqft = db.Column(db.Integer)
+    area = db.Column(db.Integer)
     price = db.Column(db.Float)
     # category = db.Column(db.String(50))
-    # view = db.Column(db.Integer)
+    view = db.Column(db.Integer)
 
-    def __init__(self, name, location, city, bhk, sqft, price, landmark=None):
+    def __init__(self, name, location, bhk, area, price, city="Mumbai", landmark=None):
         self.name = name
         self.location = location
         self.city = city
         self.bhk = bhk
-        self.sqft = sqft
+        self.area = area
         self.price = price
         self.landmark = landmark
 

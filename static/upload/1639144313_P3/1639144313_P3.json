@@ -1,0 +1,24 @@
+{
+    "property": [
+        {
+            "view": "view6",
+            "uploaded_property": {
+                "location": "4 Bungalow",
+                "area": 250,
+                "bhk": "2",
+                "price": "15000000",
+                "name": "Lodha Palava",
+                "uploaded_images": [
+                    {
+                        "type": "Hall",
+                        "image": "1639144313_P3_@R1Hall"
+                    },
+                    {
+                        "type": "Bedroom1",
+                        "image": "1639144313_P3_@R1Bedroom1"
+                    }
+                ]
+            }
+        }
+    ]
+}

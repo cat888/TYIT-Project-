@@ -23,6 +23,7 @@ body{
   padding: 5px 10px;
   box-shadow: 0 5px 10px rgba(0,0,0,0.2);
   perspective: 2700px;
+  overflow: hidden;
 }
 .container .cover{
   position: absolute;
@@ -84,7 +85,7 @@ body{
 }
 .cover .text .text-1,
 .cover .text .text-2{
-  font-size: 26px;
+  font-size: 18px;
   font-weight: 600;
   color: #fff;
   text-align: center;
@@ -98,6 +99,72 @@ body{
   width: 100%;
   background: #fff;
 }
+
+.form-control{
+  margin-bottom: 12px ;
+  position: relative;
+}
+.form-control label{
+  display: inline-block;
+  margin-bottom: 5px;
+}
+.form-control input{
+  width: 90%;
+  border: 2px solid #f0f0f0;
+  border-radius: 5px;
+  display: block;
+  font-family: 'Mulish', sans-serif;
+  font-size: 14px;
+  padding: 8px;
+}
+.form-control input:focus{
+  outline: 0;
+  border-color: #777;
+}
+.form-control.success input{
+   border-color: #2ecc71;
+}
+.form-control.error input{
+  border-color: #e74c3c;
+}
+.form-control.error .Users{
+  border-color: #e74c3c;
+}
+.form-control.success .Users{
+   border-color: #2ecc71;
+}
+.form-control i{
+  position: absolute;
+  right: 10px;
+  top: 38px; 
+  visibility: hidden;
+}
+.form-control .Users{
+  width: 90%;
+  border: 2px solid #f0f0f0;
+  border-radius: 5px;
+  display: block;
+  font-family: 'Mulish', sans-serif;
+  font-size: 14px;
+  padding: 8px;
+}
+.form-control.success i.fa-check-circle{
+  color: #2ecc71;
+  visibility: visible;
+}
+.form-control.error i.fa-exclamation-circle{
+  color: #e74c3c;
+  visibility: visible;
+}
+.form-control small{
+  color: #e74c3c;
+  position: absolute;
+  left: 0;
+  visibility: hidden;
+}
+.form-control.error small{
+  visibility: visible;
+}
 .container .form-content{
   display: flex;
   align-items: center;
@@ -108,10 +175,12 @@ body{
   width: calc(100% / 2 - 25px);
 }
 .forms .form-content .title{
+  margin-bottom: 5px;
   position: relative;
   font-size: 24px;
   font-weight: 500;
   color: #333;
+ 
 }
 .forms .form-content .title:before{
   content: '';
@@ -125,32 +194,9 @@ body{
 .forms .signup-form  .title:before{
   width: 20px;
 }
-.forms .form-content .input-boxes{
-  margin-top: 30px;
 
-}
-.forms .form-content .input-box{
-  display: flex;
-  align-items: center;
-  height: 30px;
-  width: 70%;
-  margin: 10px 0;
-  position: relative;
-}
-.form-content .input-box input{
-  height: 100%;
-  width: 100%;
 
-  padding: 0 30px;
-  font-size: 16px;
-  font-weight: 500;
 
-  transition: all 0.3s ease;
-}
-.form-content .input-box input:focus,
-.form-content .input-box input:valid{
-  border-color: #7CFC00;
-}
 
 .forms .form-content .text{
   font-size: 14px;
@@ -165,13 +211,14 @@ body{
 }
 .forms .form-content .button{
   color: #fff;
-  margin-top: 40px;
+  margin-top: 35px;
 }
 .forms .form-content .button input{
   color: #fff;
   background: #2eca6a;
   border-radius: 6px;
-  padding: 0;
+  padding: 2px;
+  width: 100px;
   cursor: pointer;
   transition: all 0.4s ease;
 }
@@ -188,7 +235,7 @@ body{
 .forms .form-content .login-text,
 .forms .form-content .sign-up-text{
   text-align: center;
-  margin-top: 25px;
+  margin-top: 12px;
 }
 .container #flip{
   display: none;
@@ -211,85 +258,3 @@ body{
     display: none;
   }
 }
-
-/* Validation - Login form */
-
-.container .forms{
-  height: 100%;
-  width: 100%;
-  background: #fff;
-}
-
-.form-control{
-  margin-bottom: 30px ;
-  position: relative;
-}
-.form-control label{
-  display: inline-block;
-  margin-bottom: 5px;
-}
-.form-control input{
-  width: 100%;
-  border: 2px solid #f0f0f0;
-  border-radius: 5px;
-  display: block;
-  font-family: 'Mulish', sans-serif;
-  font-size: 14px;
-  padding: 12px;
-}
-.form-control input:focus{
-  outline: 0;
-  border-color: #777;
-}
-.form-control.success input{
-   border-color: #2ecc71;
-}
-.form-control.error input{
-  border-color: #e74c3c;
-}
-
-.form-control i{
-  position: absolute;
-  right: 12px;
-  top: 38px;
-  visibility: hidden;
-}
-
-.form-control.success i.fa-check-circle{
-  color: #2ecc71;
-  visibility: visible;
-}
-.form-control.error i.fa-exclamation-circle{
-  color: #e74c3c;
-  visibility: visible;
-}
-.form-control small{
-  color: #e74c3c;
-  position: absolute;
-  left: 0;
-  visibility: hidden;
-}
-.form-control.error small{
-  visibility: visible;
-}
-
-/*#################
-.form-control select{
-  width: 100%;
-  border: 2px solid #f0f0f0;
-  border-radius: 5px;
-  display: block;
-  font-family: 'Mulish', sans-serif;
-  font-size: 14px;
-  padding: 12px;
-}
-.form-control select:focus{
-  outline: 0;
-  border-color: #777;
-}
-.form-control.success select{
-   border-color: #2ecc71;
-}
-.form-control.error select{
-  border-color: #e74c3c;
-}*/

@@ -28,101 +28,36 @@
       <div class="form-content">
 
         <div id="successMsg">
-          
+
         </div>
 
         <div class="login-form">
           <div class="title">Login</div>
           <form action="http://127.0.0.1:5000/login" method="post" id="login-form">
-            <div class="input-boxes">
-              <div class="input-box">
-                <input type="text" placeholder="Enter your email" name="email" id="login-email" required>
-              </div>
-              <div class="input-box">
-                <input type="password" placeholder="Enter your password" name="password" id="login-password" required>
-              </div>
-              <div class="text"><a href="#">Forgot password?</a></div>
-              <div>
-                <span id="error" style="color:red;"></span>
-              </div>
-              <div class="button input-box">
-                <input type="submit" value="Sign In" name="Registration" id="login-Registration">
-              </div>
 
-              <!-- {% if error %} -->
-              
-              <!-- {% endif %} -->
-
-              <div class="text sign-up-text">Don't have an account? <label for="flip">Sigup now</label></div>
+            <div class="form-control">
+              <lable>Email Id:</lable>
+              <input type="Email" name="email" placeholder="Enter your Email" id="login-email">
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error Msg</small>
             </div>
-          </form>
-        </div>
-        <div class="signup-form">
-          <div class="title">Signup</div>
-          <form action="http://localhost:5000/login" method="post" class="form" id="registration-form">
-            <div class="input-boxes">
-              <div>
-                <span id="error_signup" style="color:red;"></span>
-              </div>
-
-              <lable>Full Name:</lable>
-              <div class="input-box">
-                <input type="text" placeholder="Enter your name" name="username" id="username">
-                <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small>Error msg</small>
-              </div>
-              <lable>Email:</lable>
-              <div class="input-box">
-                <input type="text" placeholder="Enter Your Email-Id" name="email" id="email">
-                <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small>Error msg</small>
-              </div>
-              <lable>DOB:</lable>
-              <div class="input-box">
-                <input type="Date" name="birth_date" id="birth_date">
-                <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small>Error msg</small>
-              </div>
-              <lable>Type of user</lable>
-              <div class="input-box">
-                <select class="Users" name="type" id="type">
-                  <option>select</option>
-                  <option>Proprietor</option>
-                  <option>Buyer</option>
-                </select>
-                <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small>Error msg</small>
-              </div>
-              <lable>Contact:</lable>
-              <div class="input-box">
-                <input type="text" name="contact" id="contact">
-                <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small>Error msg</small>
-              </div>
+            <div class="form-control">
               <lable>Password:</lable>
-              <div class="input-box">
-                <input type="password" placeholder="Enter your password" name="password" id="password">
-                <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small>Error msg</small>
-              </div>
-              <lable>Confirm Password:</lable>
-              <div class="input-box">
-                <input type="password" placeholder="Confirm your password" name="confirm-password" id="cpassword">
-                <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small>Error msg</small>
-              </div>
-              <div class="button input-box">
-                <input type="submit" value="Sign Up" name="Registration" id="Registration">
-              </div>
+              <input type="password" name="password" placeholder="Enter your Password" id="login-password">
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error Msg</small>
+            </div>
+            <div class="text"><a href="#">Forgot password?</a></div>
+            <div>
+              <span id="error" style="color:red;"></span>
+            </div>
+            <div class="button input-box">
+              <input type="submit" value="Sign In" name="Registration" id="login-Registration">
+            </div>
 
-              <!-- {% if error %}
+            <!-- {% if error %}
               <div>
                 <span>
                   {{ error }}
@@ -130,20 +65,95 @@
               </div>
               {% endif %} -->
 
-              <div class="text sign-up-text">Already have an account? <label for="flip">Login now</label></div>
+            <div class="text sign-up-text">Don't have an account? <label for="flip">Sigup now</label></div>
 
-            </div>
           </form>
         </div>
+        <div class="signup-form">
+          <div class="title">Signup</div>
+          <form action="http://localhost:5000/login" method="post" class="form" id="registration-form">
+            <div class="form-control">
+              <div>
+                <span id="error_signup" style="color:red;"></span>
+              </div>
+              <lable>Username:</lable>
+              <input type="text" name="username" placeholder="Enter your Fullname" id="username">
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error Msg</small>
+            </div>
+            <div class="form-control">
+              <lable>Email Id:</lable>
+              <input type="Email" name="email" placeholder="Enter your Email" id="email">
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error Msg</small>
+            </div>
+            <div class="form-control">
+              <lable>DOB:</lable>
+              <input type="Date" name="birth_date" id="birth_date">
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error msg</small>
+            </div>
+            <div class="form-control">
+              <lable>Type of user</lable>
+              <select class="Users" name="type" id="type">
+                <option>select</option>
+                <option>Proprietor</option>
+                <option>Buyer</option>
+              </select>
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error msg</small>
+            </div>
+            <div class="form-control">
+              <lable>Contact:</lable>
+              <input type="number" name="contact" placeholder="Enter your Phone number" id="contact">
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error Msg</small>
+            </div>
+            <div class="form-control">
+              <lable>Password:</lable>
+              <input type="password" name="password" placeholder="Enter your Password" id="password">
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error Msg</small>
+            </div>
+            <div class="form-control">
+              <lable>Confirm Password:</lable>
+              <input type="password" name="confirm-password" placeholder="Enter your Password again" id="cpassword">
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error Msg</small>
+            </div>
+            <div class="button input-box">
+              <input type="submit" value="Sign Up" name="Registration" id="Registration">
+            </div>
+
+            <!-- {% if error %}
+              <div>
+                <span>
+                  {{ error }}
+                </span>
+              </div>
+              {% endif %} -->
+
+            <div class="text sign-up-text">Already have an account? <label for="flip">Login now</label></div>
+
+        </div>
+        </form>
       </div>
     </div>
   </div>
+  </div>
 
   <!-- Validating login form through javascript -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <!-- afterwards diwnload the offline library -->
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  
+
   <script type="text/javascript" src="static/javascript/login_validate_2.js"></script>
   <script type="text/javascript" src="static/javascript/login_validate.js"></script>
 </body>
