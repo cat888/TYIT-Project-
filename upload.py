@@ -22,10 +22,10 @@ def upload():
             fileContent = []
             roomType = []
             for field in data["filedata"]:
-                fileContent_value = field["file-content"]
-                find_finalContent = fileContent_value.find('base64,')+len('base64,')
-                final_fileContent = fileContent_value[find_finalContent:]
-                fileContent.append(final_fileContent)
+                # fileContent_value = field["file-content"]
+                # find_finalContent = fileContent_value.find('base64,')+len('base64,')
+                # final_fileContent = fileContent_value[find_finalContent:]
+                fileContent.append(field["file-content"])
                 roomType.append(field["roomType"])
             del data["filedata"]
             data["fileContent"] = fileContent
@@ -125,8 +125,3 @@ def upload():
             return jsonify({"msg": "Property Uploaded Succesfully"})
         # return render_template("UploadProperty.html")
     return render_template("login.html"), 401  # but here we have to redirect to url
-
-
-
-# {file-content: 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD…dyR5R0xG30gAKtQEhamx2N4xMtygA7G2oDlBJm2M4y3IP/9k=', roomType: 'Hall'}
-# {file-content: 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD…v0KhJLsrM0Napgs5o2UONw6oOsnQobyJEdZ2OJSlxqQ7zg//Z', roomType: 'Bedroom1'}

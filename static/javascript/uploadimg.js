@@ -1,6 +1,4 @@
 let fileInput = document.getElementById("fileInput");
-// let rooms = [];
-// let fileContentArray = [];
 let fileName = [];
 let fileType = [];
 var uploadedPropertyDetails = [];
@@ -60,7 +58,6 @@ function image_select(image) {
 
 function preview() {
     debugger
-    // imageContainer.innerHTML = "";
     numOfFiles.textContent = `${fileInput.files.length} Files Selected`;
     var image = fileInput.files
     image_select(image)
@@ -73,6 +70,7 @@ function preview() {
         let figCap = document.createElement("figcaption");
         figCap.innerText = i.name;
         fileName.push(i.name);
+        console.log(i.name)
         fileType.push(i.type);
         // rooms.push(roomType);
         figure.appendChild(figCap);
@@ -90,7 +88,7 @@ function preview() {
             // figure.insertBefore(img, figCap);
         }
         // imageContainer.appendChild(figure);
-        reader.readAsDataURL(i);        
+        reader.readAsDataURL(i);
     }
 }
 

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+
+<head>
+    <title>View 6</title>
+    <meta charset="utf-8">
+    <!-- <title>Sider Menu Bar CSS</title> -->
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+    <!-- Upload json file -->
+    <!-- <script type="text/javascript" src="static/upload/{{ property_records[1] }}/{{ property_records[1] }}.json"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        var property_records = {{ property_records| tojson }};
+        console.log(property_records);
+        // var property_records = {{ property_records| tojson }}
+        // property_records = property_records[0];
+        // console.log(property_records);
+        // var proprietor_id = property_records[1];
+        // console.log(proprietor_id);
+        // json_path = './static/upload/' + proprietor_id + '/' + proprietor_id + '.json';
+        // console.log(json_path);
+
+        // // loading json file using jquery
+        // $.getJSON(json_path, function (json) {
+        //     console.log(json);
+        //     var property = json.property;
+        //     console.log(property);
+        //     var uploaded_property = property[0].uploaded_property;
+        //     console.log(uploaded_property);
+        //     var uploaded_images = uploaded_property.uploaded_images;
+        //     console.log(uploaded_images);
+
+        //     const image = [];
+        //     var ul = document.getElementById("mylist");
+        //     for (i = 0; i < uploaded_images.length; i++) {
+        //         debugger
+        //         console.log(uploaded_images[i].type);
+        //         console.log(uploaded_images[i].image);
+        //         var image_path = "file:///static/upload/" + proprietor_id + "/" + uploaded_images[i].image;
+        //         console.log(image_path);
+
+                // $.get(image_path, function(data) {
+                //     console.log(data);
+                // }, "text");
+                
+                // var li = document.createElement("li");
+                // li.appendChild(document.createTextNode(uploaded_images[i].type));
+                // ul.appendChild(li);
+        //     }
+
+        // })
+
+    </script>
+    <script type="text/javascript" src="static/javascript/viewUpdater.js"></script>
+    <script type="text/javascript" src="static/javascript/dynamicViewMaker.js"></script>
+    <script type="text/javascript" src="static/javascript/H2.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid co1">
+        <input type="checkbox" id="check">
+        <label for="check">
+            <i class="fas fa-bars" id="btn"></i>
+            <i class="fas fa-times" id="cancel"></i>
+        </label>
+        <div class="sidebar">
+            <header>House2</header>
+            <ul class="mylist" id="mylist">
+                <!-- <li><a class="tabItems" data-tab="Hall" data-view="view2">Hall</a></li>
+            <li><a class="tabItems" data-tab="Bedroom1" data-view="view2">Bedroom1</a></li>
+            <li><a class="tabItems" data-tab="Bedroom2" data-view="view2">Bedroom2</a></li>
+            <li><a class="tabItems" data-tab="Kitchen" data-view="view2">Kitchen</a></li>
+            <li><a class="tabItems" data-tab="Bathroom" data-view="view2">Bathroom</a></li> -->
+            </ul>
+        </div>
+    </div>
+    <!--<script type="text/javascript" src="static/javascript/viewUpdater.js"></script>-->
+    <script type="text/javascript" src="https://pchen66.github.io/js/three/three.min.js"></script>
+    <script type="text/javascript" src="https://pchen66.github.io/js/panolens/panolens.min.js"></script>
+    <script type="text/javascript" src="static/javascript/tabItemEvents.js"></script>
+
+</body>
+
+</html>
