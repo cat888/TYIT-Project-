@@ -5,8 +5,8 @@ from server import model
 from user import user
 from upload import upload_file
 from property import dynamic_view
-import sqlite3
-import os
+# from flask_session import Session
+# from flask_cors import CORS
 # from flask_mail import Mail
 
 app = Flask(__name__)
@@ -18,6 +18,10 @@ app.register_blueprint(dynamic_view, url_prefix="")
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=5)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///user.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+## creating an instance of session
+# Session(app)
+# CORS(app)
 
 # create tables
 @app.before_first_request
@@ -34,6 +38,11 @@ if __name__ == '__main__':
     from db import db
     db.init_app(app)
 
+    ## Initialising session
+    # app.secret_key = 'super secret key'
+    # app.config['SESSION_TYPE'] = 'filesystem'
+
+    # sess.init_app(app)
     ## initialising the mail instance
     # from mail import mail
     # mail.init_app(app)

@@ -1,8 +1,9 @@
 from flask import (Blueprint, 
                 render_template, 
                 redirect, 
-                url_for)
-from authenticate import Registration, Upload
+                url_for,
+                session)
+# from authenticate import Registration, Upload
 import sqlite3
 import json
 
@@ -12,6 +13,9 @@ dynamic_view = Blueprint("property", __name__, static_folder="static", template_
 ## Task :- Reduce the redundancy from view and property function
 @dynamic_view.route('/<string:fetch_view>',methods=['POST','GET'])
 def view(fetch_view: str):
+    if not session:
+        return redirect(url_for("user.login"))
+
     if fetch_view == "view1":
         return render_template('view1.html')
     elif fetch_view == "view2":
@@ -23,7 +27,6 @@ def view(fetch_view: str):
     elif fetch_view == "view5":
         return render_template('view5.html')
     else:
-        records = []
         con = sqlite3.connect('user.db')
         cur = con.cursor()
         results = cur.execute('SELECT * FROM property where view = ?', (fetch_view,))
@@ -50,14 +53,18 @@ def view(fetch_view: str):
 
 @dynamic_view.route('/property',methods=['POST','GET'])
 def property():
-    records = []
-    con = sqlite3.connect('user.db')
-    cur = con.cursor()
-    results = cur.execute('SELECT * FROM property')
-    for record in results:
-        records.append(record)
-    return render_template('property.html', property_records=records)
+    if session:
+        records = []
+        con = sqlite3.connect('user.db')
+        cur = con.cursor()
+        results = cur.execute('SELECT * FROM property')
+        for record in results:
+            records.append(record)
+        return render_template('property.html', property_records=records)
+    return redirect(url_for("user.login"))
 
 @dynamic_view.route('/UploadProperty',methods=['POST','GET'])
 def UploadProperty():
-    return render_template('UploadProperty.html')
+    if session:
+        return render_template('UploadProperty.html')
+    return redirect(url_for('user.login'))

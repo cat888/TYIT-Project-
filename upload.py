@@ -14,7 +14,7 @@ upload_file = Blueprint("upload", __name__, static_folder="static", template_fol
 
 @upload_file.route('/upload', methods=['POST','GET'])
 def upload():
-    if session:
+    if session:        
         user = Registration.find_by_email(session['email'])
         if request.method == 'POST':
             proprietor_id = user.id
@@ -41,21 +41,21 @@ def upload():
             del data["roomType"]
 
             # return data
-            property = Upload(**data)
-            result = fetch_property_id(property, proprietor_id)
-            property.proprietor_id = proprietor_id
-            property.property_id = result["property_id"]
-            property.property_no = result["property_no"]
-            property.view = property.fetch_last_record(proprietor_id, "view")
-            if not property.view:
-                property.view = "view"+str(6)
+            property_ = Upload(**data)
+            result = fetch_property_id(property_, proprietor_id)
+            property_.proprietor_id = proprietor_id
+            property_.property_id = result["property_id"]
+            property_.property_no = result["property_no"]
+            property_.view = property_.fetch_last_record(proprietor_id, "view")
+            if not property_.view:
+                property_.view = "view"+str(6)
             else:
-                view = property.view
+                view = property_.view
                 number = int(view[4:]) + 1
-                property.view = "view" + str(number)
+                property_.view = "view" + str(number)
 
             ## save the record to database
-            property.save_to_db()
+            property_.save_to_db()
             
             # fetch images from form and convert it into dict
             images = file_data
@@ -66,16 +66,18 @@ def upload():
             # len_images = len(file_data["fileContent"])
             uploaded_images = []
             for i in range(len(fileName)):
+                print("Inside loop")
                 images_details = {}
                 filename = fileName[i]
-                if filename.endswith('.jpeg'):
+                print(filename)
+                if filename.endswith('.jpeg') or filename.endswith('.jpg'):
                     if not os.path.isdir('static/upload'):
                         os.mkdir('static/upload')
                     if not os.path.isdir('static/upload/'+proprietor_id):
                         os.mkdir('static/upload/'+proprietor_id)
 
                     # now after creating the directory save the images to that directory
-                    new_filename = property.proprietor_id+"_"+"@"+property.property_no+roomType[i]
+                    new_filename = property_.proprietor_id+"_"+"@"+property_.property_no+roomType[i]
                     
                     ## giving error for saving text file
                     # filepath = os.path.join('static/upload/'+proprietor_id, new_filename)
@@ -95,14 +97,16 @@ def upload():
                     ## storing that in list
                     uploaded_images.append(images_details)
                     # print(uploaded_images)
-            
+
+                else:
+                    return jsonify({"msg": "Please select the appropriate Image files"}), 422
             ## save json file to the folder
 
             # 1. Store the data in json format
             details = {}
             uploaded_property = data
             uploaded_property["uploaded_images"] = uploaded_images
-            details["view"] = property.view
+            details["view"] = property_.view
             details["uploaded_property"] = uploaded_property
             # 2. writing to json file
             if not os.path.isfile(f"static/upload/{proprietor_id}/{proprietor_id}.json"):
