@@ -13,8 +13,8 @@ dynamic_view = Blueprint("property", __name__, static_folder="static", template_
 ## Task :- Reduce the redundancy from view and property function
 @dynamic_view.route('/<string:fetch_view>',methods=['POST','GET'])
 def view(fetch_view: str):
-    if not session:
-        return redirect(url_for("user.login"))
+    # if not session:
+    #     return redirect(url_for("user.login"))
 
     if fetch_view == "view1":
         return render_template('view1.html')
@@ -53,18 +53,18 @@ def view(fetch_view: str):
 
 @dynamic_view.route('/property',methods=['POST','GET'])
 def property():
-    if session:
-        records = []
-        con = sqlite3.connect('user.db')
-        cur = con.cursor()
-        results = cur.execute('SELECT * FROM property')
-        for record in results:
-            records.append(record)
-        return render_template('property.html', property_records=records)
-    return redirect(url_for("user.login"))
+    # if session:
+    records = []
+    con = sqlite3.connect('user.db')
+    cur = con.cursor()
+    results = cur.execute('SELECT * FROM property')
+    for record in results:
+        records.append(record)
+    return render_template('property.html', property_records=records)
+    # return redirect(url_for("user.login"))
 
 @dynamic_view.route('/UploadProperty',methods=['POST','GET'])
 def UploadProperty():
-    if session:
+    # if session:
         return render_template('UploadProperty.html')
-    return redirect(url_for('user.login'))
+    # return redirect(url_for('user.login'))

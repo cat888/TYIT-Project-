@@ -15,12 +15,14 @@ app.register_blueprint(user, url_prefix="")
 app.register_blueprint(upload_file, url_prefix="")
 app.register_blueprint(dynamic_view, url_prefix="")
 
+# app.config["SESSION_PERMANENT"] = False
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=5)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///user.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# app.config['SESSION_TYPE'] = 'filesystem'
 
 ## creating an instance of session
-# Session(app)
+# sess = Session()
 # CORS(app)
 
 # create tables
@@ -34,6 +36,7 @@ def index():
 
 if __name__ == '__main__':
     app.secret_key = "012#!APaAjaBoleh)(*^%"
+
     ## initialising the db
     from db import db
     db.init_app(app)
@@ -41,8 +44,8 @@ if __name__ == '__main__':
     ## Initialising session
     # app.secret_key = 'super secret key'
     # app.config['SESSION_TYPE'] = 'filesystem'
+    # # sess.init_app(app)
 
-    # sess.init_app(app)
     ## initialising the mail instance
     # from mail import mail
     # mail.init_app(app)

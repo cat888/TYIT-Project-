@@ -19,6 +19,34 @@
                     }
                 ]
             }
+        },
+        {
+            "view": "view7",
+            "uploaded_property": {
+                "name": "Runwal Gardens",
+                "location": "4 bungalows",
+                "area": "3630",
+                "bhk": 2,
+                "price": "15000000",
+                "uploaded_images": [
+                    {
+                        "type": "Hall",
+                        "image": "1639144313_P3_@R2Hall"
+                    },
+                    {
+                        "type": "Bedroom1",
+                        "image": "1639144313_P3_@R2Bedroom1"
+                    },
+                    {
+                        "type": "Bedroom2",
+                        "image": "1639144313_P3_@R2Bedroom2"
+                    },
+                    {
+                        "type": "Bathroom",
+                        "image": "1639144313_P3_@R2Bathroom"
+                    }
+                ]
+            }
         }
     ]
 }
