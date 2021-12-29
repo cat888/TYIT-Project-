@@ -121,12 +121,18 @@ function myFunction() {
 
     $.ajax({
         type: "POST",
-        url: "http://127.0.0.1:5000/upload",
+        url: "/upload",
+        // data: dataSend,
+        // xhrFields: {withCredentials: true},
         // data: dataSend,
         data: JSON.stringify(dataSend),
         contentType: "application/json",
         dataType: 'json',
-
+        //cors: true ,
+        //secure: true,
+        data: JSON.stringify(dataSend),
+        contentType: "application/json",
+        dataType: 'json',
         success: function (result) {
             window.location.href = "http://127.0.0.1:5000/property";
         },

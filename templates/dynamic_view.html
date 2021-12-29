@@ -12,10 +12,14 @@
     <!-- Upload json file -->
     <!-- <script type="text/javascript" src="static/upload/{{ property_records[1] }}/{{ property_records[1] }}.json"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-        var property_records = {{ property_records| tojson }};
-        console.log(property_records);
-        // var property_records = {{ property_records| tojson }}
+
+    <script type="text/javascript" src="static/javascript/viewUpdater.js"></script>
+    <script type="text/javascript" src="static/javascript/dynamicViewMaker.js"></script>
+    <script type="text/javascript" src="static/javascript/H2.js"></script>
+    
+    
+        
+        <!-- // var property_records = {{ property_records| tojson }}
         // property_records = property_records[0];
         // console.log(property_records);
         // var proprietor_id = property_records[1];
@@ -51,12 +55,10 @@
                 // ul.appendChild(li);
         //     }
 
-        // })
+        // }) -->
 
-    </script>
-    <script type="text/javascript" src="static/javascript/viewUpdater.js"></script>
-    <script type="text/javascript" src="static/javascript/dynamicViewMaker.js"></script>
-    <script type="text/javascript" src="static/javascript/H2.js"></script>
+  
+    
 </head>
 
 <body>
@@ -68,7 +70,7 @@
         </label>
         <div class="sidebar">
             <header>House2</header>
-            <ul class="mylist" id="mylist">
+            <ul>
                 <!-- <li><a class="tabItems" data-tab="Hall" data-view="view2">Hall</a></li>
             <li><a class="tabItems" data-tab="Bedroom1" data-view="view2">Bedroom1</a></li>
             <li><a class="tabItems" data-tab="Bedroom2" data-view="view2">Bedroom2</a></li>
@@ -77,11 +79,36 @@
             </ul>
         </div>
     </div>
-    <!--<script type="text/javascript" src="static/javascript/viewUpdater.js"></script>-->
     <script type="text/javascript" src="https://pchen66.github.io/js/three/three.min.js"></script>
-    <script type="text/javascript" src="https://pchen66.github.io/js/panolens/panolens.min.js"></script>
-    <script type="text/javascript" src="static/javascript/tabItemEvents.js"></script>
-
+<script type="text/javascript" src="https://pchen66.github.io/js/panolens/panolens.min.js"></script>
+<script type="text/javascript" src="static/javascript/tabItemEvents.js"></script>
+    <!--<script type="text/javascript" src="static/javascript/viewUpdater.js"></script>-->
+    <script type="text/javascript">
+        var property_records = {{ property_records| tojson }};
+        var property_info = {{ property_info|tojson }};
+        document.title = property_info['name'];
+        var propertyData = [];
+            for(var i=0;i<property_records.length;i++){
+          
+                var singleData = {};
+                singleData['img'] = property_records[i].src;
+                singleData['type'] = property_records[i].type;
+                singleData['nameData'] = null;
+                singleData['infoSpot'] = null;
+                singleData['listOfLinks'] = null;
+               
+                propertyData.push(singleData);
+                
+            }
+        var view = property_info['view'];
+        makeView(propertyData, view, false)
+        console.log(property_records);
+        console.log(propertyData);
+        console.log(view);
+    </script>
+    <!-- <script type="text/javascript" src="https://pchen66.github.io/js/three/three.min.js"></script>
+    <script type="text/javascript" src="https://pchen66.github.io/js/panolens/panolens.min.js"></script> -->
+    
 </body>
 
 </html>

@@ -24,7 +24,7 @@ ul {
     padding-inline-start: 40px;
 }
 li {
-  float: left;
+  /* float: left; */
   list-style: none;
     display: list-item;
     text-align: -webkit-match-parent;
@@ -590,7 +590,7 @@ a:hover {
     border-radius: .25rem;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
-}
+
 
 .btn.btn-a, .btn.btn-b {
   border-radius: 0;
@@ -824,9 +824,10 @@ a:hover {
 .navbar-toggler {
   position: relative;
 }
-@media (min-width: 992px)
+@media (min-width: 992px){
 .navbar-expand-lg .navbar-toggler {
     display: none;
+}
 }
 .navbar>.container, .navbar>.container-fluid, .navbar>.container-lg, .navbar>.container-md, .navbar>.container-sm, .navbar>.container-xl, .navbar>.container-xxl {
     display: flex;
@@ -1056,7 +1057,7 @@ a:hover {
 /*i {
     font-style: italic;
 }*/
-./*btn.btn-b-n {
+/*.btn.btn-b-n {
     background-color: #2eca6a;
     color: #ffffff;
     border-radius: 0;
@@ -1348,4 +1349,41 @@ a:hover {
   height: 100%;
   z-index: 1;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 27%, rgba(0, 0, 0, 0.65) 90%);
+}
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+.section-footer {
+  padding-top: 60px;
+  margin-top: 60px;
+  background: #f3f3f3;
+}
+
+.section-footer ul {
+  line-height: 2;
+}
+
+.section-footer .item-list-a i {
+  font-size: 18px;
+  padding-right: 4px;
+  color: #2eca6a;
+}
+
+.section-footer .widget-a .w-title-a {
+  margin-bottom: 1rem;
+}
+
+footer {
+  background: #f3f3f3;
+  text-align: center;
+  padding: 30px 0;
+}
+
+footer .copyright-footer {
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+}
+
+footer .credits {
+  font-size: 14px;
 }

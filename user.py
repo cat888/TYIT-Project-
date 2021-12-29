@@ -9,9 +9,17 @@ from authenticate import Registration
 from datetime import datetime
 from create_json import create_json
 from id import user_id
+from flask_cors import CORS, cross_origin
 
 user = Blueprint("user", __name__, static_folder="static", template_folder="templates")
-  
+api_v1_cors_config = {
+    "origins": ["http://127.0.0.1:5000"]
+}
+
+CORS(user, resources={
+    r"/*": api_v1_cors_config
+})
+
 @user.route('/login', methods=['POST','GET'])
 def login():
     if request.method == 'POST':

@@ -47,6 +47,42 @@
                     }
                 ]
             }
+        },
+        {
+            "view": "view8",
+            "uploaded_property": {
+                "name": "Sethya",
+                "location": "4 bungalows",
+                "area": "250",
+                "bhk": 2,
+                "price": "25000000",
+                "uploaded_images": [
+                    {
+                        "type": "Hall",
+                        "image": "1639144313_P3_@R3Hall"
+                    }
+                ]
+            }
+        },
+        {
+            "view": "view9",
+            "uploaded_property": {
+                "name": "Crown Taloja",
+                "location": "4 bungalows",
+                "area": "250",
+                "bhk": 2,
+                "price": "6000000",
+                "uploaded_images": [
+                    {
+                        "type": "Hall",
+                        "image": "1639144313_P3_@R4Hall"
+                    },
+                    {
+                        "type": "Bedroom1",
+                        "image": "1639144313_P3_@R4Bedroom1"
+                    }
+                ]
+            }
         }
     ]
 }

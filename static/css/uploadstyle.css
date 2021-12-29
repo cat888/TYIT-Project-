@@ -54,13 +54,14 @@ body{
 #btn1{
 	background-color:lime;
 	color: #ffffff;
-	font-size: 18px;
+	font-size: 15px;
 	text-align: center;
-	width: 150px;
-	padding: 18px 0;
+	width: 130px;
+	padding: 12px 0;
 	margin: auto;
 	border-radius: 5px;
 	cursor: pointer;
+	float: right;
   }
   input[type="file"]{
 	display: none;
@@ -100,24 +101,24 @@ body{
 	z-index: -1;
 }
 .contact-box{
-	max-width: 1700px;
+	max-width: 1000px;
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	justify-content: center;
 	align-items: center;
-
 	background-color: #fff;
 	box-shadow: 0px 0px 19px 5px rgba(0,0,0,0.19);
 }
 
 .left{
-	background: url('/static/img/bg.jpg') no-repeat center;
+	background: url('/static/img/bgofprop.jpg') no-repeat center;
 	background-size: cover;
 	height: 100%;
 }
 
 .right{
 	padding: 25px 40px;
+	width: 100%;
 }
 
 h2{
@@ -125,7 +126,7 @@ h2{
 	padding: 0 0 10px;
 	margin-bottom: 10px;
 }
-
+i{cursor: pointer;}
 h2:after{
 	content: '';
     position: absolute;
@@ -138,7 +139,7 @@ h2:after{
    
 }
 .img {
-	background: url('/static/img/bg.jpg');
+	background: url('/static/img/bgofprop.jpg');
 	  background-repeat: no-repeat;
 	background-size: auto;
 	background-size:100% 100%;
@@ -154,12 +155,12 @@ h2:after{
 	left: 0;
 	z-index: -1;
   }
-.switch-field {
+  .switch-field {
 	display: flex;
 	margin-bottom: 36px;
 	overflow: hidden;
-
 }
+
 .switch-field input {
 	position: absolute !important;
 	clip: rect(0, 0, 0, 0);
@@ -168,18 +169,20 @@ h2:after{
 	border: 0;
 	overflow: hidden;
 }
+
 .switch-field label {
 	background-color: #e4e4e4;
 	color: rgba(0, 0, 0, 0.6);
 	font-size: 14px;
 	line-height: 1;
 	text-align: center;
-	padding: 8px 16px;
-	margin-right: 10px;
+	padding: 8px 14px;
+	margin-right: -1px;
 	border: 1px solid rgba(0, 0, 0, 0.2);
 	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
 	transition: all 0.1s ease-in-out;
 }
+
 .switch-field label:hover {
 	cursor: pointer;
 }
@@ -196,6 +199,8 @@ h2:after{
 .switch-field label:last-of-type {
 	border-radius: 0 4px 4px 0;
 }
+
+
 
 .field{
 	width: 100%;

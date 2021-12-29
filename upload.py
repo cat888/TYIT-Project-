@@ -9,12 +9,30 @@ from authenticate import Registration, Upload
 from id import fetch_property_id
 import os
 import json
+from flask_cors import CORS, cross_origin
 
 upload_file = Blueprint("upload", __name__, static_folder="static", template_folder="templates")
 
+api_v1_cors_config = {
+    "origins": ["http://127.0.0.1:5000"]
+}
+CORS(upload_file, resources={
+    r"/*": api_v1_cors_config
+})
+
+# @upload_file.after_request
+# def after_request(response):
+#     header = response.headers
+#     header['Access-Control-Allow-Origin'] = '*'
+#     return response
+
 @upload_file.route('/upload', methods=['POST','GET'])
+@cross_origin()
 def upload():
-    if session:        
+    print("Hello how are you")
+    print(session)
+    # return jsonify({"msg": "Successfull"}), 200
+    if session:
         user = Registration.find_by_email(session['email'])
         if request.method == 'POST':
             proprietor_id = user.id
@@ -126,6 +144,8 @@ def upload():
                     json_object = json.dumps(data, indent=4)
                 with open(f"static/upload/{proprietor_id}/{proprietor_id}.json", "w") as file:
                     file.write(json_object)
-            return jsonify({"msg": "Property Uploaded Succesfully"})
+            
+            response = jsonify({"msg": "Property Uploaded Succesfully"})
+            return response
         # return render_template("UploadProperty.html")
-    return render_template("login.html"), 401  # but here we have to redirect to url
+    return redirect(url_for("user.login")), 401  # but here we have to redirect to url

@@ -5,25 +5,34 @@ from server import model
 from user import user
 from upload import upload_file
 from property import dynamic_view
+
 # from flask_session import Session
-# from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 # from flask_mail import Mail
 
 app = Flask(__name__)
+
+api_v1_cors_config = {
+    "origins": ["http://127.0.0.1:5000"]
+}
+CORS(app, resources={
+    r"/*": api_v1_cors_config
+})
+app.config['CORS_HEADERS'] = 'Content-Type'
+
 app.register_blueprint(model, url_prefix="/model")
 app.register_blueprint(user, url_prefix="")
 app.register_blueprint(upload_file, url_prefix="")
 app.register_blueprint(dynamic_view, url_prefix="")
 
 # app.config["SESSION_PERMANENT"] = False
-app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=5)
+app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=5)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///user.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # app.config['SESSION_TYPE'] = 'filesystem'
 
 ## creating an instance of session
 # sess = Session()
-# CORS(app)
 
 # create tables
 @app.before_first_request
@@ -35,6 +44,8 @@ def index():
     return render_template('index.html')
 
 if __name__ == '__main__':
+    
+    ## servide-side session.
     app.secret_key = "012#!APaAjaBoleh)(*^%"
 
     ## initialising the db
