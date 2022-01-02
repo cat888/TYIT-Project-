@@ -6,6 +6,7 @@
     <!-- <title>Sider Menu Bar CSS</title> -->
     <link rel="stylesheet" href="static/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="static/javascript/viewUpdater.js"></script>
     <script type="text/javascript" src="static/javascript/dynamicViewMaker.js"></script>
     <script type="text/javascript" src="static/javascript/H5.js"></script>
@@ -35,7 +36,7 @@
 <!--<script type="text/javascript" src="static/javascript/H5.js"></script>-->
 <script type="text/javascript" src="static/javascript/tabItemEvents.js"></script>
 <script type="text/javascript">
-       <!--readView()-->
+       //readView()
 
         var infoSpot1 = [
         {'positions':[5000.00, 37.81, -2117.77],'tooltipText':'This is Bathroom'},
@@ -57,6 +58,7 @@
         {'img':'static/img/H5/Bathroom.jpg','type':'Bathroom','nameData':'panorama5', 'infoSpot': null,'listOfLinks':[{'valType':'Hall','positions':[-5000.00, -197.55, 1796.78]}]}
         ];
 
+       var view = null;
        makeView(panArr,false)
 </script>
 </body>

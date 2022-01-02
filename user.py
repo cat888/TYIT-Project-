@@ -21,6 +21,7 @@ CORS(user, resources={
 })
 
 @user.route('/login', methods=['POST','GET'])
+@cross_origin()
 def login():
     if request.method == 'POST':
         # request_data = request.form
@@ -67,6 +68,7 @@ def login():
             session['name'] = request_data["username"]
             session['email'] = request_data["email"]
             session['type'] = user.type
+            
             # create a json file after registration of user
             create_json(user)
             return jsonify({"msg":"User Registered"}), 201

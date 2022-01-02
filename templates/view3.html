@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="static/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="static/javascript/viewUpdater.js"></script>
     <script type="text/javascript" src="static/javascript/dynamicViewMaker.js"></script>
     <script type="text/javascript" src="static/javascript/H3.js"></script>
@@ -34,7 +35,7 @@
 <!--<script type="text/javascript" src="static/javascript/H3.js"></script>-->
 <script type="text/javascript" src="static/javascript/tabItemEvents.js"></script>
 <script type="text/javascript">
-       <!--readView()-->
+       //readView()
 
         var infoSpot = [
         {'positions':[5000.00, -266.57, -3148.08],'tooltipText':'This is Kitchen'},
@@ -50,7 +51,8 @@
         {'img':'static/img/H3/bathroom.jpg','type':'Bathroom','nameData':'panorama3', 'infoSpot': null,'listOfLinks':[{'valType':'Hall','positions':[-5000.00, 448.15, -3199.29]}]}
         ];
 
-       makeView(panArr, false)
+       var view = null;
+       makeView(panArr, view, false);
 
 </script>
 </body>

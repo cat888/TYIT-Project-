@@ -43,6 +43,10 @@ def create_tables():
 def index():
     return render_template('index.html')
 
+@app.route('/Contact',methods=['POST','GET'])
+def Contact():
+    return render_template('Contact.html')
+
 if __name__ == '__main__':
     
     ## servide-side session.

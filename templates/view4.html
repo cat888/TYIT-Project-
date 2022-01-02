@@ -6,6 +6,7 @@
     <!-- <title>Sider Menu Bar CSS</title> -->
     <link rel="stylesheet" href="static/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="static/javascript/viewUpdater.js"></script>
     <script type="text/javascript" src="static/javascript/dynamicViewMaker.js"></script>
     <script type="text/javascript" src="static/javascript/H4.js"></script>
@@ -36,7 +37,7 @@
 <!--<script type="text/javascript" src="static/javascript/H4.js"></script>-->
 <script type="text/javascript" src="static/javascript/tabItemEvents.js"></script>
 <script type="text/javascript">
-       <!--readView()-->
+       //readView()
 
         var infoSpot1 = [
         {'positions':[5000.00, -441.44, -3513.45],'tooltipText':'This is Corridor'},
@@ -59,6 +60,7 @@
         {'img':'static/img/H4/corridor.jpg','type':'corridor','nameData':'panorama6', 'infoSpot': infoSpot6,'listOfLinks':[{'valType':'Bedroom1','positions':[5000.00, 32.03, -2783.15]}, {'valType':'Bedroom2','positions':[5000.00, -133.31, 19.58]},{'valType':'Kitchen','positions':[-10.17, -895.18, -5000.00]},{'valType':'Bathroom','positions':[5000.00, -252.43, 2926.40]},{'valType':'Hall','positions':[-789.89, -418.70, 5000.00]}]}
         ];
 
+       var view = null;
        makeView(panArr,false)
 
 </script>

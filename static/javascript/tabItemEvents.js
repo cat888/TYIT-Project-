@@ -16,5 +16,11 @@ function tabEventInitilizer(){
 }
 
 function createDynamicTabs(type, view){
-    $(".sidebar ul").append('<li><a class="tabItems" data-tab="' + type + '" data-view="' + view + '">' + type + '</a></li>');
+    if (view != null)
+    {
+        $(".sidebar ul").append('<li><a class="tabItems" data-tab="' + type + '" data-view="' + view + '">' + type + '</a></li>');
+    }
+    else {
+        $(".sidebar ul").append('<li><a class="tabItems" data-tab="' + type + '" data-view=view3">' + type + '</a></li>')
+    }
 }

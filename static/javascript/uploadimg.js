@@ -119,6 +119,7 @@ function myFunction() {
     dataSend['filedata'] = uploadedPropertyDetails;
     console.log(dataSend);
 
+    
     $.ajax({
         type: "POST",
         url: "/upload",

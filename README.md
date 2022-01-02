@@ -1,3 +1,14 @@
 # TYIT-Project-
 
-Temporary changes will be reflected here
+Frontend :- 
+Html
+Css
+Bootsrap
+Javascript
+Jquery (Ajax call)
+
+Backend :-
+Python Flask
+
+Database :-
+Sqlite

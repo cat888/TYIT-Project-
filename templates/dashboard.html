@@ -2,89 +2,284 @@
 
 {% block head %}
 <title> Property </title>
+
+<!-- Custom fonts for this template-->
+<link href="static/vendor/font-awesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+<link
+  href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+  rel="stylesheet">
+
+<!-- Custom styles for this template-->
+<link href="static/css/sb-admin-2.min.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 {% endblock %}
 
 {% block content %}
+<!-- Begin Page Content -->
+<div class="container-fluid" style="margin-top: 25px;">
+
+  <!-- Page Heading -->
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+        class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+  </div>
+
+  <!-- Content Row -->
+  <div class="row">
+
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-primary shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                Total Property Price</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">
+                <p id="total_property_price">Rs 2,15,000</p>
+              </div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-calendar fa-2x text-gray-300"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-success shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                Earnings 
+              </div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">
+                <p id="earnings">Rs 15,000</p>
+              </div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Balance Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-success shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                Balance </div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">
+                <p id="balance">Rs 2,00,000</p>
+              </div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Earnings (Monthly) Card Example
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Balance
+                            </div>
+                            <div class="row no-gutters align-items-center">
+                                <div class="col-auto">
+                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                </div>
+                                <div class="col">
+                                    <div class="progress progress-sm mr-2">
+                                        <div class="progress-bar bg-info" role="progressbar"
+                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                            aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+    <!-- Pending Requests Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-warning shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                Pending Property</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">
+                <p id="pending_property">2</p>
+              </div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-comments fa-2x text-gray-300"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content Row -->
+  <div class="row">
+
+    <!-- Draw the bar chart -->
+    <div class="col-xs-10 col-sm-6 col-md-6">
+      <div class="card card-style mb-2">
+        <div class="card-body">
+          <div class="chart-container" style="position: relative;">
+            <canvas id="bar_chart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Draw the line chart -->
+    <div class="col-xs-10 col-sm-6 col-md-6">
+      <div class="card card-style mb-2">
+        <div class="card-body">
+          <div class="chart-container" style="position: relative;">
+            <canvas id="line_chart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
+
+
 <main id="main">
 
-    <!-- ======= Intro Single ======= -->
-    <section class="intro-single">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 col-lg-8">
-                    <div class="title-single-box">
-                        <h1 class="title-single">Our Amazing Properties</h1>
-                        <span class="color-text-a"> Properties</span>
-                    </div>
-                </div>
-                <div class="col-md-12 col-lg-4">
-                    <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item">
-                                <a href="/">Home</a>
-                            </li>
-                            <li class="breadcrumb-item active" aria-current="page">
-                                Properties
-                            </li>
-                        </ol>
-                    </nav>
-                </div>
-            </div>
+  <!-- ======= Intro Single ======= -->
+  <section class="intro-single">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-8">
+          <div class="title-single-box">
+            <h1 class="title-single">My Properties</h1>
+            <span class="color-text-a"> Properties</span>
+          </div>
         </div>
-    </section><!-- End Intro Single-->
+        <div class="col-md-12 col-lg-4">
+          <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="/">Home</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Properties
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Intro Single-->
 
-    {% for property in property_records %}
-    <div class="col-md-4">
-        <div class="card-box-a card-shadow">
+  <!-- ======= Property Grid ======= -->
+  <section class="property-grid grid">
+    <div class="container">
+      <div class="row">
+        <!-- <div class="col-sm-12">
+          <div class="grid-option">
+            <form>
+              <select class="custom-select">
+                <option selected="">All</option>
+                <option value="1">New to Old</option>
+                <option value="2">For Rent</option>
+                <option value="3">For Sale</option>
+              </select>
+            </form> 
+          </div>
+        </div> -->
+
+
+        {% for property in property_records %}
+        <div class="col-md-4">
+          <div class="card-box-a card-shadow">
             <div class="img-box-a">
-                <img src="static/img/Property3.jpg" alt="" class="img-a img-fluid">
+              <img src="static/img/Property3.jpg" alt="" class="img-a img-fluid">
             </div>
             <div class="card-overlay">
-                <div class="card-overlay-a-content">
-                    <div class="card-header-a">
-                        <h2 class="card-title-a">
-                            <a href="#">{{ property[3] }}</a>
-                        </h2>
-                    </div>
-                    <div class="card-body-a">
-                        <div class="price-box d-flex">
-                            <span class="price-a"></span>
-                        </div>
-                        <a href="/{{ property[10] }}" class="link-a">Click here to view
-                            <span class="bi bi-chevron-right"></span>
-                        </a>
-                    </div>
-                    <div class="card-footer-a">
-                        <ul class="card-info d-flex justify-content-around">
-                            <li>
-                                <h4 class="card-info-title">Bedroom</h4>
-                                <span>
-                                    {{ property[8] }}
-                                </span>
-                            </li>
-                            <li>
-                                <h4 class="card-info-title">Area</h4>
-                                <span>{{ property[9] }}</span>
-                            </li>
-                            <li>
-                                <h4 class="card-info-title">Price</h4>
-                                <span>{{ property[5] }}</span>
-                            </li>
-
-                        </ul>
-                    </div>
+              <div class="card-overlay-a-content">
+                <div class="card-header-a">
+                  <h2 class="card-title-a">
+                    <a href="#">{{ property[3] }}</a>
+                  </h2>
                 </div>
+                <div class="card-body-a">
+                  <div class="price-box d-flex">
+                    <span class="price-a"></span>
+                  </div>
+                  <a href="/{{ property[10] }}" class="link-a">Click here to view
+                    <span class="bi bi-chevron-right"></span>
+                  </a>
+                </div>
+                <div class="card-footer-a">
+                  <ul class="card-info d-flex justify-content-around">
+                    <li>
+                      <h4 class="card-info-title">Bedroom</h4>
+                      <span>
+                        {{ property[8] }}
+                      </span>
+                    </li>
+                    <li>
+                      <h4 class="card-info-title">Area</h4>
+                      <span>{{ property[9] }}</span>
+                    </li>
+                    <li>
+                      <h4 class="card-info-title">Price</h4>
+                      <span>{{ property[5] }}</span>
+                    </li>
+                    <i class="fas fa-edit" id="{{ property[10] }}" aria-hidden="true" onclick="editproperty(this)"></i>
+                    <i class="fa fa-trash" id="{{ property[10] }}" aria-hidden="true" onclick="delproperty(this)"></i>
+                  </ul>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-    {% endfor %}
+        {% endfor %}
 
+      </div>
     </div>
-    </div>
-    </section><!-- End Property Grid Single-->
+  </section><!-- End Property Grid Single-->
+
+  <script type="text/javascript">
+
+    var property_records = {{ property_records| tojson }};
+    console.log(property_records);
+
+  </script>
+  
+  <script type="text/javascript" src="static/javascript/dashboard.js"></script>
+
 </main><!-- End #main -->
 
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-        class="bi bi-arrow-up-short"></i></a>
+    class="bi bi-arrow-up-short"></i></a>
 
 {% endblock %}

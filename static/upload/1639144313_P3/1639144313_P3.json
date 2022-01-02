@@ -3,10 +3,10 @@
         {
             "view": "view6",
             "uploaded_property": {
-                "location": "4 Bungalow",
-                "area": 250,
-                "bhk": "2",
-                "price": "15000000",
+                "location": "Dombivali West",
+                "area": 2250,
+                "bhk": 2,
+                "price": 15000000.0,
                 "name": "Lodha Palava",
                 "uploaded_images": [
                     {
@@ -16,6 +16,14 @@
                     {
                         "type": "Bedroom1",
                         "image": "1639144313_P3_@R1Bedroom1"
+                    },
+                    {
+                        "type": "Kitchen",
+                        "image": "1639144313_P3_@R1Kitchen"
+                    },
+                    {
+                        "type": "Bathroom",
+                        "image": "1639144313_P3_@R1Bathroom"
                     }
                 ]
             }
@@ -24,10 +32,10 @@
             "view": "view7",
             "uploaded_property": {
                 "name": "Runwal Gardens",
-                "location": "4 bungalows",
-                "area": "3630",
+                "location": "andheri east",
+                "area": 250,
                 "bhk": 2,
-                "price": "15000000",
+                "price": 7500000.0,
                 "uploaded_images": [
                     {
                         "type": "Hall",
@@ -44,6 +52,14 @@
                     {
                         "type": "Bathroom",
                         "image": "1639144313_P3_@R2Bathroom"
+                    },
+                    {
+                        "type": "Kitchen",
+                        "image": "1639144313_P3_@R2Kitchen"
+                    },
+                    {
+                        "type": "Others",
+                        "image": "1639144313_P3_@R2Others"
                     }
                 ]
             }
@@ -53,33 +69,25 @@
             "uploaded_property": {
                 "name": "Sethya",
                 "location": "4 bungalows",
-                "area": "250",
-                "bhk": 2,
-                "price": "25000000",
+                "area": "2225",
+                "bhk": 1,
+                "price": 25000000,
                 "uploaded_images": [
                     {
                         "type": "Hall",
                         "image": "1639144313_P3_@R3Hall"
-                    }
-                ]
-            }
-        },
-        {
-            "view": "view9",
-            "uploaded_property": {
-                "name": "Crown Taloja",
-                "location": "4 bungalows",
-                "area": "250",
-                "bhk": 2,
-                "price": "6000000",
-                "uploaded_images": [
-                    {
-                        "type": "Hall",
-                        "image": "1639144313_P3_@R4Hall"
                     },
                     {
-                        "type": "Bedroom1",
-                        "image": "1639144313_P3_@R4Bedroom1"
+                        "type": "Bedroom",
+                        "image": "1639144313_P3_@R3Bedroom"
+                    },
+                    {
+                        "type": "Kitchen",
+                        "image": "1639144313_P3_@R3Kitchen"
+                    },
+                    {
+                        "type": "Bathroom",
+                        "image": "1639144313_P3_@R3Bathroom"
                     }
                 ]
             }

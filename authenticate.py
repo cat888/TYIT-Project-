@@ -81,6 +81,9 @@ class Upload(db.Model):
         db.session.delete(self)
         db.session.commit()
     
+    def update_to_db(self):
+        db.session.commit()
+    
     @classmethod
     def find_by_name(cls, name):
         return Upload.query.filter_by(name=name).first()
@@ -88,6 +91,10 @@ class Upload(db.Model):
     @classmethod
     def find_by_property_id(cls, property_id):
         return Upload.query.filter_by(property_id = property_id).first()
+    
+    @classmethod
+    def find_by_view(cls, view):
+        return Upload.query.filter_by(view = view).first()
     
     @classmethod
     def find_by_category(cls, category):

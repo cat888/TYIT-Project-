@@ -29,9 +29,6 @@ CORS(upload_file, resources={
 @upload_file.route('/upload', methods=['POST','GET'])
 @cross_origin()
 def upload():
-    print("Hello how are you")
-    print(session)
-    # return jsonify({"msg": "Successfull"}), 200
     if session:
         user = Registration.find_by_email(session['email'])
         if request.method == 'POST':

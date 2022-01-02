@@ -16,8 +16,9 @@
 
   <!-- Template Main CSS File -->
   <link href="static/css/indexcss.css" rel="stylesheet">
-      <link href="static/css/Propertycss.css" rel="stylesheet">
-       <link href="static/css/style.css" rel="stylesheet">
+  <link href="static/css/Propertycss.css" rel="stylesheet">
+  <link href="static/css/style.css" rel="stylesheet">
+  <link href="static/css/contactstyle.css" rel="stylesheet">
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r69/three.min.js"></script>
 
@@ -158,7 +159,7 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="">Contact</a>
+            <a class="nav-link " href="/Contact">Contact</a>
           </li>
          
           <!-- <li class="nav-item">
@@ -173,16 +174,22 @@
                 <a class="dropdown-item " href="/logout">Logout</a>
             </div>
             </li>
-            <li>
+            <!-- <li>
               <div>
                 <a class="dropdown-item " href="#">{{ session['name'] }}</a>
             </div>
-            </li>
+            </li> -->
             {% else %}
             <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="static/img/images.png" style="height:30px;width:30px;"></a>
             <div class="dropdown-menu">
                 <a class="dropdown-item " href="/login">Login</a>
+          </li>
+          {% endif %}
+
+          {% if session['type'] == "Proprietor" %}
+          <li class="nav-item">
+            <a class="nav-link " href="/myproperty">My Property</a>
           </li>
           {% endif %}
           
