@@ -33,27 +33,29 @@ def upload():
         user = Registration.find_by_email(session['email'])
         if request.method == 'POST':
             proprietor_id = user.id
-            data = request.get_json()
+            data = request.get_json()            
             fileContent = []
             roomType = []
+            thumbnail_name = []
+            thumbnail = data.get("thumbnail_image")
             for field in data["filedata"]:
-                # fileContent_value = field["file-content"]
-                # find_finalContent = fileContent_value.find('base64,')+len('base64,')
-                # final_fileContent = fileContent_value[find_finalContent:]
                 fileContent.append(field["file-content"])
                 roomType.append(field["roomType"])
             del data["filedata"]
-            data["fileContent"] = fileContent
-            data["roomType"] = roomType
+            # data["fileContent"] = fileContent
+            # data["roomType"] = roomType
             file_data = {}
             file_data["fileName"] = data["fileName"]
             file_data["fileType"] = data["fileType"]
-            file_data["fileContent"] = data["fileContent"]
-            file_data["roomType"] = data["roomType"]
+            file_data["fileContent"] = fileContent
+            file_data["roomType"] = roomType
             del data["fileName"]
             del data["fileType"]
-            del data["fileContent"]
-            del data["roomType"]
+            
+            if thumbnail:
+                del data["thumbnail_image"]
+            # del data["fileContent"]
+            # del data["roomType"]
 
             # return data
             property_ = Upload(**data)
@@ -78,18 +80,34 @@ def upload():
             fileType = file_data["fileType"]
             fileContent = file_data["fileContent"]
             roomType = file_data["roomType"]
+            # print(len(roomType))
+            # print(len(fileName))
             # len_images = len(file_data["fileContent"])
             uploaded_images = []
-            for i in range(len(fileName)):
+            for i in range(len(roomType)):
                 print("Inside loop")
                 images_details = {}
                 filename = fileName[i]
                 print(filename)
                 if filename.endswith('.jpeg') or filename.endswith('.jpg'):
+                    # If static/upload folder is not there then it will create the folder
                     if not os.path.isdir('static/upload'):
                         os.mkdir('static/upload')
+
                     if not os.path.isdir('static/upload/'+proprietor_id):
                         os.mkdir('static/upload/'+proprietor_id)
+
+                    ## Store the thumbnail in file, thus check if thumbnail is present and i==0 means if thumbnail is present then it will save 
+                    # the source of thumbnail to file but only at the first time and after that i will increase and thus loop will not executes 
+                    if thumbnail and i==0:
+                        ## giving new name to thumbnail
+                        new_thumbnail_name = property_.proprietor_id+"_"+"@"+property_.property_no+"thumbnail"
+                        thumbnail_name.append(new_thumbnail_name)
+                        ## save the thumbnail to file
+                        text_file = open(f'static/upload/{proprietor_id}/{new_thumbnail_name}', "w")
+                        text_file.write(thumbnail)
+                        text_file.close()
+                    
 
                     # now after creating the directory save the images to that directory
                     new_filename = property_.proprietor_id+"_"+"@"+property_.property_no+roomType[i]
@@ -98,7 +116,7 @@ def upload():
                     # filepath = os.path.join('static/upload/'+proprietor_id, new_filename)
                     # image = fileContent[i]
                     # image.save(filepath)
-                    
+                        
                     ## save text file
                     image = fileContent[i]
                     text_file = open(f'static/upload/{proprietor_id}/{new_filename}', "w")
@@ -118,6 +136,7 @@ def upload():
             ## save json file to the folder
 
             # 1. Store the data in json format
+            data["thumbnail"] = thumbnail_name[0]
             details = {}
             uploaded_property = data
             uploaded_property["uploaded_images"] = uploaded_images
@@ -142,7 +161,5 @@ def upload():
                 with open(f"static/upload/{proprietor_id}/{proprietor_id}.json", "w") as file:
                     file.write(json_object)
             
-            response = jsonify({"msg": "Property Uploaded Succesfully"})
-            return response
-        # return render_template("UploadProperty.html")
+            return jsonify({"msg": "Property Uploaded Succesfully"}), 200        
     return redirect(url_for("user.login")), 401  # but here we have to redirect to url

@@ -221,7 +221,11 @@
         <div class="col-md-4">
           <div class="card-box-a card-shadow">
             <div class="img-box-a">
-              <img src="static/img/Property3.jpg" alt="" class="img-a img-fluid">
+              {% if property[11] %}
+                  <img src="{{ property[11] }}" alt="" class="img-a img-fluid">
+              {% else %}
+                  <img src="static/img/Property3.jpg" alt="" class="img-a img-fluid">
+              {% endif %}
             </div>
             <div class="card-overlay">
               <div class="card-overlay-a-content">

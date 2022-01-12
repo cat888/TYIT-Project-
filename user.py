@@ -4,14 +4,23 @@ from flask import (Blueprint, json,
                     session, 
                     redirect, 
                     url_for,
-                    jsonify)
+                    jsonify,
+                    abort)
 from authenticate import Registration
 from datetime import datetime
 from create_json import create_json
 from id import user_id
 from flask_cors import CORS, cross_origin
 
+## For sign in with google
+# from google_auth_oauthlib.flow import Flow
+# import os
+# import pathlib
+
+# Creating the object of Blueprint through Blueprint Class 
 user = Blueprint("user", __name__, static_folder="static", template_folder="templates")
+
+## Thus to enable the cross site cookies from origin http://127.0.0.1:5000
 api_v1_cors_config = {
     "origins": ["http://127.0.0.1:5000"]
 }
@@ -19,6 +28,7 @@ api_v1_cors_config = {
 CORS(user, resources={
     r"/*": api_v1_cors_config
 })
+
 
 @user.route('/login', methods=['POST','GET'])
 @cross_origin()
@@ -35,6 +45,7 @@ def login():
             email = request_data['email']
             password = request_data['password']
             user = Registration.find_by_email(email)
+            # select * from registration where email=email
             if user:
                 if user.password == password:
                     session.permanent = True # setting the session as permanent
@@ -74,6 +85,7 @@ def login():
             return jsonify({"msg":"User Registered"}), 201
     
     return render_template("login.html")
+    
 
 @user.route('/delete', methods=['DELETE'])
 def delete_user():    

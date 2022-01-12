@@ -24,14 +24,14 @@
 
   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      
 
       {% block head %}
 
       {% endblock %}
 	</head>
-<body>
+  <body onload="myloader()">
+  <div id="loading"></div>
 <!-- ======= Property Search Section ======= -->
   <div class="click-closed"></div>
   <!--/ Form Search Star /-->
@@ -45,82 +45,51 @@
         <div class="row">
           <div class="col-md-12 mb-2">
             <div class="form-group">
-              <label class="pb-2" for="Type">Keyword</label>
-              <input type="text" class="form-control form-control-lg form-control-a" placeholder="Keyword">
+              <label class="pb-2" for="landmark">Landmark</label>
+              <input type="text" id="landmark" class="form-control form-control-lg form-control-a" placeholder="Landmark">
             </div>
           </div>
           <div class="col-md-6 mb-2">
             <div class="form-group mt-3">
-              <label class="pb-2" for="Type">Type</label>
-              <select class="form-control form-select form-control-a" id="Type">
-                <option>All Type</option>
-                <option>For Rent</option>
-                <option>For Sale</option>
-                <option>Open House</option>
-              </select>
-            </div>
-          </div>
-          <div class="col-md-6 mb-2">
-            <div class="form-group mt-3">
-              <label class="pb-2" for="city">Locality</label>
-              <select class="form-control form-select form-control-a" id="city">
-                <option>Andheri</option>
-                <option>Bandra</option>
+              <label class="pb-2" for="location">Locality</label>
+              <input type="text" name="location" id="location" class="form-control  form-control-a" id="location">
+              <!-- <select class="form-control form-select form-control-a" id="location">
+                <option>andheri east</option>
+                <option>bandra east</option>
                 <option>Dadar</option>
                 <option>Vasai</option>
                 <option>Goregaon</option>
-              </select>
+              </select> -->
             </div>
           </div>
           <div class="col-md-6 mb-2">
             <div class="form-group mt-3">
               <label class="pb-2" for="bedrooms">Bedrooms</label>
-              <select class="form-control form-select form-control-a" id="bedrooms">
-                <option>Any</option>
+              <select class="form-control form-select form-control-a" id="bhk">
                 <option>01</option>
                 <option>02</option>
                 <option>03</option>
+                <option>04</option>
+                <option>05</option>
               </select>
             </div>
           </div>
           <div class="col-md-6 mb-2">
             <div class="form-group mt-3">
-              <label class="pb-2" for="garages">Area</label>
-              <input type="text" name="Areaname" id="garages" class="form-control  form-control-a">
-<!--              <select class="form-control form-select form-control-a" id="garages">-->
-<!--                <option>Any</option>-->
-<!--                <option>1</option>-->
-<!--                <option>2</option>-->
-<!--                <option>3</option>-->
-<!--                <option>4</option>-->
-<!--              </select>-->
+              <label class="pb-2" for="area">Area (in Sqft)</label>
+              <input type="text" name="Areaname" id="area-name" class="form-control  form-control-a" id="area" disabled>
+              <input type="range" id="area" name="Sqft" min="250" value="250" step="5" max="12000" onclick="changeArea()">
             </div>
           </div>
           <div class="col-md-6 mb-2">
             <div class="form-group mt-3">
-              <label class="pb-2" for="bathrooms">Bathrooms</label>
-              <select class="form-control form-select form-control-a" id="bathrooms">
-                <option>Any</option>
-                <option>01</option>
-                <option>02</option>
-                <option>03</option>
-              </select>
-            </div>
-          </div>
-          <div class="col-md-6 mb-2">
-            <div class="form-group mt-3">
-              <label class="pb-2" for="price">Min Price</label>
-              <select class="form-control form-select form-control-a" id="price">
-                <option>Unlimite</option>
-                <option>100,000</option>
-                <option>150,000</option>
-                <option>200,000</option>
-                <option>250,000</option>
-              </select>
+              <label class="pb-2" for="price">Price</label>
+              <input type="text" name="price_input" id="price_input" value="13750000" class="form-control  form-control-a" disabled>
+              <input type="range" min="2500000" max="25000000" step="100000" id="price" name="price" onchange="changeRange()">
             </div>
           </div>
           <div class="col-md-12">
-            <button type="submit" class="btn btn-b">Search Property</button>
+            <button type="button" class="btn btn-b" id="search" value="Search" onclick="searchProperty()">Search</button>
           </div>
         </div>
       </form>
@@ -134,7 +103,7 @@
         <span></span>
         <span></span>
       </button>
-      <a class="navbar-brand text-brand" href="index.html">Virtual<span class="color-b">Estate</span></a>
+      <a class="navbar-brand text-brand" href="/">Virtual<span class="color-b">Estate</span></a>
 
       <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
         <ul class="navbar-nav">
@@ -144,7 +113,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link " href="about.html">About</a>
+            <a class="nav-link " href="/about">About</a>
           </li>
 
           <li class="nav-item dropdown">
@@ -235,10 +204,10 @@
           <div class="w-footer-a">
             <ul class="list-unstyled">
               <li class="color-a">
-                <span class="color-text-a">Phone .</span> +91 54 356 945234
+                <span class="color-text-a">Phone .</span> +91 54356 94523
               </li>
               <li class="color-a">
-                <span class="color-text-a">Email .</span> company@gmail.com
+                <span class="color-text-a">Email .</span> virtualestate@gmail.com
               </li>
             </ul>
           </div>
@@ -256,19 +225,19 @@
                   <i class="bi bi-chevron-right"></i> <a href="#">Home</a>
                 </li>
                 <li class="item-list-a">
-                  <i class="bi bi-chevron-right"></i> <a href="#">Property</a>
+                  <i class="bi bi-chevron-right"></i> <a href="/property">Property</a>
                 </li>
                 <li class="item-list-a">
-                  <i class="bi bi-chevron-right"></i> <a href="#">AboutUs</a>
+                  <i class="bi bi-chevron-right"></i> <a href="/about">AboutUs</a>
                 </li>
                 <li class="item-list-a">
-                  <i class="bi bi-chevron-right"></i> <a href="#">ContactUs</a>
+                  <i class="bi bi-chevron-right"></i> <a href="/contact">ContactUs</a>
                 </li>
                 <li class="item-list-a">
                   <i class="bi bi-chevron-right"></i> <a href="#">VirtualViews</a>
                 </li>
                 <li class="item-list-a">
-                  <i class="bi bi-chevron-right"></i> <a href="#">PropertyGuide</a>
+                  <i class="bi bi-chevron-right"></i> <a href="/model">PropertyGuide</a>
                 </li>
               </ul>
             </div>
@@ -353,5 +322,19 @@
         <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="static/vendor/swiper/swiper-bundle.min.js"></script>
         <script src="static/javascript/main1.js"></script>
+  
+    <!--Linking scripting file-->
+    <script src="static/javascript/base.js" type="text/javascript"></script>
+
+    <!-- Preloader -->
+    <script>
+      var preloader = document.getElementById("loading");
+      
+  
+      function myloader(){
+        preloader.style.display = 'none';
+      };
+    </script>
+
 </body>
 </html>

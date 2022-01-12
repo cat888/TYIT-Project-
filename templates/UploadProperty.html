@@ -15,10 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="/static/css/uploadimg.css"> -->
-
-
-
+    
 </head>
 
 <body>
@@ -52,8 +49,17 @@
 
                         </div>
                     </div>
-                    <p>Name</p>
-                    <input type="text" class="field" placeholder="Name" name="name" id="nameClick">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p>Name</p>
+                            <input type="text" class="field" placeholder="Name" name="name" id="nameClick">
+                        </div>
+                        <div class="col-sm-6">
+                            <p>Landmark</p>
+                            <input type="text" class="field" placeholder="Landmark" name="Landmark" id="landClick">
+                        </div>
+                    </div>
+
 
                     <div class="row">
                         <div class="col-sm-6">
@@ -90,6 +96,7 @@
                                     <option>Bedroom5</option>
                                     <option>Kitchen</option>
                                     <option>Bathroom</option>
+                                    <option>Others</option>
                                 </select>
                             </div>
                         </div>
@@ -97,32 +104,24 @@
                             <p>Choose Images</p>
                             <input type="file" name="Image" id="fileInput" multiple="" class="d-none"
                                 onchange="preview()">
-                            <i class="fas fa-upload" onclick="document.getElementById('fileInput').click()"></i>
+                            <i class="fas fa-upload" onclick="document.getElementById('fileInput').click()" ></i>
                             <!-- <button class="btn btn-sm btn-primary" type="button" onclick="document.getElementById('fileInput').click()">Choose Images</button> -->
                             <p id="num-of-files">No Files Chosen</p>
 
                         </div>
                     </div>
-                    <div id="images">
-
+                   <div class="row">
+                     <div class="col-sm-6">
+                        <p>Add Image Thumbnail</p>
+                        <input type="file" name="Thumbnel" id="fileInput1" multiple="" class="d-none"
+                            onchange="preview1()">
+                        <i class="fas fa-upload" onclick="document.getElementById('fileInput1').click()" ></i>
+                          <!-- <p id="num-of-files">No Files Chosen</p>  -->
+                     </div>
+                     <div class="col-sm-6">
+                        <input type="submit" value="Save Property" name="submit" id="btn1" onclick="myFunction()">
+                     </div>
                     </div>
-                    <!-- For image preview -->
-                    <!-- <span id="container">
-
-                    </span> -->
-                    <!-- ------  -->
-                    <!-- <input type="file" id="file-input" class="field" accept=".jpeg,.jpg" onchange="preview()" multiple>
-                    <label for="file-input">
-                        <i class="fas fa-upload"></i>
-                    </label>
-                    <p id="num-of-files">No Files Chosen</p>
-                    <div id="images"></div> -->
-
-                    <!-- Multiple preview -->
-
-
-                    <input type="submit" value="Save Property" name="submit" id="btn1" onclick="myFunction()">
-                    <!-- <button class="btn" onclick="btnClicked()">Begin To Post Your Property</button> -->
                 </form>
 
             </div>

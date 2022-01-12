@@ -53,14 +53,58 @@ else {
 total_property_price.innerHTML = "Rs " + total_price;
 pending_property.innerHTML = no_pending_property;
 
+// Fetching property_name and property_count dynamically
+var location_info = {};
+var location_name = [];
+var single_property_record = [];
+for (var i=0; i<property_records.length; i++) {
+  debugger
+  single_property_record = property_records[i];
+  location_name.push(single_property_record[4]);
+  location_info[single_property_record[4]] = 1;
+  for (var j=0; j<location_name.length; j++) {
+    if (i==j) {
+      continue;
+    }
+    else {
+      if (single_property_record[4] == location_name[j]) {
+        var count = location_info[single_property_record[4]];
+        count = count + 1;
+        location_info[single_property_record[4]] = count;
+    }
+  }
+  }
+}
+console.log(location_info);
+
+// Appending keys and values in list
+let property_loc = [];
+let property_count = [];
+for([key, val] of Object.entries(location_info)) {
+  property_loc.push(key);
+  property_count.push(val);
+}
+console.log(property_loc);
+console.log(property_count);
+
+// Adding extra details so that bar chart look nice
+property_loc.push("ambernath east");
+property_loc.push("dadar east");
+property_loc.push("malad east");
+property_loc.push("kandivali west");
+property_count.push(10);
+property_count.push(15);
+property_count.push(20);
+property_count.push(10);
+
 
 // Draw the bar chart
 var ctx = document.getElementById('bar_chart').getContext('2d');
 const data = {
-  labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+  labels: property_loc,
   datasets: [{
-    label: 'My First Dataset',
-    data: [12, 19, 3, 5, 2, 3],
+    label: 'Location Wise Properties',
+    data: property_count,
     backgroundColor: [
       'rgba(255, 99, 132, 0.2)',
       'rgba(54, 162, 235, 0.2)',

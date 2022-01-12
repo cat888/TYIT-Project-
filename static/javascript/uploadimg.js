@@ -1,7 +1,10 @@
 let fileInput = document.getElementById("fileInput");
+let fileInput1= document.getElementById("fileInput1");
 let fileName = [];
 let fileType = [];
 var uploadedPropertyDetails = [];
+var thumbnail;
+let landmark = document.getElementById("Landmark");
 let numOfFiles = document.getElementById("num-of-files");
 let roomLocation = document.getElementById("uiLocations");
 let area = document.getElementById("sqft");
@@ -92,6 +95,44 @@ function preview() {
     }
 }
 
+function preview1(){
+    debugger
+    // numOfFiles.textContent = `${fileInput.files.length} Files Selected`;
+    var image = fileInput1.files
+
+
+    for (i of image) {
+        debugger
+        // var roomType = $('.Users').val();
+        let reader = new FileReader();
+        let figure = document.createElement("figure");
+        let figCap = document.createElement("figcaption");
+        figCap.innerText = i.name;
+        // rooms.push(roomType);
+        figure.appendChild(figCap);
+        
+            fileName.push(i.name);
+            console.log(i.name)
+            fileType.push(i.type);
+            reader.onload = () => {
+                debugger
+                // var temporaryFiles1 = {};
+                fileContent1 = reader.result;
+                // fileContentArray.push(fileContent); // error in this
+                thumbnail = fileContent1;
+                // temporaryFiles['roomType'] = roomType;
+                // uploadedPropertyDetails1.push(temporaryFiles1);
+
+                // let img = document.createElement("img");
+                // img.setAttribute("src", reader.result);
+                // figure.insertBefore(img, figCap);
+            }
+            // imageContainer.appendChild(figure);
+            reader.readAsDataURL(i);
+            image_select(image)
+        }
+    }
+
 function myFunction() {
     debugger
     // if (roomType === 'select' && (fileName == undefined || fileType == undefined || fileContent == undefined)) {
@@ -110,6 +151,7 @@ function myFunction() {
 
     var dataSend = {};
     dataSend['name'] = nameClick.value;
+    dataSend['landmark'] = landmark.value;
     dataSend['location'] = roomLocation.value;
     dataSend['area'] = changeRange();
     dataSend['bhk'] = getBHKValue();
@@ -117,6 +159,7 @@ function myFunction() {
     dataSend['fileName'] = fileName;
     dataSend['fileType'] = fileType;
     dataSend['filedata'] = uploadedPropertyDetails;
+    dataSend['thumbnail_image']= thumbnail;
     console.log(dataSend);
 
     
@@ -135,7 +178,7 @@ function myFunction() {
         contentType: "application/json",
         dataType: 'json',
         success: function (result) {
-            window.location.href = "http://127.0.0.1:5000/property";
+            window.location.href = "http://127.0.0.1:5000/myproperty";
         },
         error: function (xhr, status, error) {
             alert("Your File Uploaded Failed....");
