@@ -1,0 +1,25 @@
+h6{
+    color: blue;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 8px;
+}
+p{
+    color:black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+}
+.img2{
+    height: 38px;
+    width: 38px;
+    /* padding-bottom: 15px; */
+    /* margin-bottom: 28px; */
+}
+video{
+    /* margin-left: 270px; */
+    border-radius: 10px;
+}
+div.center {
+    text-align: center;
+  }
+ 

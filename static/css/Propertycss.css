@@ -94,7 +94,7 @@
 .price-a {
   color: #ffffff;
   padding: .6rem .8rem;
-  border: 2px solid #2eca6a;
+  border: 2px solid #488AC7;
   border-radius: 50px;
   text-transform: uppercase;
   letter-spacing: 0.030em;
@@ -104,7 +104,7 @@
   width: 100%;
   position: absolute;
   z-index: 2;
-  background-color: #2eca6a;
+  background-color: #488AC7;
 }
 
 .card-info {

@@ -92,6 +92,92 @@
                     }
                 ]
             }
+        },
+        {
+            "view": "view9",
+            "uploaded_property": {
+                "name": "Gokuldham Center",
+                "landmark": "Railway Station",
+                "location": "dombivali east",
+                "area": "6020",
+                "bhk": 2,
+                "price": "25000000",
+                "thumbnail": "1639144313_P3_@R4thumbnail",
+                "uploaded_images": [
+                    {
+                        "type": "Hall",
+                        "image": "1639144313_P3_@R4Hall"
+                    },
+                    {
+                        "type": "Bedroom1",
+                        "image": "1639144313_P3_@R4Bedroom1"
+                    },
+                    {
+                        "type": "Kitchen",
+                        "image": "1639144313_P3_@R4Kitchen"
+                    },
+                    {
+                        "type": "Bathroom",
+                        "image": "1639144313_P3_@R4Bathroom"
+                    }
+                ]
+            }
+        },
+        {
+            "view": "view10",
+            "uploaded_property": {
+                "name": "Wankhede Center",
+                "landmark": "",
+                "location": "ghatkopar east",
+                "area": "3995",
+                "bhk": 2,
+                "price": "45000000",
+                "thumbnail": "1639144313_P3_@R5thumbnail",
+                "uploaded_images": [
+                    {
+                        "type": "Hall",
+                        "image": "1639144313_P3_@R5Hall"
+                    },
+                    {
+                        "type": "Bedroom1",
+                        "image": "1639144313_P3_@R5Bedroom1"
+                    },
+                    {
+                        "type": "Bedroom2",
+                        "image": "1639144313_P3_@R5Bedroom2"
+                    },
+                    {
+                        "type": "Kitchen",
+                        "image": "1639144313_P3_@R5Kitchen"
+                    },
+                    {
+                        "type": "Bathroom",
+                        "image": "1639144313_P3_@R5Bathroom"
+                    }
+                ]
+            }
+        },
+        {
+            "view": "view11",
+            "uploaded_property": {
+                "name": "Sethya",
+                "landmark": "",
+                "location": "badlapur east",
+                "area": "4615",
+                "bhk": 2,
+                "price": "25000000",
+                "thumbnail": "1639144313_P3_@R6thumbnail",
+                "uploaded_images": [
+                    {
+                        "type": "Hall",
+                        "image": "1639144313_P3_@R6Hall"
+                    },
+                    {
+                        "type": "Bedroom1",
+                        "image": "1639144313_P3_@R6Bedroom1"
+                    }
+                ]
+            }
         }
     ]
 }

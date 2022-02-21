@@ -89,13 +89,7 @@ console.log(property_count);
 
 // Adding extra details so that bar chart look nice
 property_loc.push("ambernath east");
-property_loc.push("dadar east");
-property_loc.push("malad east");
-property_loc.push("kandivali west");
-property_count.push(10);
-property_count.push(15);
 property_count.push(20);
-property_count.push(10);
 
 
 // Draw the bar chart
@@ -184,3 +178,27 @@ function editproperty(property) {
   window.location.href = "/editproperty/"+view;
 
 }
+
+// --------------------
+// function editproperty(property) {
+
+//   // send the put request
+//   debugger;
+//   var view = property.id; // ex:- view 6
+//   var url;
+//   for(i=0; i < property_records.length; i++)
+//   {
+//     console.log(property_records[i]);
+//     single_property = property_records[i];
+//     if (view == single_property[10])
+//     {
+//       console.log(single_property[10])
+//       proprietor_id = single_property[1];
+//       url = proprietor_id+"_"+view;
+//     }
+//   }
+//   console.log(view);
+
+//   window.location.href = "/editproperty/"+url;
+
+// }

@@ -4,255 +4,295 @@
 {% block content %}
 
 
-  <div class="container" style="margin-top: -20px; position: relative;">
-    <span>
+
+<div class="container" style="margin-top: -20px; position: relative;">
+  <span>
     <script src="static/javascript/panaroma.js"></script>
-      <!--<button class="btn-style-two" style="position: absolute; z-index: 2; margin: 100px 490px">Click Here</button>-->
-      <!--<button class="btn-style-two" style="position: absolute; z-index: 2; margin: 100px 490px">Click Here</button>-->
-    </span>
+    <!--<button class="btn-style-two" style="position: absolute; z-index: 2; margin: 100px 490px">Click Here</button>-->
+    <!--<button class="btn-style-two" style="position: absolute; z-index: 2; margin: 100px 490px">Click Here</button>-->
+  </span>
+</div>
+<div class="text-box">
+  <h1>Welcome to <span class="auto-input"></span></h1>
+  <div class="row">
+  <div class="col-md-6">
+    <img src="/static/img/1-2.jpg" style="width: 70%;height: 100%;border-radius: 20px;">
+  </div>
+  <div class="col-md-6">
+    <p style="text-align: left;">
+      Real estate is real property that consists of land and improvements,
+      which include buildings. Examples include
+      property, plant, and equipment. Tangible assets are, fixtures, roads,
+      structures, and utility systems. Property
+      rights give a title of ownership to the land, improvements,
+      and natural resources such as ... <br>
+      <br>
+      Virtual real estate investing simplifies the process for owning 
+      property outside of an investor's local market. Investing in real 
+      estate virtually may provide investors with a wider variety of investment 
+      opportunities to help increase potential returns.
+
+      Virtual real estate investing simplifies the process for owning property outside
+       of an investor's local market. Investing in real estate virtually may provide 
+       investors with a wider variety of investment opportunities to help increase 
+       potential returns.
+
+      <h3> So What are you waiting for ?</h3>
+    </p>
+  </div>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script>
+  let typed = new Typed(".auto-input", {
+    strings: ["VIRTUAL ESTATE", "The Real Estate Virtual Tour"],
+    typeSpeed: 100,
+    backSpeed: 100,
+    loop: true
+  })
+</script>
+<!-- ======= Latest Properties Section ======= -->
+<section class="section-property section-t8">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="title-wrap d-flex justify-content-between">
+          <div class="title-box">
+            <h2 class="title-a">Latest Properties</h2>
+          </div>
+          <div class="title-link">
+            <a href="/property">All Property
+              <span class="bi bi-chevron-right"></span>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
- <!-- ======= Latest Properties Section ======= -->
-  <section class="section-property section-t8">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="title-wrap d-flex justify-content-between">
-              <div class="title-box">
-                <h2 class="title-a">Latest Properties</h2>
-              </div>
-              <div class="title-link">
-                <a href="/property
-">All Property
-                  <span class="bi bi-chevron-right"></span>
-                </a>
+
+    <div id="property-carousel" class="swiper-container">
+      <div class="swiper-wrapper">
+
+        <div class="carousel-item-b swiper-slide">
+          <div class="card-box-a card-shadow">
+            <div class="img-box-a">
+              <img src="static/img/Property1.jpg" alt="" class="img-a img-fluid">
+            </div>
+            <div class="card-overlay">
+              <div class="card-overlay-a-content">
+                <div class="card-header-a">
+                  <h2 class="card-title-a">
+                    <a href="/view1">House1</a>
+                  </h2>
+                </div>
+                <div class="card-body-a">
+                  <div class="price-box d-flex">
+                    <span class="price-a"></span>
+                  </div>
+                  <a href="/view1" class="link-a">Click here to view
+                    <span class="bi bi-chevron-right"></span>
+                  </a>
+                </div>
+                <div class="card-footer-a">
+                  <ul class="card-info d-flex justify-content-around">
+                    <li>
+                      <h4 class="card-info-title">Bedroom</h4>
+                      <span>
+                        1
+                      </span>
+                    </li>
+                    <li>
+                      <h4 class="card-info-title">Bathroom</h4>
+                      <span>1</span>
+                    </li>
+                    <li>
+                      <h4 class="card-info-title">Kitchen</h4>
+                      <span>1</span>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </div><!-- End carousel item -->
 
-        <div id="property-carousel" class="swiper-container">
-          <div class="swiper-wrapper">
-
-            <div class="carousel-item-b swiper-slide">
-              <div class="card-box-a card-shadow">
-                <div class="img-box-a">
-                  <img src="static/img/Property1.jpg" alt="" class="img-a img-fluid">
+        <div class="carousel-item-b swiper-slide">
+          <div class="card-box-a card-shadow">
+            <div class="img-box-a">
+              <img src="static/img/Property2.jpg" alt="" class="img-a img-fluid">
+            </div>
+            <div class="card-overlay">
+              <div class="card-overlay-a-content">
+                <div class="card-header-a">
+                  <h2 class="card-title-a">
+                    <a href="/view2">House2</a>
+                  </h2>
                 </div>
-                <div class="card-overlay">
-                  <div class="card-overlay-a-content">
-                    <div class="card-header-a">
-                      <h2 class="card-title-a">
-                        <a href="http://localhost:5000/view1">House1</a>
-                      </h2>
-                    </div>
-                    <div class="card-body-a">
-                      <div class="price-box d-flex">
-                        <span class="price-a"></span>
-                      </div>
-                      <a href="http://localhost:5000/view1" class="link-a">Click here to view
-                        <span class="bi bi-chevron-right"></span>
-                      </a>
-                    </div>
-                    <div class="card-footer-a">
-                      <ul class="card-info d-flex justify-content-around">
-                        <li>
-                          <h4 class="card-info-title">Bedroom</h4>
-                          <span>
-                            1
-                          </span>
-                        </li>
-                        <li>
-                          <h4 class="card-info-title">Bathroom</h4>
-                          <span>1</span>
-                        </li>
-                        <li>
-                          <h4 class="card-info-title">Kitchen</h4>
-                          <span>1</span>
-                        </li>
-                      </ul>
-                    </div>
+                <div class="card-body-a">
+                  <div class="price-box d-flex">
+                    <span class="price-a"></span>
                   </div>
+                  <a href="/view2" class="link-a">Click here to view
+                    <span class="bi bi-chevron-right"></span>
+                  </a>
+                </div>
+                <div class="card-footer-a">
+                  <ul class="card-info d-flex justify-content-around">
+                    <li>
+                      <h4 class="card-info-title">Bedroom</h4>
+                      <span>
+                        2
+                      </span>
+                    </li>
+                    <li>
+                      <h4 class="card-info-title">Bathroom</h4>
+                      <span>1</span>
+                    </li>
+                    <li>
+                      <h4 class="card-info-title">Kitchen</h4>
+                      <span>1</span>
+                    </li>
+
+                  </ul>
                 </div>
               </div>
-            </div><!-- End carousel item -->
-
-            <div class="carousel-item-b swiper-slide">
-              <div class="card-box-a card-shadow">
-                <div class="img-box-a">
-                  <img src="static/img/Property2.jpg" alt="" class="img-a img-fluid">
-                </div>
-                <div class="card-overlay">
-                  <div class="card-overlay-a-content">
-                    <div class="card-header-a">
-                      <h2 class="card-title-a">
-                        <a href="http://localhost:5000/view2">House2</a>
-                      </h2>
-                    </div>
-                    <div class="card-body-a">
-                      <div class="price-box d-flex">
-                        <span class="price-a"></span>
-                      </div>
-                      <a href="http://localhost:5000/view2" class="link-a">Click here to view
-                        <span class="bi bi-chevron-right"></span>
-                      </a>
-                    </div>
-                    <div class="card-footer-a">
-                      <ul class="card-info d-flex justify-content-around">
-                        <li>
-                          <h4 class="card-info-title">Bedroom</h4>
-                          <span>
-                            2
-                          </span>
-                        </li>
-                        <li>
-                          <h4 class="card-info-title">Bathroom</h4>
-                          <span>1</span>
-                        </li>
-                        <li>
-                          <h4 class="card-info-title">Kitchen</h4>
-                          <span>1</span>
-                        </li>
-
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End carousel item -->
-
-            <div class="carousel-item-b swiper-slide">
-              <div class="card-box-a card-shadow">
-                <div class="img-box-a">
-                  <img src="static/img/Property3.jpg" alt="" class="img-a img-fluid">
-                </div>
-                <div class="card-overlay">
-                  <div class="card-overlay-a-content">
-                    <div class="card-header-a">
-                      <h2 class="card-title-a">
-                        <a href="http://localhost:5000/view3">House3</a>
-                      </h2>
-                    </div>
-                    <div class="card-body-a">
-                      <div class="price-box d-flex">
-                        <span class="price-a"></span>
-                      </div>
-                      <a href="http://localhost:5000/view3" class="link-a">Click here to view
-                        <span class="bi bi-chevron-right"></span>
-                      </a>
-                    </div>
-                    <div class="card-footer-a">
-                      <ul class="card-info d-flex justify-content-around">
-                        <li>
-                          <h4 class="card-info-title">Bedroom</h4>
-                          <span>
-                            1
-                          </span>
-                        </li>
-                        <li>
-                          <h4 class="card-info-title">Bathroom</h4>
-                          <span>1</span>
-                        </li>
-                        <li>
-                          <h4 class="card-info-title">Kitchen</h4>
-                          <span>1</span>
-                        </li>
-
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End carousel item -->
-
-            <div class="carousel-item-b swiper-slide">
-              <div class="card-box-a card-shadow">
-                <div class="img-box-a">
-                  <img src="static/img/property4.jpg" alt="" class="img-a img-fluid">
-                </div>
-                <div class="card-overlay">
-                  <div class="card-overlay-a-content">
-                    <div class="card-header-a">
-                      <h2 class="card-title-a">
-                        <a href="http://localhost:5000/view4">House4</a>
-                      </h2>
-                    </div>
-                    <div class="card-body-a">
-                      <div class="price-box d-flex">
-                        <span class="price-a"></span>
-                      </div>
-                      <a href="http://localhost:5000/view4" class="link-a">Click here to view
-                        <span class="bi bi-chevron-right"></span>
-                      </a>
-                    </div>
-                    <div class="card-footer-a">
-                      <ul class="card-info d-flex justify-content-around">
-                        <li>
-                          <h4 class="card-info-title">Bedroom</h4>
-                          <span>
-                            2
-                          </span>
-                        </li>
-                        <li>
-                          <h4 class="card-info-title">Bathroom</h4>
-                          <span>1</span>
-                        </li>
-                        <li>
-                          <h4 class="card-info-title">Kitchen</h4>
-                          <span>1</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End carousel item -->
-            <div class="carousel-item-b swiper-slide">
-              <div class="card-box-a card-shadow">
-                <div class="img-box-a">
-                  <img src="static/img/Property5.jpg" alt="" class="img-a img-fluid">
-                </div>
-                <div class="card-overlay">
-                  <div class="card-overlay-a-content">
-                    <div class="card-header-a">
-                      <h2 class="card-title-a">
-                        <a href="http://localhost:5000/view5">House5</a>
-                      </h2>
-                    </div>
-                    <div class="card-body-a">
-                      <div class="price-box d-flex">
-                        <span class="price-a"></span>
-                      </div>
-                      <a href="http://localhost:5000/view5" class="link-a">Click here to view
-                        <span class="bi bi-chevron-right"></span>
-                      </a>
-                    </div>
-                    <div class="card-footer-a">
-                      <ul class="card-info d-flex justify-content-around">
-                        <li>
-                          <h4 class="card-info-title">Bedroom</h4>
-                          <span>
-                            1
-                          </span>
-                        </li>
-                        <li>
-                          <h4 class="card-info-title">Bathroom</h4>
-                          <span>1</span>
-                        </li>
-                        <li>
-                          <h4 class="card-info-title">Kitchen</h4>
-                          <span>1</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End carousel item -->
+            </div>
           </div>
-        </div>
-        <div class="propery-carousel-pagination carousel-pagination"></div>
+        </div><!-- End carousel item -->
 
+        <div class="carousel-item-b swiper-slide">
+          <div class="card-box-a card-shadow">
+            <div class="img-box-a">
+              <img src="static/img/Property3.jpg" alt="" class="img-a img-fluid">
+            </div>
+            <div class="card-overlay">
+              <div class="card-overlay-a-content">
+                <div class="card-header-a">
+                  <h2 class="card-title-a">
+                    <a href="/view3">House3</a>
+                  </h2>
+                </div>
+                <div class="card-body-a">
+                  <div class="price-box d-flex">
+                    <span class="price-a"></span>
+                  </div>
+                  <a href="/view3" class="link-a">Click here to view
+                    <span class="bi bi-chevron-right"></span>
+                  </a>
+                </div>
+                <div class="card-footer-a">
+                  <ul class="card-info d-flex justify-content-around">
+                    <li>
+                      <h4 class="card-info-title">Bedroom</h4>
+                      <span>
+                        1
+                      </span>
+                    </li>
+                    <li>
+                      <h4 class="card-info-title">Bathroom</h4>
+                      <span>1</span>
+                    </li>
+                    <li>
+                      <h4 class="card-info-title">Kitchen</h4>
+                      <span>1</span>
+                    </li>
+
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- End carousel item -->
+
+        <div class="carousel-item-b swiper-slide">
+          <div class="card-box-a card-shadow">
+            <div class="img-box-a">
+              <img src="static/img/property4.jpg" alt="" class="img-a img-fluid">
+            </div>
+            <div class="card-overlay">
+              <div class="card-overlay-a-content">
+                <div class="card-header-a">
+                  <h2 class="card-title-a">
+                    <a href="/view4">House4</a>
+                  </h2>
+                </div>
+                <div class="card-body-a">
+                  <div class="price-box d-flex">
+                    <span class="price-a"></span>
+                  </div>
+                  <a href="/view4" class="link-a">Click here to view
+                    <span class="bi bi-chevron-right"></span>
+                  </a>
+                </div>
+                <div class="card-footer-a">
+                  <ul class="card-info d-flex justify-content-around">
+                    <li>
+                      <h4 class="card-info-title">Bedroom</h4>
+                      <span>
+                        2
+                      </span>
+                    </li>
+                    <li>
+                      <h4 class="card-info-title">Bathroom</h4>
+                      <span>1</span>
+                    </li>
+                    <li>
+                      <h4 class="card-info-title">Kitchen</h4>
+                      <span>1</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- End carousel item -->
+        <div class="carousel-item-b swiper-slide">
+          <div class="card-box-a card-shadow">
+            <div class="img-box-a">
+              <img src="static/img/Property5.jpg" alt="" class="img-a img-fluid">
+            </div>
+            <div class="card-overlay">
+              <div class="card-overlay-a-content">
+                <div class="card-header-a">
+                  <h2 class="card-title-a">
+                    <a href="/view5">House5</a>
+                  </h2>
+                </div>
+                <div class="card-body-a">
+                  <div class="price-box d-flex">
+                    <span class="price-a"></span>
+                  </div>
+                  <a href="/view5" class="link-a">Click here to view
+                    <span class="bi bi-chevron-right"></span>
+                  </a>
+                </div>
+                <div class="card-footer-a">
+                  <ul class="card-info d-flex justify-content-around">
+                    <li>
+                      <h4 class="card-info-title">Bedroom</h4>
+                      <span>
+                        1
+                      </span>
+                    </li>
+                    <li>
+                      <h4 class="card-info-title">Bathroom</h4>
+                      <span>1</span>
+                    </li>
+                    <li>
+                      <h4 class="card-info-title">Kitchen</h4>
+                      <span>1</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- End carousel item -->
       </div>
-    </section><!-- End Latest Properties Section -->
-{% endblock %}
+    </div>
+    <div class="propery-carousel-pagination carousel-pagination"></div>
 
+  </div>
+</section><!-- End Latest Properties Section -->
+
+
+{% endblock %}

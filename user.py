@@ -44,7 +44,7 @@ def login():
         if submit == "Sign In":
             email = request_data['email']
             password = request_data['password']
-            user = Registration.find_by_email(email)
+            user = Registration.find_by_email(email) # select * from user where email=email
             # select * from registration where email=email
             if user:
                 if user.password == password:

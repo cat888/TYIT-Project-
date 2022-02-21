@@ -38,6 +38,7 @@ def upload():
             roomType = []
             thumbnail_name = []
             thumbnail = data.get("thumbnail_image")
+            # print(thumbnail)
             for field in data["filedata"]:
                 fileContent.append(field["file-content"])
                 roomType.append(field["roomType"])
@@ -51,8 +52,9 @@ def upload():
             file_data["roomType"] = roomType
             del data["fileName"]
             del data["fileType"]
-            
-            if thumbnail:
+
+            # If thumbnail_image is uploaded then delete that from data dictionary
+            if data.get("thumbnail_image"):
                 del data["thumbnail_image"]
             # del data["fileContent"]
             # del data["roomType"]
@@ -136,7 +138,8 @@ def upload():
             ## save json file to the folder
 
             # 1. Store the data in json format
-            data["thumbnail"] = thumbnail_name[0]
+            if thumbnail:
+                data["thumbnail"] = thumbnail_name[0]
             details = {}
             uploaded_property = data
             uploaded_property["uploaded_images"] = uploaded_images

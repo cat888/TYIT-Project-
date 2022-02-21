@@ -51,39 +51,57 @@ def view(fetch_view: str):
     if not session:
         return redirect(url_for("user.login"))
 
-    if fetch_view == "view1":
+    view = ""
+    proprietor_id = ""
+    try:
+        print(fetch_view)
+        # split proprietor_id and view from fetch_view
+        fetch_view_split = fetch_view.split('_')
+        print(fetch_view_split)
+        # fetch_view_split will be split into 3 elements so 1 2 elements belong to proprietor_id thus merge that
+        proprietor_id = fetch_view_split[0]+"_"+fetch_view_split[1]
+        # last element is of view
+        view = fetch_view_split[2]
+        print(proprietor_id)
+        print(view)
+    except IndexError as e:
+        print(e)
+
+    if view == "view1":
         return render_template('view1.html')
-    elif fetch_view == "view2":
+    elif view == "view2":
         return render_template('view2.html')
-    elif fetch_view == "view3":
+    elif view == "view3":
         return render_template('view3.html')
-    elif fetch_view == "view4":
+    elif view == "view4":
         return render_template('view4.html')
-    elif fetch_view == "view5":
+    elif view == "view5":
         return render_template('view5.html')
     else:
         con = sqlite3.connect('user.db')
         cur = con.cursor()
-        results = cur.execute('SELECT * FROM property where view = ?', (fetch_view,))
+        results = cur.execute('SELECT * FROM property where proprietor_id=? and view = ?', (proprietor_id, view,))
         for record in results:
             # records.append(record)
-            view = record[10]
-            if fetch_view == view:
+            print(record)
+            view_json = record[10]
+            if view == view_json:
                 # print(view)
                 proprietor_id = record[1]
                 file = open(f'static/upload/{proprietor_id}/{proprietor_id}.json')
                 data = json.load(file)
+                print(data)
                 # print(data)
                 property = data['property']
                 for result in property:
-                    if result['view'] == fetch_view:
+                    if result['view'] == view:
                         print(result)
                         # property = property[0]
                         uploaded_property = result['uploaded_property']
 
                         ## setting property_info
                         property_info = {}
-                        property_info['view'] = result['view']
+                        property_info['view'] = fetch_view
                         property_info['location'] = uploaded_property['location']
                         property_info['name'] = uploaded_property['name']
                         property_info['landmark'] = uploaded_property.get('landmark')
@@ -96,9 +114,9 @@ def view(fetch_view: str):
                             del images['image']
                             images['src'] = file.read()
                             image_info.append(images)
+                        # print(image_info)
                         return render_template('dynamic_view.html', property_records=image_info, property_info=property_info)
-
-        return redirect(url_for("property.property")) ## as property is the function of property.py 
+        return render_template('error.html'), 404 ## will return the error page when view is not found
 
 @dynamic_view.route('/property',methods=['POST','GET'])
 def property():
@@ -171,12 +189,16 @@ def UploadProperty():
 def myproperty():
     if session:
         user = Registration.find_by_email(session['email'])
-        records = []
+        records = []        
         con = sqlite3.connect('user.db')
         cur = con.cursor()
         proprietor_id = user.id
-        results = cur.execute('SELECT * FROM property WHERE proprietor_id=?',(proprietor_id,))
+        print(proprietor_id)
+        cur.execute('SELECT * FROM property WHERE proprietor_id=?',(proprietor_id,))
+        results = cur.fetchall()
         for record in results:
+            print(record)
+            new_record = []
             ## Now fetch the thumbnail name from json file
             with open(f"static/upload/{record[1]}/{record[1]}.json", "r") as file:
                 data = json.load(file)
@@ -195,6 +217,7 @@ def myproperty():
                             new_record.append(thumbnail)
                         else:
                             new_record.append(None)
+            # print(new_record)
             price = new_record[5]
             if price/100000 > 100:
                 if price/10000000 == 1:
@@ -264,6 +287,8 @@ def delete_view(fetch_view:str):
 @cross_origin()
 def editproperty(fetch_view: str):
     if session:
+        print("I am in Edit property")
+        print(fetch_view)
         ## If the request is PUT
         if request.method == 'PUT':
             data = request.get_json()
@@ -380,10 +405,16 @@ def editproperty(fetch_view: str):
 
         ## If the request is GET then,
         user = Registration.find_by_email(session['email'])
-        property_ = Upload.find_by_view(fetch_view)
-        if user.id != property_.proprietor_id:
-            return redirect(url_for("property.myproperty"))
-        
+        conn = sqlite3.connect('user.db')
+        cur = conn.cursor()
+        results = cur.execute('SELECT * FROM property WHERE proprietor_id=? and view=?', (user.id,fetch_view))
+        property_ = []
+        for record in results:
+            property_ = list(record)
+            proprietor_id = record[1]
+        # if user.id != property_.proprietor_id:
+        #     return redirect(url_for("property.myproperty"))
+        print(property_)
         return render_template('EditProperty.html', property_obj = property_)
     
     ## If user is not login then render login page
@@ -398,7 +429,7 @@ def searchproperty():
 
         # For testing purpouse using postman or thunderclient
         # data = request.get_json()
-        print(data)
+        # print(data)
         # Fetch the value of button from the data dictionary
         button = data.get("button")
         # If button is search then will return for the desired properties that the user is looking for else will return that No properties found
@@ -445,7 +476,7 @@ def searchproperty():
                 search_records.append(final_record)
             
             if search_records:
-                print(search_records)
+                # print(search_records)
                 return jsonify({"msg": "Records Found"})
                 # return render_template('property.html', property_records=records)
             else:

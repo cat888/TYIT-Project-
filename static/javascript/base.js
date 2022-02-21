@@ -5,9 +5,9 @@ function changeRange() {
     return price;
 }
 
-function changeArea() {
-    var area = document.getElementById("area").value;
-    document.getElementById("area-name").value = area;
+function changeRangeOfArea() {
+    var area = document.getElementById("sqft-range").value;
+    document.getElementById("sqft").value = area;
     return area;
 }
 
@@ -15,7 +15,7 @@ function searchProperty() {
     debugger
     let location = document.getElementById("location").value;
     let landmark = document.getElementById("landmark").value;
-    let area = document.getElementById("area").value;
+    let area = document.getElementById("sqft-range").value;
     let bhk = document.getElementById("bhk").value;
     let price = changeRange();
     let button = document.getElementById("search").value;

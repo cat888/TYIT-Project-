@@ -2,3 +2,4 @@ __pychache__/
 *.pyc
 venv/
 flask_session/
+client_secret.json

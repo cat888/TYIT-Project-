@@ -74,6 +74,9 @@ def index():
 def Contact():
     return render_template('Contact.html')
 
+@app.route('/Help')
+def Help():
+    return render_template('Help.html')
 
 if __name__ == '__main__':
     ## setting of secret key for session

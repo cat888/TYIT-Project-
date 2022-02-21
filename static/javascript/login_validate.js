@@ -124,6 +124,18 @@ const validate = () => {
     const cpasswordval = cpassword.value.trim();
     const registrationval = registration.value;
 
+    
+    var letter = /^[A-Za-z. ]+$/;
+    if (letter.test(usernameval)) {
+        setSuccessMsg(username);
+        flag_username = true;
+    }
+    else {
+        setErrorMsg(username,'must be character only');
+          flag_username = false;
+        
+    }
+
     //validate username
     if (usernameval === "") {
         setErrorMsg(username, 'username cannot be blank');
@@ -132,10 +144,13 @@ const validate = () => {
     else if (usernameval.length <= 2) {
         setErrorMsg(username, 'username min 3 character');
         flag_username = false;
-    } else {
-        setSuccessMsg(username);
+    }
+
+    else {
+        // setSuccessMsg(username);
         flag_username = true;
     }
+   
 
 
     //validate email
