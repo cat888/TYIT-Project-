@@ -4,35 +4,36 @@
 {% block content %}
 <main id="main">
 
-    <!-- ======= Intro Single ======= -->
-    <section class="intro-single">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 col-lg-8">
-            <div class="title-single-box">
-              <h1 class="title-single">Contact US</h1>
-              <span class="color-text-a">Provide the relief to the end user from visiting different houses at different location as this
-                platform provides the 360 or virtual view of the houses so that user can experience actual view of the
-                house from their comfort zone.</span>
-            </div>
-          </div>
-          <div class="col-md-12 col-lg-4">
-            <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item">
-                  <a href="/">Home</a>
-                </li>
-                <li class="breadcrumb-item active" aria-current="page">
-                  Contact
-                </li>
-              </ol>
-            </nav>
+  <!-- ======= Intro Single ======= -->
+  <section class="intro-single">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-8">
+          <div class="title-single-box">
+            <h1 class="title-single">Contact US</h1>
+            <span class="color-text-a">Provide the relief to the end user from visiting different houses at different
+              location as this
+              platform provides the 360 or virtual view of the houses so that user can experience actual view of the
+              house from their comfort zone.</span>
           </div>
         </div>
+        <div class="col-md-12 col-lg-4">
+          <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="/">Home</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Contact
+              </li>
+            </ol>
+          </nav>
+        </div>
       </div>
-    </section><!-- End Intro Single-->
-<!-- ======= Contact Single ======= -->
-<section class="contact">
+    </div>
+  </section><!-- End Intro Single-->
+  <!-- ======= Contact Single ======= -->
+  <section class="contact">
     <div class="container">
       <div class="row">
         <!-- <div class="col-sm-12">
@@ -45,38 +46,35 @@
         <div class="col-sm-12 section-t8">
           <div class="row">
             <div class="col-md-7">
-              <form  method="post" role="form" class="Contact-form">
+              <form class="Contact-form">
                 <div class="row">
                   <div class="col-md-6 mb-3">
                     <div class="form-group">
-                      <input type="text" name="name" class="form-control form-control-lg form-control-a" placeholder="Your Name" required>
+                      <input type="text" id="uname" name="name" class="form-control form-control-lg form-control-a"
+                        placeholder="Your Name" required>
                     </div>
                   </div>
                   <div class="col-md-6 mb-3">
                     <div class="form-group">
-                      <input name="email" type="email" class="form-control form-control-lg form-control-a" placeholder="Your Email" required>
+                      <input name="email" id="email" type="email" class="form-control form-control-lg form-control-a"
+                        placeholder="Your Email" required>
                     </div>
                   </div>
                   <div class="col-md-12 mb-3">
                     <div class="form-group">
-                      <input type="text" name="subject" class="form-control form-control-lg form-control-a" placeholder="Subject" required>
+                      <input type="text" id="usub" name="subject" class="form-control form-control-lg form-control-a"
+                        placeholder="Subject" required>
                     </div>
                   </div>
                   <div class="col-md-12">
                     <div class="form-group">
-                      <textarea name="message" class="form-control" name="message" cols="45" rows="8" placeholder="Message" required></textarea>
+                      <textarea id="msg" name="message" class="form-control" cols="45" rows="8"
+                        placeholder="Message" required></textarea>
                     </div>
                   </div>
-                  <div class="col-md-12 my-3">
-                    <div class="mb-3">
-                      <div class="loading">Loading</div>
-                      <div class="error-message"></div>
-                      <div class="sent-message">Your message has been sent. Thank you!</div>
-                    </div>
-                  </div>
-
+                  <br>
                   <div class="col-md-12 text-center">
-                    <button type="submit" class="btn btn-a">Send Message</button>
+                    <button type="submit" class="btn btn-a" onclick="sendmsg()">Send Message</button>
                   </div>
                 </div>
               </form>
@@ -92,15 +90,15 @@
                   </div>
                   <div class="icon-box-content">
                     <p class="mb-1">Email.
-                      <span class="color-a">virtualestate@example.com</span>
+                      <span class="color-a">contact@example.com</span>
                     </p>
                     <p class="mb-1">Phone.
-                      <span class="color-a">+91-98765 43210</span>
+                      <span class="color-a">+54 356 945234</span>
                     </p>
                   </div>
                 </div>
               </div>
-              
+
               <div class="icon-box">
                 <div class="icon-box-icon">
                   <span class="bi bi-share"></span>
@@ -140,8 +138,8 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
   </section><!-- End Contact Single-->
+  <script src="/static/javascript/contact.js"></script>
+
 </main>
-  {% endblock %}
+{% endblock %}

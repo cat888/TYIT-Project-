@@ -1,11 +1,16 @@
 from datetime import timedelta
-from flask import Flask, render_template, session
+from flask import Flask, render_template, session, request
+import json
 
 # Importing Blueprints
 from server import model
 from user import user
 from upload import upload_file
 from property import dynamic_view
+
+# Importing package for sending mail
+import smtplib # SMTP :- Simple Mail Transfer Protocol is used to send mail
+from email.message import EmailMessage
 
 # Importing flask_cors that is a Flask extension for handling Cross Origin Resource Sharing (CORS), making cross-origin AJAX possible.
 from flask_cors import CORS, cross_origin
@@ -72,6 +77,42 @@ def index():
 # Defining the http://127.0.0.1:5000/contact url.
 @app.route('/Contact',methods=['POST','GET'])
 def Contact():
+    if request.method == 'POST':
+        data = request.get_json()
+        # now load the mail information through json file
+        file = open('config.json')
+        json_data = json.load(file)
+        
+        # separate the sender and receiver info
+        sender_info = json_data['sender-params']
+        receiver_info = json_data['receiver-params']
+
+        # now set the content of mail
+        content = f'''
+            Name: {data['name']} \n,
+            Email: {data['email']} \n,
+            Query: {data['message']}
+        '''
+        msg = EmailMessage()
+        # Now set the content
+        msg.set_content(content)
+        msg['Subject'] = data['subject'] # set the subject of message
+        msg['From'] = sender_info['email']
+        msg['To'] = receiver_info['email']
+
+        # thus here we have to pass smtp server address and port number to this. Thus here mention the gmail server
+        # address and gmail port number
+        server = smtplib.SMTP('smtp.gmail.com',587)
+
+        # create a connection using TLS (Transport Layer Security)
+        server.starttls()
+
+        # It is used to login to your email using sender's email and password
+        server.login(sender_info['email'], sender_info['password'])
+        server.send_message(msg)
+        server.quit()
+
+        return "Mail Sent Successfully"
     return render_template('Contact.html')
 
 @app.route('/Help')

@@ -1,7 +1,12 @@
 {
-    "params":
+    "sender-params":
     {
-        "gmail-user": "virtualestate5123.pro",
-        "gmail-password": "virtualestate@123"
+        "email": "virtualestate5123.pro",
+        "password": "virtualestate@123"
+    },
+    "receiver-params":
+    {
+        "email": "estatequeryAgent@gmail.com",
+        "password": "estateManager523"
     }
 }

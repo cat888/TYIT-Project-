@@ -21,12 +21,6 @@
     <div class="sidebar">
         <header>House2</header>
         <ul>
-            <li><a class="tabItems" data-tab="Hall" data-view="view2">Hall</a></li>
-            <li><a class="tabItems" data-tab="Bedroom1" data-view="view2">Bedroom1</a></li>
-            <li><a class="tabItems" data-tab="Bedroom2" data-view="view2">Bedroom2</a></li>
-            <li><a class="tabItems" data-tab="Kitchen" data-view="view2">Kitchen</a></li>
-            <li><a class="tabItems" data-tab="Bathroom" data-view="view2">Bathroom</a></li>
-
         </ul>
     </div>
 </div>
@@ -36,6 +30,7 @@
 <!--<script type="text/javascript" src="static/javascript/viewUpdater.js"></script>-->
 <script type="text/javascript">
 
+var view = "view2";
 // We can write one js to handle hit to bring user data from backend like below object.... for now i am using bummdy object
 var infoSpot = [
 {'positions':[5000.00, -20.93, -3744.66],'tooltipText':'This is Bedroom1'},
@@ -62,9 +57,7 @@ var panArr = [
 ];
 
 // readView(panArr)
-var view = null;
-makeView(panArr, view, false)
-
+makeView(panArr, view, false);
 </script>
 
 </body>

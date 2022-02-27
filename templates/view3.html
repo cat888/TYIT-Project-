@@ -22,11 +22,6 @@
     <div class="sidebar">
         <header>House2</header>
         <ul>
-            <li><a class="tabItems" data-tab="Hall" data-view="view3">Hall</a></li>
-            <li><a class="tabItems" data-tab="Bedroom" data-view="view3">Bedroom</a></li>
-            <li><a class="tabItems" data-tab="Kitchen" data-view="view3">Kitchen</a></li>
-            <li><a class="tabItems" data-tab="Bathroom" data-view="view3">Bathroom</a></li>
-
         </ul>
     </div>
 </div>
@@ -36,7 +31,7 @@
 <script type="text/javascript" src="static/javascript/tabItemEvents.js"></script>
 <script type="text/javascript">
        //readView()
-
+        var view = "view3";
         var infoSpot = [
         {'positions':[5000.00, -266.57, -3148.08],'tooltipText':'This is Kitchen'},
         {'positions':[5000.00, 14.78, 335.11],'tooltipText':'This is Bedroom'},
@@ -51,7 +46,6 @@
         {'img':'static/img/H3/bathroom.jpg','type':'Bathroom','nameData':'panorama3', 'infoSpot': null,'listOfLinks':[{'valType':'Hall','positions':[-5000.00, 448.15, -3199.29]}]}
         ];
 
-       var view = null;
        makeView(panArr, view, false);
 
 </script>

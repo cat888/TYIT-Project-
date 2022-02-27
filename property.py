@@ -44,7 +44,7 @@ def add_header(response):
 
 ## Task :- Reduce the redundancy from view and property function
 
-## 
+##
 @dynamic_view.route('/<string:fetch_view>',methods=['POST','GET'])
 @cross_origin()
 def view(fetch_view: str):
@@ -53,17 +53,22 @@ def view(fetch_view: str):
 
     view = ""
     proprietor_id = ""
+
+    print(fetch_view)
     try:
         print(fetch_view)
-        # split proprietor_id and view from fetch_view
-        fetch_view_split = fetch_view.split('_')
-        print(fetch_view_split)
-        # fetch_view_split will be split into 3 elements so 1 2 elements belong to proprietor_id thus merge that
-        proprietor_id = fetch_view_split[0]+"_"+fetch_view_split[1]
-        # last element is of view
-        view = fetch_view_split[2]
-        print(proprietor_id)
-        print(view)
+        if "_" not in fetch_view:
+            view = fetch_view
+        else:    
+            # split proprietor_id and view from fetch_view
+            fetch_view_split = fetch_view.split('_')
+            print(fetch_view_split)
+            # fetch_view_split will be split into 3 elements so 1 2 elements belong to proprietor_id thus merge that
+            proprietor_id = fetch_view_split[0]+"_"+fetch_view_split[1]
+            # last element is of view
+            view = fetch_view_split[2]
+            print(proprietor_id)
+            print(view)
     except IndexError as e:
         print(e)
 
