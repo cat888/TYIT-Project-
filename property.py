@@ -56,7 +56,6 @@ def view(fetch_view: str):
 
     print(fetch_view)
     try:
-        print(fetch_view)
         if "_" not in fetch_view:
             view = fetch_view
         else:    
