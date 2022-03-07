@@ -1,27 +1,6 @@
 {
     "property": [
         {
-            "view": "view6",
-            "uploaded_property": {
-                "name": "Sethya",
-                "landmark": "",
-                "location": "almeida park",
-                "area": "3680",
-                "bhk": 2,
-                "price": "25000000",
-                "uploaded_images": [
-                    {
-                        "type": "Hall",
-                        "image": "1638767831_P2_@R1Hall"
-                    },
-                    {
-                        "type": "Kitchen",
-                        "image": "1638767831_P2_@R1Kitchen"
-                    }
-                ]
-            }
-        },
-        {
             "view": "view7",
             "uploaded_property": {
                 "name": "Mannat Villa",

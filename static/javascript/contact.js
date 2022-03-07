@@ -3,6 +3,13 @@ let uemail=document.getElementById("email");
 let usubject=document.getElementById("usub");
 let msg=document.getElementById("msg");
 
+$( document ).ready(function() {
+    $( "#contact_agent" ).submit(function( event ) {
+        // alert( "Handler for .submit() called." );
+        event.preventDefault();
+      });
+});
+
 function sendmsg(){
     debugger
     var msgData={};
@@ -20,11 +27,11 @@ function sendmsg(){
         dataType: 'json',
         success: function (result) {
             alert("Mail Sent Successfully");
-            // window.location.href = "/Contact";
+            window.location.href = window.location.href;
         },
         error: function (xhr, status, error) {
             alert("Your send Message failed.....");
-            // window.location.href = window.location.href;
+            window.location.href = window.location.href;
         }
     });
 }

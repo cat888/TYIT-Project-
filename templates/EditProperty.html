@@ -18,7 +18,9 @@
     <!-- <link rel="stylesheet" href="/static/css/uploadimg.css"> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
+        var property_obj = {{property_obj| tojson}};
         var view = property_obj[10];
+        var proprietor_id = property_obj[1];
     </script>
 
 </head>
@@ -26,19 +28,19 @@
 <body>
     <div class="img"></div>
     <div class="container">
-        <div class="contact-box">
-            <div class="left">
+        
+            <!-- <div class="left">
                 <div class="card-body d-flex flex-wrap justify-content-start" id="container">
-                    <!-- Image will be show here-->
+                    Image will be show here
                 </div>
-            </div>
-            <div class="right">
+            </div> -->
+            <div class="container-fluid" style="background-color: whitesmoke;border-radius: 20px;">
                 <form class="form" enctype="multipart/form-data">
                     <h2>Update Your Property</h2>
                     <!-- <p style="text-align: center;font-weight: bold;">Add Basic Details</p> -->
                     <!-- <input type="text" class="field" placeholder="City" name="City" id="City"> -->
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <p>Location</p>
                             <select class="location" name="" id="uiLocations">
                                 <option value="" disabled="disabled" selected="selected">Choose a Location</option>
@@ -46,66 +48,62 @@
                                 <option>Nalasopara East</option>
                             </select>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <p>Area</p>
                             <input type="text" class="field" value="{{ property_obj.area }}" name="Sqft" id="sqft">
                             <input type="range" id="sqft-range" name="Sqft" min="250" value="250" step="5" max="12000"
                                 onchange="changeRange()">
 
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <p>Name</p>
-                            <input type="text" class="field" placeholder="Name" name="name" id="nameClick" value="{{ property_obj.name }}">
-                        </div>
-                        <div class="col-sm-6">
-                            <p>Landmark</p>
-                            <input type="text" class="field" placeholder="Landmark" name="Landmark" id="landClick" value="{{ property_obj.landmark }}">
+                            <input type="text" class="field" placeholder="Name" name="name" id="nameClick"
+                                value="{{ property_obj.name }}">
                         </div>
                     </div>
-
-
                     <div class="row">
-                        <div class="col-sm-6">
+
+                        <div class="col-sm-4">
+                            <p>Landmark</p>
+                            <input type="text" class="field" placeholder="Landmark" name="Landmark" id="landClick"
+                                value="{{ property_obj.landmark }}">
+                        </div>
+                        <div class="col-sm-4">
                             <p>BHK</p>
                             <div class="switch-field">
-                                <input type="radio" id="radio-bhk-1" name="uiBHK" value="1" />
+                                <input type="radio" id="radio-bhk-1" name="uiBHK" value="1" onclick="handleClick(this);" />
                                 <label for="radio-bhk-1">1</label>
-                                <input type="radio" id="radio-bhk-2" name="uiBHK" value="2" checked />
+                                <input type="radio" id="radio-bhk-2" name="uiBHK" value="2" onclick="handleClick(this);" />
                                 <label for="radio-bhk-2">2</label>
-                                <input type="radio" id="radio-bhk-3" name="uiBHK" value="3" />
+                                <input type="radio" id="radio-bhk-3" name="uiBHK" value="3" onclick="handleClick(this);"/>
                                 <label for="radio-bhk-3">3</label>
-                                <input type="radio" id="radio-bhk-4" name="uiBHK" value="4" />
+                                <input type="radio" id="radio-bhk-4" name="uiBHK" value="4" onclick="handleClick(this);"/>
                                 <label for="radio-bhk-4">4</label>
-                                <input type="radio" id="radio-bhk-5" name="uiBHK" value="5" />
+                                <input type="radio" id="radio-bhk-5" name="uiBHK" value="5" onclick="handleClick(this);"/>
                                 <label for="radio-bhk-5">5</label>
                             </div>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <p>Property Price</p>
-                            <input type="text" class="field" placeholder="Price" id="price" value="{{ property_obj.price }}">
+                            <input type="text" class="field" placeholder="Price" id="price"
+                                value="{{ property_obj.price }}">
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <div class="dropdown" class="field">
                                 <p>Room Type</p>
                                 <select class="Users" name="type" id="type">
                                     <option>select</option>
-                                    <option>Hall</option>
-                                    <option>Bedroom1</option>
-                                    <option>Bedroom2</option>
-                                    <option>Bedroom3</option>
-                                    <option>Bedroom4</option>
-                                    <option>Bedroom5</option>
-                                    <option>Kitchen</option>
-                                    <option>Bathroom</option>
-                                    <option>Others</option>
+                                    <option name="Hall">Hall</option>
+                                    <option name="Bedroom">Bedroom</option>
+                                    <option name="Kitchen">Kitchen</option>
+                                    <option name="Bathroom">Bathroom</option>
+                                    <option name="Others">Others</option>
                                 </select>
                             </div>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <p>Choose Images</p>
                             <input type="file" name="Image" id="fileInput" multiple="" class="d-none"
                                 onchange="preview()">
@@ -114,8 +112,27 @@
                             <p id="num-of-files">No Files Chosen</p>
 
                         </div>
+                        <div class="col-sm-4">
+                            <p>Edit Image Thumbnail</p>
+                            <input type="file" name="Thumbnel" id="fileInput1" multiple="" class="d-none"
+                                onchange="preview1()">
+                            <i class="fas fa-upload" onclick="document.getElementById('fileInput1').click()"></i>
+                            <!-- <p id="num-of-files">No Files Chosen</p>  -->
+                        </div>
                     </div>
-                   
+                    <div class="row">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- add imgs label dynamically here-->
+                            <!-- <div class="input_field_wrap d-flex">
+                            </div> -->
+                            <div class="card-body d-flex flex-wrap justify-content-start" id="container">
+                                <!-- Image will be show here -->
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- For image preview -->
                     <!-- <span id="container">
 
@@ -129,16 +146,20 @@
                     <div id="images"></div> -->
 
                     <!-- Multiple preview -->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <input type="button" value="Update" name="edit-Property" id="edit" onclick="myFunction()">
+                        </div>
+                    </div>
 
 
-                    <input type="button" value="Update" name="edit-Property" id="edit" onclick="myFunction()">
                     <!-- <button class="btn" onclick="btnClicked()">Begin To Post Your Property</button> -->
                 </form>
 
             </div>
-        </div>
+        
 
-       
+
         <script src="/static/javascript/editProperty.js"></script>
 </body>
 

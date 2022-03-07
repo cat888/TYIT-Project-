@@ -13,6 +13,10 @@ from authenticate import Registration, Upload
 import os
 import json
 
+# Importing package for sending mail
+import smtplib # SMTP :- Simple Mail Transfer Protocol is used to send mail
+from email.message import EmailMessage
+
 ## defining the global variables for search engine so that it can be used from both of the functions, searchproperty and property
 search_records = []
 search_error = []
@@ -54,20 +58,16 @@ def view(fetch_view: str):
     view = ""
     proprietor_id = ""
 
-    print(fetch_view)
     try:
         if "_" not in fetch_view:
             view = fetch_view
         else:    
             # split proprietor_id and view from fetch_view
             fetch_view_split = fetch_view.split('_')
-            print(fetch_view_split)
             # fetch_view_split will be split into 3 elements so 1 2 elements belong to proprietor_id thus merge that
             proprietor_id = fetch_view_split[0]+"_"+fetch_view_split[1]
             # last element is of view
             view = fetch_view_split[2]
-            print(proprietor_id)
-            print(view)
     except IndexError as e:
         print(e)
 
@@ -87,19 +87,16 @@ def view(fetch_view: str):
         results = cur.execute('SELECT * FROM property where proprietor_id=? and view = ?', (proprietor_id, view,))
         for record in results:
             # records.append(record)
-            print(record)
             view_json = record[10]
             if view == view_json:
                 # print(view)
                 proprietor_id = record[1]
                 file = open(f'static/upload/{proprietor_id}/{proprietor_id}.json')
                 data = json.load(file)
-                print(data)
                 # print(data)
                 property = data['property']
                 for result in property:
                     if result['view'] == view:
-                        print(result)
                         # property = property[0]
                         uploaded_property = result['uploaded_property']
 
@@ -109,7 +106,6 @@ def view(fetch_view: str):
                         property_info['location'] = uploaded_property['location']
                         property_info['name'] = uploaded_property['name']
                         property_info['landmark'] = uploaded_property.get('landmark')
-                        print(property_info)
 
                         image_info = []
                         for images in uploaded_property['uploaded_images']:
@@ -197,7 +193,6 @@ def myproperty():
         con = sqlite3.connect('user.db')
         cur = con.cursor()
         proprietor_id = user.id
-        print(proprietor_id)
         cur.execute('SELECT * FROM property WHERE proprietor_id=?',(proprietor_id,))
         results = cur.fetchall()
         for record in results:
@@ -249,26 +244,34 @@ def delete_view(fetch_view:str):
     if not session:
         return redirect(url_for("user.login"))
     
+    # split proprietor_id and view from fetch_view
+    fetch_view_split = fetch_view.split('_')
+    # fetch_view_split will be split into 3 elements so 1 2 elements belong to proprietor_id thus merge that
+    proprietor_id = fetch_view_split[0]+"_"+fetch_view_split[1]
+    # last element is of view
+    view = fetch_view_split[2]
+
     ## deleting records from database
 
     con = sqlite3.connect('user.db')
     cur = con.cursor()
     
     ## Write a query to delete view from database
-    cur.execute('DELETE FROM property WHERE view = ?', (fetch_view,))
+    cur.execute('DELETE FROM property WHERE proprietor_id = ? and view = ?', (proprietor_id,view))
     con.commit()
     con.close()
 
     # Delete records from json
-    user = Registration.find_by_email(session['email'])
-    proprietor_id = user.id
+    # user = Registration.find_by_email(session['email'])
+    # proprietor_id = user.id
     with open(f"static/upload/{proprietor_id}/{proprietor_id}.json", "r") as file:
         data = json.load(file)
     
     all_list = data["property"]
     for index in range(len(all_list)):
         property_list = all_list[index]
-        if property_list['view'] == fetch_view:
+        if property_list['view'] == view:
+            # if property view matches in json then delete that whole view information from json
             all_list.pop(index)
             break
     
@@ -291,15 +294,20 @@ def delete_view(fetch_view:str):
 @cross_origin()
 def editproperty(fetch_view: str):
     if session:
-        print("I am in Edit property")
-        print(fetch_view)
+        # split proprietor_id and view from fetch_view
+        fetch_view_split = fetch_view.split('_')
+        # fetch_view_split will be split into 3 elements so 1 2 elements belong to proprietor_id thus merge that
+        proprietor_id = fetch_view_split[0]+"_"+fetch_view_split[1]
+        # last element is of view
+        view = fetch_view_split[2]
+
         ## If the request is PUT
         if request.method == 'PUT':
             data = request.get_json()
             
-            ## Fetch the property object
             try:
-                property_ = Upload.find_by_view(fetch_view)
+                property_ = Upload.find_by_view(view, proprietor_id)
+                print(property_.name)
                 
                 # Update in the database
                 property_.name = data.get("name", property_.name)
@@ -309,6 +317,9 @@ def editproperty(fetch_view: str):
                 property_.location = data.get("location", property_.location)
                 property_.landmark = data.get("landmark", property_.landmark)
                 property_.update_to_db()
+
+                # Fetch the thumbnail
+                thumbnail = data.get("thumbnail_image")
 
             except AttributeError:
                 return jsonify({"msg": "View not present first upload the property"})
@@ -321,7 +332,7 @@ def editproperty(fetch_view: str):
             all_list = file_json["property"]
             for index in range(len(all_list)):
                 property_list = all_list[index]
-                if property_list['view'] == fetch_view:
+                if property_list['view'] == view:
                     uploaded_property = property_list["uploaded_property"]
                     uploaded_property["location"] = property_.location
                     uploaded_property["name"] = property_.name
@@ -329,6 +340,26 @@ def editproperty(fetch_view: str):
                     uploaded_property["price"] = property_.price
                     uploaded_property["area"] = property_.area
                     
+                    # Update the thumbnail
+                    if thumbnail:
+                        # If thumbnail is already there in json
+                        if uploaded_property.get("thumbnail"):
+                            thumbnail_name = uploaded_property["thumbnail"]
+                            ## save the thumbnail to file
+                            text_file = open(f'static/upload/{proprietor_id}/{thumbnail_name}', "w")
+                            text_file.write(thumbnail)
+                            text_file.close()
+                        else:
+                            new_thumbnail_name = proprietor_id+"_"+"@"+property_.property_no+"thumbnail"
+                            ## save the thumbnail to file
+                            text_file = open(f'static/upload/{proprietor_id}/{new_thumbnail_name}', "w")
+                            text_file.write(thumbnail)
+                            text_file.close()
+
+                            # As thumbnail is not there in json then store the thumbnail attribute in json
+                            uploaded_property["thumbnail"] = new_thumbnail_name
+
+
                     fileContent = []
                     roomType = []
                     if data.get("filedata"):
@@ -406,19 +437,17 @@ def editproperty(fetch_view: str):
             
             return jsonify({"msg": "Property Updated Succesfully"})
         
-
         ## If the request is GET then,
         user = Registration.find_by_email(session['email'])
         conn = sqlite3.connect('user.db')
         cur = conn.cursor()
-        results = cur.execute('SELECT * FROM property WHERE proprietor_id=? and view=?', (user.id,fetch_view))
+        results = cur.execute('SELECT * FROM property WHERE proprietor_id=? and view=?', (user.id,view))
         property_ = []
         for record in results:
             property_ = list(record)
             proprietor_id = record[1]
         # if user.id != property_.proprietor_id:
         #     return redirect(url_for("property.myproperty"))
-        print(property_)
         return render_template('EditProperty.html', property_obj = property_)
     
     ## If user is not login then render login page
@@ -488,3 +517,106 @@ def searchproperty():
                 return jsonify({"msg": "No Records Found"})
                 # return render_template('property.html', error="No Records Found")
     return jsonify({"msg": "Unauthorized user First Login"}), 401
+
+@dynamic_view.route('/model_info/<string:fetch_view>', methods=['GET'])
+def model_info(fetch_view: str):
+    if not session:
+        return redirect(url_for("user.login"))
+    
+    view = ""
+    proprietor_id = ""
+    try:
+        # split proprietor_id and view from fetch_view
+        fetch_view_split = fetch_view.split('_')
+        # fetch_view_split will be split into 3 elements so 1 2 elements belong to proprietor_id thus merge that
+        proprietor_id = fetch_view_split[0]+"_"+fetch_view_split[1]
+        # last element is of view
+        view = fetch_view_split[2]
+    except IndexError as e:
+        print(e)
+    except:
+        return jsonify({'msg': 'Not able to fetch the view'}), 404
+    
+    # data = request.get_json()
+    # proprietor_id = data.get("proprietor_id")
+    # view = data.get("view")
+    conn = sqlite3.connect('user.db')
+    cur = conn.cursor()
+    results = cur.execute('SELECT * FROM property WHERE proprietor_id=? and view=?', (proprietor_id,view))
+    property_ = []
+    for record in results:
+        property_.extend(list(record)) # record is in form of tuple thus convert the record into list and then through extend append all elements of list one by one into property_ list
+    
+    results = cur.execute('SELECT * FROM registration WHERE id=?', (proprietor_id,))
+    user = []
+    # Fetch the records from database
+    for record in results:
+        user.extend(list(record))
+    
+    # Fetch the thumbnail from json
+    # 1. Open the json file    
+    with open(f"static/upload/{proprietor_id}/{proprietor_id}.json", "r") as file:
+        file_json = json.load(file)
+
+    json_property = file_json["property"]
+    for single_property in json_property:
+        if single_property["view"] == view:
+            single_property_info = single_property["uploaded_property"]
+            if single_property_info.get("thumbnail"):
+                file = open(f"static/upload/{proprietor_id}/{single_property_info['thumbnail']}","r")
+                thumbnail = file.read()
+                property_.append(thumbnail)
+            else:
+                break
+    
+    conn.close()
+    user.pop(6)  # remove the password from user list
+    return jsonify({"Property": property_, "User": user}) # Now send the following details to the html
+
+@dynamic_view.route('/mail_proprietor',methods=['POST','GET'])
+def mail_proprietor():
+    if request.method == 'POST':
+        # fetch user name and email from session
+        user = Registration.find_by_email(session['email'])
+        user_name = user.username
+        user_mail = user.email
+
+        data = request.get_json()
+        
+        # now load the mail information through json file
+        file = open('config.json')
+        json_data = json.load(file)
+        
+        # take the sender info
+        sender_info = json_data['sender-params']
+        receiver_mail = data.get('mail')
+
+        # now set the content of mail
+        content = f'''
+        Name: {user_name}
+        Contact: {user.contact}
+        Mail: {user_mail}
+        Message: {data['message']}
+        '''
+
+        msg = EmailMessage()
+        # Now set the content
+        msg.set_content(content)
+        msg['Subject'] = "Interest in property" # set the subject of message
+        msg['From'] = sender_info['email']
+        msg['To'] = receiver_mail
+
+        # thus here we have to pass smtp server address and port number to this. Thus here mention the gmail server
+        # address and gmail port number
+        server = smtplib.SMTP('smtp.gmail.com',587)
+
+        # create a connection using TLS (Transport Layer Security)
+        server.starttls()
+
+        # It is used to login to your email using sender's email and password
+        server.login(sender_info['email'], sender_info['password'])
+        server.send_message(msg)
+        server.quit()
+
+        return jsonify({"msg": "Mail sent Successfully"})
+    return jsonify({"msg":"Mail not send"}) , 400 # 400 is used for Bad request

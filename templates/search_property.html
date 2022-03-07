@@ -2,6 +2,7 @@
 
 {% block head %}
 <title> Property </title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 {% endblock %}
 
 {% block content %}
@@ -63,9 +64,9 @@
                   </div>
                   <div class="card-body-a">
                     <div class="price-box d-flex">
-                      <span class="price-a"></span>
+                      <button id="{{ property[1] }}_{{ property[10] }}" class="price-a" onclick="view(this.id)"><i style="font-size:12px;color:#12C0A5" class="fa">&#xf067;</i></button>
                     </div>
-                    <a href="/{{ property[10] }}" class="link-a">Click here to view
+                    <a href="/{{ property[1] }}_{{ property[10] }}" class="link-a">Click here to view
                       <span class="bi bi-chevron-right"></span>
                     </a>
                   </div>
@@ -93,11 +94,69 @@
           </div>  
           {% endfor %}
 
+          <!-- Model -->
+      <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+
+        <div class="row">
+          <div class="col-sm-6">
+
+            <div class="img-box-a">
+              <img src="static/img/Property2.jpg" alt="" class="img-a img-fluid">
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <span class="close">&times;</span>
+            <a class="navbar-brand text-brand" href="index.html">Virtual<span class="color-b">Estate</span></a>
+            <hr>
+            <b><h1 id="model-price">$1,00,00000</h1></b>
+            <div class="img-box-a" style="float: right;margin-top: -25px;">
+              <img src="/static/img/images (1).png" alt="" class="img-a img-fluid">
+            </div>
+            <span id="model-bhk">2Bhk</span>&nbsp;<span class="vl"></span>&nbsp;<span id="model-area">1200 sqft</span>&nbsp;<span class="vl"></span>&nbsp;Mumbai
+            <h2 id="model-property-name">House2</h2>
+            <span id="model-location">Andheri</span>
+            <p><img src="/static/img/red_circle.png" style="height: 10px;width: 10px;"></img>&nbsp;For sell</p>
+            <hr>
+            <a id="model-view-link" href="/view1" class="link-a" style="color: blue;">Click here to Take Tour of House1
+            </a>
+            <hr>
+            <p style="background-color: yellow;color:darkblue;font-size: 20px;font-weight: bold;">To Contact Properietor...</p>
+            <h2 id="model-proprietor-name">Sahil Mestri</h2>
+            <p><i class="fa fa-phone" aria-hidden="true"></i><span id="model-proprietor-contact">9876543210</span>&nbsp;<span class="vl"></span>&nbsp;<i
+                class="fa fa-envelope" aria-hidden="true"></i>&nbsp;<span id="model-proprietor-mail">shail@gmail.com</span></p>
+            <span><button onclick="sendMail()">Contact Proprietor</button></span>
+            <hr>
+            <br>
+            <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <a href="http://localhost:5000/">Home</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  Properties
+                </li>
+              </ol>
+            </nav>
+
+            
+           
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!--End of Model-->
+
         </div>
       </div>
     </section><!-- End Property Grid Single-->
     </main><!-- End #main -->
-    
+    <script src="static/javascript/property.js" type="text/javascript"></script>
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   
 {% endblock %}

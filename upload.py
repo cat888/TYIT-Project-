@@ -67,7 +67,7 @@ def upload():
             property_.property_no = result["property_no"]
             property_.view = property_.fetch_last_record(proprietor_id, "view")
             if not property_.view:
-                property_.view = "view"+str(6)
+                property_.view = "view"+str(1)
             else:
                 view = property_.view
                 number = int(view[4:]) + 1
@@ -87,7 +87,6 @@ def upload():
             # len_images = len(file_data["fileContent"])
             uploaded_images = []
             for i in range(len(roomType)):
-                print("Inside loop")
                 images_details = {}
                 filename = fileName[i]
                 print(filename)
@@ -164,5 +163,5 @@ def upload():
                 with open(f"static/upload/{proprietor_id}/{proprietor_id}.json", "w") as file:
                     file.write(json_object)
             
-            return jsonify({"msg": "Property Uploaded Succesfully"}), 200        
+            return jsonify({"msg": "Property Uploaded Succesfully"}), 200
     return redirect(url_for("user.login")), 401  # but here we have to redirect to url

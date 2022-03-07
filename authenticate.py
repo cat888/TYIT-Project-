@@ -93,8 +93,8 @@ class Upload(db.Model):
         return Upload.query.filter_by(property_id = property_id).first()
     
     @classmethod
-    def find_by_view(cls, view):
-        return Upload.query.filter_by(view = view).first()
+    def find_by_view(cls, view, proprietor_id):
+        return Upload.query.filter_by(view = view, proprietor_id = proprietor_id).first()
     
     @classmethod
     def find_by_category(cls, category):
@@ -110,3 +110,7 @@ class Upload(db.Model):
             return count[-1].property_no
         else:
             return count[-1].view
+    
+    # @classmethod
+    # def fetch_model_info(cls, proprietor_id, view):
+    #     return Upload.query.filter_by(proprietor_id = proprietor_id, view = view)

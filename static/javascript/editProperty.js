@@ -3,6 +3,7 @@ let fileName = [];
 let fileType = [];
 var uploadedPropertyDetails = [];
 let numOfFiles = document.getElementById("num-of-files");
+var thumbnail;
 let roomLocation = document.getElementById("uiLocations");
 let area = document.getElementById("sqft");
 let nameClick = document.getElementById("nameClick");
@@ -95,6 +96,51 @@ function preview() {
     }
 }
 
+function preview1(){
+    debugger
+    // numOfFiles.textContent = `${fileInput.files.length} Files Selected`;
+    var image = fileInput1.files
+
+
+    for (i of image) {
+        debugger
+        // var roomType = $('.Users').val();
+        let reader = new FileReader();
+        let figure = document.createElement("figure");
+        let figCap = document.createElement("figcaption");
+        figCap.innerText = i.name;
+        // rooms.push(roomType);
+        figure.appendChild(figCap);
+        
+            fileName.push(i.name);
+            console.log(i.name)
+            fileType.push(i.type);
+            reader.onload = () => {
+                debugger
+                // var temporaryFiles1 = {};
+                fileContent1 = reader.result;
+                // fileContentArray.push(fileContent); // error in this
+                thumbnail = fileContent1;
+                // temporaryFiles['roomType'] = roomType;
+                // uploadedPropertyDetails1.push(temporaryFiles1);
+
+                // let img = document.createElement("img");
+                // img.setAttribute("src", reader.result);
+                // figure.insertBefore(img, figCap);
+            }
+            // imageContainer.appendChild(figure);
+            reader.readAsDataURL(i);
+            image_select(image)
+        }
+}
+
+$( document ).ready(function() {
+    $( "#save_property" ).submit(function( event ) {
+        // alert( "Handler for .submit() called." );
+        event.preventDefault();
+      });
+});
+
 function myFunction() {
     debugger
     var dataSend = {};
@@ -107,12 +153,13 @@ function myFunction() {
     dataSend['fileName'] = fileName;
     dataSend['fileType'] = fileType;
     dataSend['filedata'] = uploadedPropertyDetails;
+    dataSend['thumbnail_image'] = thumbnail;
     console.log(dataSend);
     
     
     $.ajax({
         type: "PUT",
-        url: "/editproperty/"+view,
+        url: "/editproperty/"+proprietor_id+"_"+view,
         // xhrFields: {withCredentials: true},
         // data: dataSend,
         data: JSON.stringify(dataSend),
@@ -127,6 +174,7 @@ function myFunction() {
         //     xhr.setRequestHeader ("Authorization", "Basic " + btoa(""));
         // },
         success: function (result) {
+            alert("Property Successfully Updated");
             window.location.href = "/myproperty";
         },
         error: function (xhr, status, error) {

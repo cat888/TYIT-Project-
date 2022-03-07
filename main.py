@@ -1,5 +1,5 @@
 from datetime import timedelta
-from flask import Flask, render_template, session, request
+from flask import Flask, render_template, session, request, jsonify
 import json
 
 # Importing Blueprints
@@ -112,12 +112,14 @@ def Contact():
         server.send_message(msg)
         server.quit()
 
-        return "Mail Sent Successfully"
+        # return "Mail Sent Successfully", 200 # due to this ajax function was executing the error function instead of success as ajax want json as response
+        return jsonify({"msg": "Mail sent Successfully"})
     return render_template('Contact.html')
 
 @app.route('/Help')
 def Help():
     return render_template('Help.html')
+
 
 if __name__ == '__main__':
     ## setting of secret key for session

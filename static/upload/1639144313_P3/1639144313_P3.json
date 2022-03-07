@@ -3,8 +3,8 @@
         {
             "view": "view6",
             "uploaded_property": {
-                "location": "andheri east",
-                "area": 250,
+                "location": "4 bungalows",
+                "area": 2745,
                 "bhk": 2,
                 "price": 15000000.0,
                 "name": "Lodha Palava",
@@ -25,72 +25,8 @@
                         "type": "Bathroom",
                         "image": "1639144313_P3_@R1Bathroom"
                     }
-                ]
-            }
-        },
-        {
-            "view": "view7",
-            "uploaded_property": {
-                "name": "Runwal Gardens",
-                "location": "andheri east",
-                "area": 250,
-                "bhk": 2,
-                "price": 7500000.0,
-                "uploaded_images": [
-                    {
-                        "type": "Hall",
-                        "image": "1639144313_P3_@R2Hall"
-                    },
-                    {
-                        "type": "Bedroom1",
-                        "image": "1639144313_P3_@R2Bedroom1"
-                    },
-                    {
-                        "type": "Bedroom2",
-                        "image": "1639144313_P3_@R2Bedroom2"
-                    },
-                    {
-                        "type": "Bathroom",
-                        "image": "1639144313_P3_@R2Bathroom"
-                    },
-                    {
-                        "type": "Kitchen",
-                        "image": "1639144313_P3_@R2Kitchen"
-                    },
-                    {
-                        "type": "Others",
-                        "image": "1639144313_P3_@R2Others"
-                    }
-                ]
-            }
-        },
-        {
-            "view": "view8",
-            "uploaded_property": {
-                "name": "Crown Taloja",
-                "location": "bandra east",
-                "area": "4305",
-                "bhk": 2,
-                "price": "6000000",
-                "thumbnail": "1639144313_P3_@R3thumbnail",
-                "uploaded_images": [
-                    {
-                        "type": "Hall",
-                        "image": "1639144313_P3_@R3Hall"
-                    },
-                    {
-                        "type": "Bedroom1",
-                        "image": "1639144313_P3_@R3Bedroom1"
-                    },
-                    {
-                        "type": "Kitchen",
-                        "image": "1639144313_P3_@R3Kitchen"
-                    },
-                    {
-                        "type": "Bathroom",
-                        "image": "1639144313_P3_@R3Bathroom"
-                    }
-                ]
+                ],
+                "thumbnail": "1639144313_P3_@R1thumbnail"
             }
         },
         {
@@ -124,40 +60,6 @@
             }
         },
         {
-            "view": "view10",
-            "uploaded_property": {
-                "name": "Wankhede Center",
-                "landmark": "",
-                "location": "ghatkopar east",
-                "area": "3995",
-                "bhk": 2,
-                "price": "45000000",
-                "thumbnail": "1639144313_P3_@R5thumbnail",
-                "uploaded_images": [
-                    {
-                        "type": "Hall",
-                        "image": "1639144313_P3_@R5Hall"
-                    },
-                    {
-                        "type": "Bedroom1",
-                        "image": "1639144313_P3_@R5Bedroom1"
-                    },
-                    {
-                        "type": "Bedroom2",
-                        "image": "1639144313_P3_@R5Bedroom2"
-                    },
-                    {
-                        "type": "Kitchen",
-                        "image": "1639144313_P3_@R5Kitchen"
-                    },
-                    {
-                        "type": "Bathroom",
-                        "image": "1639144313_P3_@R5Bathroom"
-                    }
-                ]
-            }
-        },
-        {
             "view": "view11",
             "uploaded_property": {
                 "name": "Sethya",
@@ -175,6 +77,242 @@
                     {
                         "type": "Bedroom1",
                         "image": "1639144313_P3_@R6Bedroom1"
+                    }
+                ]
+            }
+        },
+        {
+            "view": "view12",
+            "uploaded_property": {
+                "name": "Mattruchaya Tower",
+                "landmark": "Times of India",
+                "location": "malad east",
+                "area": "2000",
+                "bhk": 2,
+                "price": "35000000",
+                "uploaded_images": [
+                    {
+                        "type": "Hall",
+                        "image": "1639144313_P3_@R7Hall"
+                    },
+                    {
+                        "type": "Bedroom1",
+                        "image": "1639144313_P3_@R7Bedroom1"
+                    },
+                    {
+                        "type": "Kitchen",
+                        "image": "1639144313_P3_@R7Kitchen"
+                    },
+                    {
+                        "type": "Bedroom2",
+                        "image": "1639144313_P3_@R7Bedroom2"
+                    },
+                    {
+                        "type": "Bedroom2",
+                        "image": "1639144313_P3_@R7Bedroom2"
+                    },
+                    {
+                        "type": "Kitchen",
+                        "image": "1639144313_P3_@R7Kitchen"
+                    }
+                ]
+            }
+        },
+        {
+            "view": "view13",
+            "uploaded_property": {
+                "name": "Om Prakash Building",
+                "landmark": "Railway Station",
+                "location": "andheri",
+                "area": "3785",
+                "bhk": 1,
+                "price": "2500000",
+                "thumbnail": "1639144313_P3_@R8thumbnail",
+                "uploaded_images": [
+                    {
+                        "type": "Hall",
+                        "image": "1639144313_P3_@R8Hall"
+                    },
+                    {
+                        "type": "Kitchen",
+                        "image": "1639144313_P3_@R8Kitchen"
+                    },
+                    {
+                        "type": "Bathroom",
+                        "image": "1639144313_P3_@R8Bathroom"
+                    },
+                    {
+                        "type": "Bedroom1",
+                        "image": "1639144313_P3_@R8Bedroom1"
+                    }
+                ]
+            }
+        },
+        {
+            "view": "view14",
+            "uploaded_property": {
+                "name": "Wesdling Palm",
+                "landmark": "Wakar Flyover",
+                "location": "jogeshwari east",
+                "area": "3680",
+                "bhk": 1,
+                "price": "5000000",
+                "thumbnail": "1639144313_P3_@R9thumbnail",
+                "uploaded_images": [
+                    {
+                        "type": "Hall",
+                        "image": "1639144313_P3_@R9Hall"
+                    },
+                    {
+                        "type": "Kitchen",
+                        "image": "1639144313_P3_@R9Kitchen"
+                    },
+                    {
+                        "type": "Bathroom",
+                        "image": "1639144313_P3_@R9Bathroom"
+                    },
+                    {
+                        "type": "Bedroom1",
+                        "image": "1639144313_P3_@R9Bedroom1"
+                    }
+                ]
+            }
+        },
+        {
+            "view": "view15",
+            "uploaded_property": {
+                "name": "Crown Taloja",
+                "landmark": "Mattruchaya College",
+                "location": "badlapur east",
+                "area": "3060",
+                "bhk": 1,
+                "price": "7000000",
+                "thumbnail": "1639144313_P3_@R10thumbnail",
+                "uploaded_images": [
+                    {
+                        "type": "Hall",
+                        "image": "1639144313_P3_@R10Hall"
+                    },
+                    {
+                        "type": "Kitchen",
+                        "image": "1639144313_P3_@R10Kitchen"
+                    },
+                    {
+                        "type": "Bathroom",
+                        "image": "1639144313_P3_@R10Bathroom"
+                    },
+                    {
+                        "type": "Bedroom1",
+                        "image": "1639144313_P3_@R10Bedroom1"
+                    }
+                ]
+            }
+        },
+        {
+            "view": "view16",
+            "uploaded_property": {
+                "name": "Mannat Villa",
+                "landmark": "Bandstand",
+                "location": "bandra west",
+                "area": "3265",
+                "bhk": 1,
+                "price": "21000000",
+                "thumbnail": "1639144313_P3_@R11thumbnail",
+                "uploaded_images": [
+                    {
+                        "type": "Hall",
+                        "image": "1639144313_P3_@R11Hall"
+                    },
+                    {
+                        "type": "Kitchen",
+                        "image": "1639144313_P3_@R11Kitchen"
+                    }
+                ]
+            }
+        },
+        {
+            "view": "view17",
+            "uploaded_property": {
+                "name": "Sethya",
+                "landmark": "Bandra station",
+                "location": "bandra east",
+                "area": "2850",
+                "bhk": 1,
+                "price": "15000000",
+                "uploaded_images": [
+                    {
+                        "type": "Hall",
+                        "image": "1639144313_P3_@R12Hall"
+                    },
+                    {
+                        "type": "Kitchen",
+                        "image": "1639144313_P3_@R12Kitchen"
+                    }
+                ]
+            }
+        },
+        {
+            "view": "view18",
+            "uploaded_property": {
+                "name": "KL Buildings",
+                "landmark": "Railway Station",
+                "location": "badlapur west",
+                "area": "3265",
+                "bhk": 1,
+                "price": "6000000",
+                "thumbnail": "1639144313_P3_@R13thumbnail",
+                "uploaded_images": [
+                    {
+                        "type": "Hall",
+                        "image": "1639144313_P3_@R13Hall"
+                    },
+                    {
+                        "type": "Kitchen",
+                        "image": "1639144313_P3_@R13Kitchen"
+                    }
+                ]
+            }
+        },
+        {
+            "view": "view19",
+            "uploaded_property": {
+                "name": "Vinayak Center",
+                "landmark": "TCS Center",
+                "location": "ambivali",
+                "area": "3680",
+                "bhk": 1,
+                "price": "7500000",
+                "thumbnail": "1639144313_P3_@R14thumbnail",
+                "uploaded_images": [
+                    {
+                        "type": "Hall",
+                        "image": "1639144313_P3_@R14Hall"
+                    },
+                    {
+                        "type": "Kitchen",
+                        "image": "1639144313_P3_@R14Kitchen"
+                    }
+                ]
+            }
+        },
+        {
+            "view": "view20",
+            "uploaded_property": {
+                "name": "Vinayak Center",
+                "landmark": "TCS Center",
+                "location": "badlapur",
+                "area": "3680",
+                "bhk": 1,
+                "price": "7500000",
+                "thumbnail": "1639144313_P3_@R15thumbnail",
+                "uploaded_images": [
+                    {
+                        "type": "Hall",
+                        "image": "1639144313_P3_@R15Hall"
+                    },
+                    {
+                        "type": "Bedroom1",
+                        "image": "1639144313_P3_@R15Bedroom1"
                     }
                 ]
             }

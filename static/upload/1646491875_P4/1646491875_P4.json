@@ -1,0 +1,34 @@
+{
+    "property": [
+        {
+            "view": "view1",
+            "uploaded_property": {
+                "name": "Runwal Gardens",
+                "landmark": "Express Highway",
+                "location": "dombivali east",
+                "area": "3575",
+                "bhk": 1,
+                "price": "8500000",
+                "thumbnail": "1646491875_P4_@R1thumbnail",
+                "uploaded_images": [
+                    {
+                        "type": "Hall",
+                        "image": "1646491875_P4_@R1Hall"
+                    },
+                    {
+                        "type": "Kitchen",
+                        "image": "1646491875_P4_@R1Kitchen"
+                    },
+                    {
+                        "type": "Bathroom",
+                        "image": "1646491875_P4_@R1Bathroom"
+                    },
+                    {
+                        "type": "Bedroom1",
+                        "image": "1646491875_P4_@R1Bedroom1"
+                    }
+                ]
+            }
+        }
+    ]
+}

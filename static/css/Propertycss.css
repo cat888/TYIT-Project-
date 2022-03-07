@@ -217,3 +217,120 @@
   }
 }
 
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  /* position: absolute; */
+  z-index: 2;/* Sit on top */
+  padding-top: 200px; /* Location of the box */
+  left: 0;
+  /* top: 0; */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+   background-color: rgb(0,0,0);/* Fallback color */
+ background-color: rgba(0,0,0,0.4); /* Black opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  width: 80%;
+  height: auto;
+  top: -85px;
+  border: none;
+}
+.vl {
+  border-left: 1px solid gray;
+  height: 10px;
+  
+}
+#send_mail{
+  color:black;
+  background-color: #488AC7;
+  padding: 2px;
+  border-radius: 6px;
+  width: 210px;
+}
+#send_mail:hover,#send_mail:focus{
+  background-color: blue;
+  
+}
+.modal-content p{
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+}
+/* The Close Button */
+.modal-content .close {
+  color: red;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  padding-bottom: 0;
+}
+
+.close:hover,
+.close:focus {
+  color:darkred;
+  /* text-decoration: none; */
+  cursor: pointer;
+}
+
+.pagination{
+  
+  /* text-align: center; */
+  margin: 30px 30px 60px;
+  user-select: none;
+}
+
+.pagination li{
+  display: inline-block;
+  
+  margin: 5px;
+  box-shadow: 0 5px 25px rgb(1 1 1 / 10%);
+}
+
+.pagination li a{
+  border-radius: 50%;
+  color:blue;
+  /* background-color: #0AB1CE; */
+  text-decoration: none;
+  font-size: 1.2em;
+  /* line-height: 45px; */
+}
+
+.previous-page, .next-page{
+  background-color: #ccc;
+  color:blue;
+  width: 80px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.previous-page:hover{
+  transform: translateX(-5px);
+}
+
+.next-page:hover{
+  transform: translateX(5px);
+}
+
+.current-page, .dots{
+  color:#ccc;
+  background-color: #488AC7;
+  width: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.active{
+  background-color: #0AB1CE;
+}
+
+.disable{
+  background-color: #ccc;
+}
